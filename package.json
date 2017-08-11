@@ -1,0 +1,53 @@
+{
+  "name": "todo",
+  "version": "0.1.0",
+  "description": "Todo app. What do you expect?",
+  "main": "index.js",
+  "author": "Timm Stelzer",
+  "license": "MIT",
+  "scripts": {
+    "build:dev": "./node_modules/.bin/webpack --progress --env=dev --profile --colors",
+    "build:dist": "./node_modules/.bin/webpack --progress --env=dist --profile --colors",
+    "serve": "./node_modules/.bin/webpack-dev-server --open --env=dev",
+    "test": "./node_modules/.bin/jest --env=test",
+    "test:watch": "./node_modules/.bin/jest --watch --env=test"
+  },
+  "jest": {
+    "verbose": true,
+    "bail": true,
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "dependencies": {
+    "prop-types": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-redux": "*",
+    "redux": "*"
+  },
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*",
+    "css-loader": "*",
+    "cssnano": "*",
+    "eslint": "*",
+    "eslint-plugin-react": "*",
+    "extract-text-webpack-plugin": "*",
+    "html-webpack-plugin": "*",
+    "jest": "*",
+    "node-sass": "*",
+    "postcss-cssnext": "*",
+    "postcss-loader": "*",
+    "sass-loader": "*",
+    "source-map-loader": "*",
+    "style-loader": "*",
+    "typescript": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
+  }
+}
