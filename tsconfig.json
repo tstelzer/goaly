@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "jsx": "react",
+        "module": "es6",
+        "noImplicitAny": true,
+        "allowJs": true,
+        "strictNullChecks": true,
+        "removeComments": true,
+        "noResolve": false,
+        "moduleResolution": "node",
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "baseUrl": "src",
+        "paths": {
+            "*": [
+                "*"
+            ]
+        }
+    }
+}

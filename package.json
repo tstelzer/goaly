@@ -2,15 +2,15 @@
   "name": "todo",
   "version": "0.1.0",
   "description": "Todo app. What do you expect?",
-  "main": "index.js",
+  "main": "index.jsx",
   "author": "Timm Stelzer",
   "license": "MIT",
   "scripts": {
     "build:dev": "./node_modules/.bin/webpack --progress --env=dev --profile --colors",
     "build:dist": "./node_modules/.bin/webpack --progress --env=dist --profile --colors",
     "serve": "./node_modules/.bin/webpack-dev-server --open --env=dev",
-    "test": "./node_modules/.bin/jest --env=test",
-    "test:watch": "./node_modules/.bin/jest --watch --env=test"
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "./node_modules/.bin/jest --watch"
   },
   "jest": {
     "verbose": true,
@@ -21,13 +21,18 @@
     ]
   },
   "dependencies": {
-    "prop-types": "*",
+    "prop-types": "^15.5.10",
+    "ramda": "^0.24.1",
     "react": "*",
     "react-dom": "*",
     "react-redux": "*",
-    "redux": "*"
+    "redux": "*",
+    "redux-devtools-extension": "^2.13.2"
   },
   "devDependencies": {
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "awesome-typescript-loader": "^3.2.3",
     "babel-core": "*",
     "babel-loader": "*",
     "babel-plugin-transform-object-rest-spread": "*",
@@ -46,7 +51,7 @@
     "sass-loader": "*",
     "source-map-loader": "*",
     "style-loader": "*",
-    "typescript": "*",
+    "typescript": "^2.4.2",
     "webpack": "*",
     "webpack-dev-server": "*"
   }
