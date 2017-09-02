@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].app.js',
@@ -18,15 +18,6 @@ module.exports = {
           { loader: 'source-map-loader' },
           { loader: 'awesome-typescript-loader'},
         ]
-      },
-      {
-        test: /\.jsx?$/,
-        include: [path.resolve(__dirname, 'src')],
-        enforce: 'pre',
-        use: [
-          { loader: 'source-map-loader' },
-          { loader: 'babel-loader', options: { cacheDirectory: true } },
-        ],
       },
       {
         test: /\.scss$/,

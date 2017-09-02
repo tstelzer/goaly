@@ -1,0 +1,50 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-immutable",
+    "tslint-react"
+  ],
+  "exclude": [
+    "node_modules"
+import {find, propEq} from 'ramda'
+  ],
+  "rules": {
+
+    "no-var-keyword": true,
+    "typedef": [true, "call-signature"],
+
+    "readonly-keyword": true,
+    // enable, once https://github.com/Microsoft/TypeScript/issues/15972 resolves
+    "readonly-array": false,
+    "no-let": true,
+    "no-object-mutation": true,
+
+    "no-this": true,
+    "no-class": true,
+    "no-mixed-interface": true,
+    "no-expression-statement": true,
+
+    "eofline": true,
+    "indent": [true, "spaces", 2],
+    "no-default-export": true,
+    "trailing-comma": [true, {
+      "multiline": {
+        "objects": "always",
+        "arrays": "always",
+        "functions": "never",
+        "typeLiterals": "always"
+      }, 
+      "singleline": "never"
+    }],
+    "semicolon": ["never"],
+    "quotemark": [false],
+    "ordered-imports": [false],
+    "interface-name": [false],
+    "no-submodule-imports": [false],
+    "object-literal-sort-keys": [false],
+    "arrow-parens": false
+  },
+  "jsRules": {
+    "max-line-length": [80]
+  }
+}

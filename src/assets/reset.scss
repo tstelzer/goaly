@@ -1,0 +1,15 @@
+li,
+ul,
+ol {list-style: none;}
+
+p {margin: 0;}
+h3 {margin: 0;}
+button {
+    font: inherit;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+a {text-decoration: inherit; color: inherit;}

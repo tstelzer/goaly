@@ -1,21 +1,42 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
         "jsx": "react",
-        "module": "es6",
-        "noImplicitAny": true,
-        "allowJs": true,
-        "strictNullChecks": true,
-        "removeComments": true,
-        "noResolve": false,
+        "module": "commonjs",
+        "target": "es5",
         "moduleResolution": "node",
+
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "noResolve": false,
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowJs": false,
+        "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true,
+
+        "sourceMap": false,
+        "inlineSourceMap": true,
+
+        "allowSyntheticDefaultImports": false,
+
+        "rootDir": "src",
+        "outDir": "dist",
         "baseUrl": "src",
         "paths": {
             "*": [
                 "*"
             ]
-        }
-    }
+        },
+
+        "types": []
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
 }
