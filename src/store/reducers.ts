@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import {workouts} from 'components/Workout/workouts'
+import * as reps from 'features/repetitions'
 
 export const reducers = combineReducers({
-  workouts,
+    [reps.constants.DOMAIN]: reps.reducer
 })
