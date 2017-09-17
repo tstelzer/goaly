@@ -3,30 +3,32 @@ import {v4} from 'uuid'
 import * as types from './repetitions-model'
 import actionTypes from './repetitions-action-types'
 
-export const add = (
-    name:string='',
-    description:string='',
+export const add: types.add = (
+  name = '',
+  description = '',
+  hashFn = v4,
 ) => ({
-    type: actionTypes.ADD,
-    payload: {
-        id: v4(),
-        name,
-        description,
+  type: actionTypes.ADD,
+  payload: {
+    repetition: {
+      id: hashFn(),
+      name,
+      description,
     }
+  }
 })
 
-export const edit = (
-    id: number,
-    repetition: types.Repetition
+export const edit: types.edit = (
+  repetition,
 ) => ({
-    type: actionTypes.EDIT,
-    payload: {repetition}
+  type: actionTypes.EDIT,
+  payload: {repetition}
 })
 
-export const remove = (
-    id: number,
+export const remove: types.remove = (
+  id,
 ) => ({
-    type: actionTypes.REMOVE,
-    payload: {id},
+  type: actionTypes.REMOVE,
+  payload: {id},
 })
 
