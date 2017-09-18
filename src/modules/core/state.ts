@@ -21,3 +21,22 @@ export const add = (state: any, entity: any): any => ({
   [entity.id]: entity
 })
 
+export interface Action<T> {
+  readonly type: string
+  readonly payload: T
+  readonly error?: boolean
+  readonly meta?: any
+}
+
+type HandlersMap<T> = {
+  [type: string]: {(action: Action<any>): T}
+}
+
+export const handleActions = <T>(
+  action: Action<any>,
+  handlers: HandlersMap<T>,
+  defaultState: T
+): T => {
+  const handler = handlers[action.type] || handlers['DEFAULT']
+  return handler ? handler(action): defaultState
+}

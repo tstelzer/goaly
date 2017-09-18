@@ -6,44 +6,54 @@ import * as actions from './repetitions-actions'
 import * as model from './repetitions-model'
 import * as core from 'modules/core'
 
+type byId = {
+  [id: string]: model.Repetition
+}
+
 /**
  * Repetitions keyed by their ID.
  */
 export const byId = (
-  state: {[id: string]: model.Repetition} = {},
-  action: actions.Action<any>,
-) => {
-  switch (action.type) {
-    case actions.ADD:
-      return !state[action.payload.repetition.id]
-        ? core.add(state, action.payload.repetition)
-        : state
-    case actions.EDIT:
-      return state[action.payload.repetition.id]
-        ? core.edit(state, action.payload.repetition)
-        : state
-    case actions.REMOVE:
-      return pickBy((repetition, id) => id !== action.payload.id, state)
-    default: return state
-  }
+  s: byId = {},
+  a: core.Action<any>,
+): byId => {
+  return core.handleActions<byId>(
+    a,
+    {
+      [actions.ADD]: ({payload}) => !s[payload.repetition.id]
+        ? core.add(s, payload.repetition)
+        : s,
+      [actions.EDIT]: ({payload}) => s[payload.repetition.id]
+        ? core.edit(s, payload.repetition)
+        : s,
+      [actions.REMOVE]: ({payload}) =>
+        pickBy((repetition, id) => id !== payload.id, s),
+      ['DEFAULT']: ({payload}) => s
+    },
+    s
+  )
 }
+
+type allIds = Array<string>
 
 /**
  * Collection of IDs of existing repetitions.
  */
 export const allIds = (
-  state: Array<string> = [],
-  action: actions.Action<any>,
-) => {
-  switch(action.type) {
-    case actions.ADD:
-      return !state.includes(action.payload.repetition.id)
-        ? state.concat(action.payload.repetition.id)
-        : state
-    case actions.REMOVE:
-      return state.filter(a => a !== action.payload.id)
-    default: return state
-  }
+  s: allIds = [],
+  a: core.Action<any>,
+): allIds => {
+  return core.handleActions<allIds>(
+    a,
+    {
+      [actions.ADD]: ({payload}) => !s.includes(payload.repetition.id)
+        ? s.concat(payload.repetition.id)
+        : s,
+      [actions.REMOVE]: ({payload}) => s.filter(a => a !== payload.id),
+      ['DEFAULT']: ({payload}) => s,
+    },
+    s
+  )
 }
 
 export default combineReducers({

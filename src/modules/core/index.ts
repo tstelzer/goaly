@@ -1,6 +1,6 @@
 import {flipProp, swapProp} from './object'
 import {filterHtmlTags, filterDashes} from './string'
-import {add, edit} from './state'
+import {Action, handleActions, add, edit} from './state'
 
 export {
   flipProp,
@@ -9,4 +9,6 @@ export {
   filterHtmlTags,
   add,
   edit,
+  handleActions,
+  Action,
 }
