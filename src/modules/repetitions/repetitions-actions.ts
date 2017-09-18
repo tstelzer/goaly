@@ -18,8 +18,8 @@ export const add = (
       id: hashFn(),
       name,
       description,
-    }
-  }
+    },
+  },
 })
 
 export const EDIT = `${DOMAIN}/EDIT`
@@ -29,7 +29,7 @@ export const edit = (
   repetition: model.Repetition,
 ): Action<EDIT> => ({
   type: EDIT,
-  payload: {repetition}
+  payload: {repetition},
 })
 
 export const REMOVE = `${DOMAIN}/REMOVE`

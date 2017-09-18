@@ -32,6 +32,12 @@ type HandlersMap<T> = {
   [type: string]: {(action: Action<any>): T}
 }
 
+/**
+ * Pattern for handling actions in a reducer.
+ * With this, we achieve 2 things:
+ * 1. Typesafety for state and return values.
+ * 2. Reduce boilerplace in reducer, removes switch/case.
+ */
 export const handleActions = <T>(
   action: Action<any>,
   handlers: HandlersMap<T>,

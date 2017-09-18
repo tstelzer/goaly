@@ -6,7 +6,6 @@
   ],
   "exclude": [
     "node_modules"
-import {find, propEq} from 'ramda'
   ],
   "rules": {
 
@@ -26,17 +25,17 @@ import {find, propEq} from 'ramda'
 
     "eofline": true,
     "indent": [true, "spaces", 2],
-    "no-default-export": true,
+    "no-default-export": false,
     "trailing-comma": [true, {
       "multiline": {
         "objects": "always",
         "arrays": "always",
-        "functions": "never",
+        "functions": "always",
         "typeLiterals": "always"
       }, 
       "singleline": "never"
     }],
-    "semicolon": ["never"],
+    "semicolon": [false],
     "quotemark": [false],
     "ordered-imports": [false],
     "interface-name": [false],
@@ -45,6 +44,6 @@ import {find, propEq} from 'ramda'
     "arrow-parens": false
   },
   "jsRules": {
-    "max-line-length": [80]
+    "max-line-length": [true, 80]
   }
 }
