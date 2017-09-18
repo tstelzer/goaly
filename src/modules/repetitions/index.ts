@@ -1,5 +1,5 @@
-import actionTypes from './repetitions-action-types'
-import reducer from './repetitions-reducer'
+import * as actions from './repetitions-actions'
 import * as constants from './repetitions-constants'
+import reducer from './repetitions-reducer'
 
-export {actionTypes, reducer, constants}
+export {actions, reducer, constants}

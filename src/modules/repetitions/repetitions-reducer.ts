@@ -2,27 +2,27 @@ import {createSelector} from 'reselect'
 import {combineReducers} from 'redux'
 import {pickBy} from 'ramda'
 
-import actionTypes from './repetitions-action-types'
-import * as types from './repetitions-model'
+import * as actions from './repetitions-actions'
+import * as model from './repetitions-model'
 import * as core from 'modules/core'
 
 /**
  * Repetitions keyed by their ID.
  */
 export const byId = (
-  state: types.byId = {},
-  action: types.Actions,
+  state: {[id: string]: model.Repetition} = {},
+  action: actions.Action<any>,
 ) => {
   switch (action.type) {
-    case actionTypes.ADD:
+    case actions.ADD:
       return !state[action.payload.repetition.id]
         ? core.add(state, action.payload.repetition)
         : state
-    case actionTypes.EDIT:
+    case actions.EDIT:
       return state[action.payload.repetition.id]
         ? core.edit(state, action.payload.repetition)
         : state
-    case actionTypes.REMOVE:
+    case actions.REMOVE:
       return pickBy((repetition, id) => id !== action.payload.id, state)
     default: return state
   }
@@ -32,15 +32,15 @@ export const byId = (
  * Collection of IDs of existing repetitions.
  */
 export const allIds = (
-  state: Array<types.uuid> = [],
-  action: types.Actions,
+  state: Array<string> = [],
+  action: actions.Action<any>,
 ) => {
   switch(action.type) {
-    case actionTypes.ADD:
+    case actions.ADD:
       return !state.includes(action.payload.repetition.id)
         ? state.concat(action.payload.repetition.id)
         : state
-    case actionTypes.REMOVE:
+    case actions.REMOVE:
       return state.filter(a => a !== action.payload.id)
     default: return state
   }

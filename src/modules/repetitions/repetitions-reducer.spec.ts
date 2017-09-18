@@ -3,26 +3,25 @@ import {propEq, find} from 'ramda'
 
 import {byId, allIds} from './repetitions-reducer'
 import * as actions from './repetitions-actions'
-import actionTypes from './repetitions-action-types'
-import * as types from './repetitions-model'
+import * as model from './repetitions-model'
 
 describe('repetitions', () => {
   describe('byId reducer', () => {
 
     it('adds a repetition', () => {
-      const repetitionOne: types.Repetition = {
+      const repetitionOne: model.Repetition = {
         id: '1',
         name: 'name',
         description: 'description',
       }
-      const repetitionTwo: types.Repetition = {
+      const repetitionTwo: model.Repetition = {
         id: '2',
         name: 'other name',
         description: 'other description',
       }
 
       expect(byId({}, {
-        type: actionTypes.ADD,
+        type: actions.ADD,
         payload: {
           repetition: repetitionOne
         },
@@ -33,7 +32,7 @@ describe('repetitions', () => {
       expect(byId({
         '1': repetitionOne
       }, {
-        type: actionTypes.ADD,
+        type: actions.ADD,
         payload: {
           repetition: repetitionTwo
         },
@@ -53,7 +52,7 @@ describe('repetitions', () => {
       }
 
       expect(byId(state, {
-        type: actionTypes.ADD,
+        type: actions.ADD,
         payload: {
           repetition: {
             id: '1',
@@ -65,7 +64,7 @@ describe('repetitions', () => {
     })
 
     it('updates a repetition', () => {
-      const repetitionOld: types.Repetition = {
+      const repetitionOld: model.Repetition = {
         id: '1',
         name: 'old name',
         description: 'old description',
@@ -75,7 +74,7 @@ describe('repetitions', () => {
       }
 
       expect(byId(state, {
-        type: actionTypes.EDIT,
+        type: actions.EDIT,
         payload: {
           repetition: {
             id: '1',
@@ -90,7 +89,7 @@ describe('repetitions', () => {
         }
       })
       expect(byId(state, {
-        type: actionTypes.EDIT,
+        type: actions.EDIT,
         payload: {
           repetition: {
             id: '1',
@@ -115,7 +114,7 @@ describe('repetitions', () => {
         }
       }
       expect(byId(state, {
-        type: actionTypes.EDIT,
+        type: actions.EDIT,
         payload: {
           repetition: {
             id: '2',
@@ -135,7 +134,7 @@ describe('repetitions', () => {
         }
       }
       expect(byId(state, {
-        type: actionTypes.REMOVE,
+        type: actions.REMOVE,
         payload: {id: '1'},
       })).toEqual({})
     })
@@ -146,7 +145,7 @@ describe('repetitions', () => {
 
     it('adds the id of a new repetition', () => {
       expect(allIds([], {
-        type: actionTypes.ADD,
+        type: actions.ADD,
         payload: {
           repetition: {
             id: '1',
@@ -159,7 +158,7 @@ describe('repetitions', () => {
 
     it('drops the addAction if the id already exists', () => {
       expect(allIds(['1'], {
-        type: actionTypes.ADD,
+        type: actions.ADD,
         payload: {
           repetition: {
             id: '1',
@@ -172,7 +171,7 @@ describe('repetitions', () => {
 
     it('removes an id', () => {
       expect(allIds(['1', '2', '3'], {
-        type: actionTypes.REMOVE,
+        type: actions.REMOVE,
         payload: {id: '1'}
       })).toEqual(['2', '3'])
     })

@@ -1,14 +1,24 @@
 import {v4} from 'uuid'
 
-import * as types from './repetitions-model'
-import actionTypes from './repetitions-action-types'
+import * as model from './repetitions-model'
+import {DOMAIN} from './repetitions-constants'
 
-export const add: types.add = (
-  name = '',
-  description = '',
-  hashFn = v4,
-) => ({
-  type: actionTypes.ADD,
+export interface Action<T> {
+  readonly type: string
+  readonly payload?: T
+  readonly error?: boolean
+  readonly meta?: any
+}
+
+export const ADD = `${DOMAIN}/ADD`
+interface ADD {readonly repetition: model.Repetition}
+
+export const add = (
+  name: string = '',
+  description: string = '',
+  hashFn: () => string = v4,
+): Action<ADD> => ({
+  type: ADD,
   payload: {
     repetition: {
       id: hashFn(),
@@ -18,17 +28,22 @@ export const add: types.add = (
   }
 })
 
-export const edit: types.edit = (
-  repetition,
+export const EDIT = `${DOMAIN}/EDIT`
+interface EDIT {readonly repetition: model.Repetition}
+
+export const edit = (
+  repetition: model.Repetition,
 ) => ({
-  type: actionTypes.EDIT,
+  type: EDIT,
   payload: {repetition}
 })
 
-export const remove: types.remove = (
-  id,
+export const REMOVE = `${DOMAIN}/REMOVE`
+interface REMOVE {readonly id: string}
+
+export const remove = (
+  id: string,
 ) => ({
-  type: actionTypes.REMOVE,
+  type: REMOVE,
   payload: {id},
 })
-
