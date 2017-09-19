@@ -1,20 +1,20 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {byId, allIds} from './repetitions-reducer'
-import * as actions from './repetitions-actions'
-import {Repetition} from './repetitions-model'
+import {byId, allIds} from './sets-reducer'
+import * as actions from './sets-actions'
+import {Set} from './sets-model'
 
-describe('repetitions', () => {
+describe('sets', () => {
   describe('byId reducer', () => {
 
-    it('adds a repetition', () => {
-      const repetitionOne: Repetition = {
+    it('adds a set', () => {
+      const setOne: Set = {
         id: '1',
         name: 'name',
         description: 'description',
       }
-      const repetitionTwo: Repetition = {
+      const setTwo: Set = {
         id: '2',
         name: 'other name',
         description: 'other description',
@@ -23,22 +23,22 @@ describe('repetitions', () => {
       expect(byId({}, {
         type: actions.ADD,
         payload: {
-          repetition: repetitionOne
+          set: setOne
         },
       })).toEqual({
-        '1': repetitionOne
+        '1': setOne
       })
 
       expect(byId({
-        '1': repetitionOne
+        '1': setOne
       }, {
         type: actions.ADD,
         payload: {
-          repetition: repetitionTwo
+          set: setTwo
         },
       })).toEqual({
-        '1': repetitionOne,
-        '2': repetitionTwo,
+        '1': setOne,
+        '2': setTwo,
       })
     })
 
@@ -54,7 +54,7 @@ describe('repetitions', () => {
       expect(byId(state, {
         type: actions.ADD,
         payload: {
-          repetition: {
+          set: {
             id: '1',
             name: 'another name',
             description: 'another description',
@@ -63,20 +63,20 @@ describe('repetitions', () => {
       })).toEqual(state)
     })
 
-    it('updates a repetition', () => {
-      const repetitionOld: Repetition = {
+    it('updates a set', () => {
+      const setOld: Set = {
         id: '1',
         name: 'old name',
         description: 'old description',
       }
       const state = {
-        '1': repetitionOld
+        '1': setOld
       }
 
       expect(byId(state, {
         type: actions.EDIT,
         payload: {
-          repetition: {
+          set: {
             id: '1',
             name: 'new name',
           }
@@ -91,7 +91,7 @@ describe('repetitions', () => {
       expect(byId(state, {
         type: actions.EDIT,
         payload: {
-          repetition: {
+          set: {
             id: '1',
             description: 'new description',
           }
@@ -116,7 +116,7 @@ describe('repetitions', () => {
       expect(byId(state, {
         type: actions.EDIT,
         payload: {
-          repetition: {
+          set: {
             id: '2',
             name: 'another name',
             description: 'another description',
@@ -125,7 +125,7 @@ describe('repetitions', () => {
       })).toEqual(state)
     })
 
-    it('removes a repetition', () => {
+    it('removes a set', () => {
       const state = {
         '1': {
           id: '1',
@@ -143,11 +143,11 @@ describe('repetitions', () => {
 
   describe('allIds reducer', () => {
 
-    it('adds the id of a new repetition', () => {
+    it('adds the id of a new set', () => {
       expect(allIds([], {
         type: actions.ADD,
         payload: {
-          repetition: {
+          set: {
             id: '1',
             name: 'name',
             description: 'description',
@@ -160,7 +160,7 @@ describe('repetitions', () => {
       expect(allIds(['1'], {
         type: actions.ADD,
         payload: {
-          repetition: {
+          set: {
             id: '1',
             name: 'name',
             description: 'description',

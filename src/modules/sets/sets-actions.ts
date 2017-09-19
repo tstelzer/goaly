@@ -1,11 +1,11 @@
 import {v4} from 'uuid'
 
-import {Repetition} from './repetitions-model'
-import {DOMAIN} from './repetitions-constants'
+import {Set} from './sets-model'
+import {DOMAIN} from './sets-constants'
 import {Action} from 'modules/core/state'
 
 export const ADD = `${DOMAIN}/ADD`
-export interface ADD {readonly repetition: Repetition}
+export interface ADD {readonly set: Set}
 
 export const add = (
   name: string = '',
@@ -14,7 +14,7 @@ export const add = (
 ): Action<ADD> => ({
   type: ADD,
   payload: {
-    repetition: {
+    set: {
       id: hashFn(),
       name,
       description,
@@ -23,13 +23,13 @@ export const add = (
 })
 
 export const EDIT = `${DOMAIN}/EDIT`
-export interface EDIT {readonly repetition: Repetition}
+export interface EDIT {readonly set: Set}
 
 export const edit = (
-  repetition: Repetition,
+  set: Set,
 ): Action<EDIT> => ({
   type: EDIT,
-  payload: {repetition},
+  payload: {set},
 })
 
 export const REMOVE = `${DOMAIN}/REMOVE`

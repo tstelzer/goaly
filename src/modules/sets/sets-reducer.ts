@@ -2,16 +2,16 @@ import {createSelector} from 'reselect'
 import {combineReducers} from 'redux'
 import {pickBy} from 'ramda'
 
-import * as actions from './repetitions-actions'
-import {Repetition} from './repetitions-model'
+import * as actions from './sets-actions'
+import {Set} from './sets-model'
 import * as core from 'modules/core'
 
 interface ById {
-  readonly [id: string]: Repetition,
+  readonly [id: string]: Set,
 }
 
 /**
- * Repetitions keyed by their ID.
+ * set keyed by their ID.
  */
 export const byId = (
   s: ById = {},
@@ -20,14 +20,14 @@ export const byId = (
   return core.handleActions<ById>(
     a,
     {
-      [actions.ADD]: ({payload}) => !s[payload.repetition.id]
-        ? core.add(s, payload.repetition)
+      [actions.ADD]: ({payload}) => !s[payload.set.id]
+        ? core.add(s, payload.set)
         : s,
-      [actions.EDIT]: ({payload}) => s[payload.repetition.id]
-        ? core.edit(s, payload.repetition)
+      [actions.EDIT]: ({payload}) => s[payload.set.id]
+        ? core.edit(s, payload.set)
         : s,
       [actions.REMOVE]: ({payload}) =>
-        pickBy((repetition, id) => id !== payload.id, s),
+        pickBy((set, id) => id !== payload.id, s),
       ['DEFAULT']: ({payload}) => s,
     },
     s,
@@ -37,7 +37,7 @@ export const byId = (
 type allIds = string[]
 
 /**
- * Collection of IDs of existing repetitions.
+ * Collection of IDs of existing set.
  */
 export const allIds = (
   s: allIds = [],
@@ -46,8 +46,8 @@ export const allIds = (
   return core.handleActions<allIds>(
     a,
     {
-      [actions.ADD]: ({payload}) => !s.includes(payload.repetition.id)
-        ? s.concat(payload.repetition.id)
+      [actions.ADD]: ({payload}) => !s.includes(payload.set.id)
+        ? s.concat(payload.set.id)
         : s,
       [actions.REMOVE]: ({payload}) => s.filter(x => x !== payload.id),
       ['DEFAULT']: ({payload}) => s,

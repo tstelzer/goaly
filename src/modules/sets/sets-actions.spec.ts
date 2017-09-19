@@ -1,39 +1,39 @@
 import {hasIn} from 'ramda'
 
-import * as actions from './repetitions-actions'
-import {Repetition} from './repetitions-model'
+import * as actions from './sets-actions'
+import {Set} from './sets-model'
 
-describe('repetitions', () => {
+describe('sets', () => {
   describe('action-creators', () => {
-    it('creates an action to add a repetition', () => {
+    it('creates an action to add a set', () => {
       const name = 'pushups'
       const description = 'some description'
-      const repetition = {id: '1', name, description}
+      const set = {id: '1', name, description}
       const result = actions.add(name, description, () => '1')
       const expectedResult = {
         type: actions.ADD,
-        payload: {repetition},
+        payload: {set},
       }
 
       expect(result).toEqual(expectedResult)
     })
 
-    it('creates an action to edit a repetition', () => {
-      const repetition: Repetition = {
+    it('creates an action to edit a set', () => {
+      const set: Set = {
         id: '1',
         name: 'some name',
         description: 'some description',
       }
       const expectedResult = {
         type: actions.EDIT,
-        payload: {repetition},
+        payload: {set},
       }
-      const result = actions.edit(repetition)
+      const result = actions.edit(set)
 
       expect(result).toEqual(expectedResult)
     })
 
-    it('creates an action to remove a repetition', () => {
+    it('creates an action to remove a set', () => {
       const expectedResult = {
         type: actions.REMOVE,
         payload: {id: '1'},
