@@ -1,6 +1,7 @@
 dist/
 build/
 out/
+coverage/
 node_modules/
 .yarn-integrity
 yarn.lock

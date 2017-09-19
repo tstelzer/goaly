@@ -11,7 +11,8 @@
     "build:dist": "./node_modules/.bin/webpack --progress --env=dist --profile --colors",
     "serve": "./node_modules/.bin/webpack-dev-server --open --env=dev",
     "test": "./node_modules/.bin/jest",
-    "test:watch": "./node_modules/.bin/jest --watch"
+    "test:watch": "./node_modules/.bin/jest --watch",
+    "test:coverage": "./node_modules/.bin/jest --coverage"
   },
   "jest": {
     "transform": {
