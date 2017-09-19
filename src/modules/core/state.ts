@@ -9,8 +9,8 @@ export const edit = (state: any, entity: any): any => ({
     ...merge(
       state[entity.id],
       entity,
-    )
-  }
+    ),
+  },
 })
 
 /**
@@ -18,7 +18,7 @@ export const edit = (state: any, entity: any): any => ({
  */
 export const add = (state: any, entity: any): any => ({
   ...state,
-  [entity.id]: entity
+  [entity.id]: entity,
 })
 
 export interface Action<T> {
@@ -28,9 +28,11 @@ export interface Action<T> {
   readonly meta?: any
 }
 
-type HandlersMap<T> = {
-  [type: string]: {(action: Action<any>): T}
+interface HandlersMap<T> {
+  readonly [type: string]: (action: Action<any>) => T,
 }
+
+const DEFAULT = 'DEFAULT'
 
 /**
  * Pattern for handling actions in a reducer.
@@ -41,8 +43,8 @@ type HandlersMap<T> = {
 export const handleActions = <T>(
   action: Action<any>,
   handlers: HandlersMap<T>,
-  defaultState: T
+  defaultState: T,
 ): T => {
-  const handler = handlers[action.type] || handlers['DEFAULT']
-  return handler ? handler(action): defaultState
+  const handler = handlers[action.type] || handlers[DEFAULT]
+  return handler ? handler(action) : defaultState
 }
