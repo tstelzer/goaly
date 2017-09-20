@@ -30,7 +30,7 @@
             ]
         },
 
-        "types": []
+        "types": ["jest"]
     },
     "include": [
         "src/**/*.ts",
@@ -38,6 +38,7 @@
     ],
     "exclude": [
         "node_modules",
-        "src/**/*.spec.*"
+        "*.spec.ts",
+        "*.spec.tsx"
     ]
 }
