@@ -4,7 +4,7 @@ import {propEq, find} from 'ramda'
 import {byId, allIds} from './set-reps-reducer'
 import * as actions from './set-reps-actions'
 import {SetRep} from './set-reps-model'
-import {Action} from '../core'
+import {Action} from 'modules/core'
 
 describe('set-reps', () => {
   describe('byId reducer', () => {
@@ -171,10 +171,13 @@ describe('set-reps', () => {
     })
 
     it('removes an id', () => {
-      expect(allIds(['1', '2', '3'], {
+      const removeAction: Action<actions.REMOVE> = {
         type: actions.REMOVE,
         payload: {id: '1'}
-      })).toEqual(['2', '3'])
+      }
+
+      expect(allIds(['1', '2', '3'], removeAction))
+        .toEqual(['2', '3'])
     })
 
   })
