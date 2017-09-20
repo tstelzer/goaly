@@ -35,4 +35,3 @@ export const swapProp = (prop: string) =>
             {...a2, [prop]: a1[prop]},
         ]
 }
-
