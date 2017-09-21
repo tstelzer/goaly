@@ -1,5 +1,5 @@
 /**
- * A SetRep, or set repetition joins the repetitions and sets table.
+ * A SetRep, or set-repetition joins the repetitions and sets table.
  * @prop {String} id: PK: ID of set-rep.
  * @prop {String} setId FK: ID of set.
  * @prop {String} repId FK: ID of repetition.
