@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
+import {values} from 'ramda'
 
-import {DOMAIN} from './workouts-constants'
-import * as types from './workouts-model'
+import {Workout} from './workouts-model'
+import {State, ById, AllIds} from 'modules/core'
 
-export const allWorkouts = (state: any) => state[DOMAIN]
+export const getEntities = (state: State<Workout>): ById<Workout> => state.byId
+export const getIds = (state: State<Workout>): AllIds => state.allIds
