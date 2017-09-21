@@ -8,7 +8,7 @@ import {Workout} from './workouts-model'
 describe('workouts', () => {
   describe('byId reducer', () => {
 
-    it('adds a Workout', () => {
+    it('adds a workout', () => {
       const workoutOne: Workout = {
         id: '1',
         name: 'name',
@@ -63,7 +63,7 @@ describe('workouts', () => {
       })).toEqual(state)
     })
 
-    it('updates a Workout', () => {
+    it('updates a workout', () => {
       const workoutOld: Workout = {
         id: '1',
         name: 'old name',
@@ -125,7 +125,7 @@ describe('workouts', () => {
       })).toEqual(state)
     })
 
-    it('removes a Workout', () => {
+    it('removes a workout', () => {
       const state = {
         '1': {
           id: '1',
@@ -143,7 +143,7 @@ describe('workouts', () => {
 
   describe('allIds reducer', () => {
 
-    it('adds the id of a new Workout', () => {
+    it('adds the id of a new workout', () => {
       expect(allIds([], {
         type: actions.ADD,
         payload: {
