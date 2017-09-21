@@ -1,5 +1,7 @@
 import {merge} from 'ramda'
 
+import {Action, HandlersMap} from 'modules/core'
+
 /**
  * Updates the state with a given entity.
  */
@@ -20,17 +22,6 @@ export const add = (state: any, entity: any): any => ({
   ...state,
   [entity.id]: entity,
 })
-
-export interface Action<T> {
-  readonly type: string
-  readonly payload: T
-  readonly error?: boolean
-  readonly meta?: any
-}
-
-interface HandlersMap<T> {
-  readonly [type: string]: (action: Action<any>) => T,
-}
 
 const DEFAULT = 'DEFAULT'
 

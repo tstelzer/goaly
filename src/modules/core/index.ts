@@ -1,14 +1,4 @@
-import {flipProp, swapProp} from './object'
-import {filterHtmlTags, filterDashes} from './string'
-import {Action, handleActions, add, edit} from './state'
-
-export {
-  flipProp,
-  swapProp,
-  filterDashes,
-  filterHtmlTags,
-  add,
-  edit,
-  handleActions,
-  Action,
-}
+export {flipProp, swapProp} from './object'
+export {filterHtmlTags, filterDashes} from './string'
+export {handleActions, add, edit} from './state'
+export {Action, HandlersMap, ById, AllIds, State} from './types'

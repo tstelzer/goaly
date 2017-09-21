@@ -2,7 +2,7 @@ import {v4} from 'uuid'
 
 import {Set} from './sets-model'
 import {DOMAIN} from './sets-constants'
-import {Action} from 'modules/core/state'
+import {Action} from 'modules/core'
 
 export const ADD = `${DOMAIN}/ADD`
 export interface ADD {readonly set: Set}

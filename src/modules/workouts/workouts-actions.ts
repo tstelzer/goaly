@@ -2,7 +2,7 @@ import {v4} from 'uuid'
 
 import {Workout} from './workouts-model'
 import {DOMAIN} from './workouts-constants'
-import {Action} from 'modules/core/state'
+import {Action} from 'modules/core'
 
 export const ADD = `${DOMAIN}/ADD`
 export interface ADD {readonly workout: Workout}

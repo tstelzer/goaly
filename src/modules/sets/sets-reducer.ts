@@ -6,18 +6,14 @@ import * as actions from './sets-actions'
 import {Set} from './sets-model'
 import * as core from 'modules/core'
 
-interface ById {
-  readonly [id: string]: Set,
-}
-
 /**
  * set keyed by their ID.
  */
 export const byId = (
-  s: ById = {},
+  s: core.ById<Set> = {},
   a: core.Action<any>,
-): ById => {
-  return core.handleActions<ById>(
+): core.ById<Set> => {
+  return core.handleActions<core.ById<Set>>(
     a,
     {
       [actions.ADD]: ({payload}) => !s[payload.set.id]
@@ -34,16 +30,14 @@ export const byId = (
   )
 }
 
-type allIds = string[]
-
 /**
  * Collection of IDs of existing set.
  */
 export const allIds = (
-  s: allIds = [],
+  s: core.AllIds = [],
   a: core.Action<any>,
-): allIds => {
-  return core.handleActions<allIds>(
+): core.AllIds => {
+  return core.handleActions<core.AllIds>(
     a,
     {
       [actions.ADD]: ({payload}) => !s.includes(payload.set.id)

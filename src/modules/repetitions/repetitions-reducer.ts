@@ -6,18 +6,14 @@ import * as actions from './repetitions-actions'
 import {Repetition} from './repetitions-model'
 import * as core from 'modules/core'
 
-interface ById {
-  readonly [id: string]: Repetition,
-}
-
 /**
  * Repetitions keyed by their ID.
  */
 export const byId = (
-  s: ById = {},
+  s: core.ById<Repetition> = {},
   a: core.Action<any>,
-): ById => {
-  return core.handleActions<ById>(
+): core.ById<Repetition> => {
+  return core.handleActions<core.ById<Repetition>>(
     a,
     {
       [actions.ADD]: ({payload}) => !s[payload.repetition.id]
@@ -34,16 +30,14 @@ export const byId = (
   )
 }
 
-type allIds = string[]
-
 /**
  * Collection of IDs of existing repetitions.
  */
 export const allIds = (
-  s: allIds = [],
+  s: core.AllIds = [],
   a: core.Action<any>,
-): allIds => {
-  return core.handleActions<allIds>(
+): core.AllIds => {
+  return core.handleActions<core.AllIds>(
     a,
     {
       [actions.ADD]: ({payload}) => !s.includes(payload.repetition.id)

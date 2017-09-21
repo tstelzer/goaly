@@ -6,18 +6,14 @@ import * as actions from './set-reps-actions'
 import {SetRep} from './set-reps-model'
 import * as core from 'modules/core'
 
-interface ById {
-  readonly [id: string]: SetRep,
-}
-
 /**
  * setRep keyed by their ID.
  */
 export const byId = (
-  s: ById = {},
+  s: core.ById<SetRep> = {},
   a: core.Action<any>,
-): ById => {
-  return core.handleActions<ById>(
+): core.ById<SetRep> => {
+  return core.handleActions<core.ById<SetRep>>(
     a,
     {
       [actions.ADD]: ({payload}) =>
@@ -39,16 +35,14 @@ export const byId = (
   )
 }
 
-type allIds = string[]
-
 /**
  * Collection of IDs of existing setRep.
  */
 export const allIds = (
-  s: allIds = [],
+  s: core.AllIds = [],
   a: core.Action<any>,
-): allIds => {
-  return core.handleActions<allIds>(
+): core.AllIds => {
+  return core.handleActions<core.AllIds>(
     a,
     {
       [actions.ADD]: ({payload}) => !s.includes(payload.setRep.id)
