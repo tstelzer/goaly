@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
+import {values} from 'ramda'
 
-import {DOMAIN} from './sets-constants'
-import * as types from './sets-model'
+import {Set} from './sets-model'
+import {State, ById, AllIds} from 'modules/core'
 
-export const allSets = (state: any) => state[DOMAIN]
+export const getEntities = (state: State<Set>): ById<Set> => state.byId
+export const getIds = (state: State<Set>): AllIds => state.allIds
