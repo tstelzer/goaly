@@ -24,7 +24,7 @@
       "tsx",
       "js"
     ],
-    "verbose": true,
+    "verbose": false,
     "bail": true,
     "moduleDirectories": [
       "node_modules",
