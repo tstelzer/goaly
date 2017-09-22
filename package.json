@@ -67,7 +67,7 @@
     "style-loader": "0.18.2",
     "ts-jest": "21.0.1",
     "tslint": "5.7.0",
-    "tslint-immutable": "4.2.0",
+    "tslint-immutable": "4.2.1",
     "tslint-react": "3.2.0",
     "typescript": "^2.5.2",
     "webpack": "3.6.0",
