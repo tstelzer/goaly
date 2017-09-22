@@ -5,7 +5,7 @@ import * as sets from 'modules/sets'
 import * as workouts from 'modules/workouts'
 
 export const reducers = combineReducers({
-    [reps.constants.DOMAIN]: reps.reducer,
-    [sets.constants.DOMAIN]: sets.reducer,
-    [workouts.constants.DOMAIN]: workouts.reducer,
+    repetitions: reps.reducer,
+    sets: sets.reducer,
+    workouts: workouts.reducer,
 })
