@@ -1,8 +1,16 @@
 import {createSelector} from 'reselect'
-import {values} from 'ramda'
 
+import {StateSlice, ById, AllIds, selectors} from 'modules/core'
 import {Workout} from './workouts-model'
-import {State, ById, AllIds} from 'modules/core'
 
-export const getEntities = (state: State<Workout>): ById<Workout> => state.byId
-export const getIds = (state: State<Workout>): AllIds => state.allIds
+export const getEntities = (state: StateSlice<Workout>) =>
+  selectors.getEntities(state)
+
+export const getEntitiesList = (state: StateSlice<Workout>) =>
+  selectors.getEntitiesList(state)
+
+export const getIds = (state: StateSlice<Workout>) =>
+  selectors.getIds(state)
+
+export const getEntity = (state: StateSlice<Workout>) =>
+  selectors.getEntity(state)

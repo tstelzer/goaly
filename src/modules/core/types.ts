@@ -15,7 +15,7 @@ export interface ById<T> {
 
 export type AllIds = string[]
 
-export interface State<T> {
+export interface StateSlice<T> {
   readonly byId: ById<T>,
   readonly allIds: AllIds,
 }
