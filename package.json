@@ -10,6 +10,7 @@
     "build:dev": "./node_modules/.bin/webpack --progress --env=dev --profile --colors",
     "build:dist": "./node_modules/.bin/webpack --progress --env=dist --profile --colors",
     "serve": "./node_modules/.bin/webpack-dev-server --open --env=dev",
+    "serve:watch": "./node_modules/.bin/webpack-dev-server --watch --open --env=dev",
     "test": "./node_modules/.bin/jest",
     "test:watch": "./node_modules/.bin/jest --watch",
     "test:coverage": "./node_modules/.bin/jest --coverage"

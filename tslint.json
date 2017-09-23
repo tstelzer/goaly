@@ -41,7 +41,8 @@
     "interface-name": [false],
     "no-submodule-imports": [false],
     "object-literal-sort-keys": [false],
-    "arrow-parens": false
+    "arrow-parens": false,
+    "no-shadowed-variable": false
   },
   "jsRules": {
     "max-line-length": [true, 80]
