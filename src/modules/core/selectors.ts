@@ -1,23 +1,23 @@
 import {keys} from 'ramda'
 
-import {ById, StateSlice, AllIds} from './types'
+import {ById, StateSlice, AllIds, StoreSlice} from './types'
 
-// TODO: Properly type globalize.
 /**
  * Globalizes selectors by applying the global state path
  * to the local selectors.
  * @arg {Object} selectors Object of selectors from module.
  */
-export const globalize = <T>(selectors: any) =>
+export const globalize = (selectors: any) =>
   /**
    * @arg {String} slice String literal representing the state path.
    * @returns {Object} Globalized selectors.
    */
-  (slice: string) =>
+  (slice: string): any =>
     keys(selectors).reduce(
-      (res, selector) => ({
-        ...res,
-        [selector]: (state: any) => selectors[selector](state[slice]),
+      (result, selector) => ({
+        ...result,
+        [selector]: (state: any) =>
+          selectors[selector](state[slice]),
       }),
       {},
     )

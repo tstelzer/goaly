@@ -19,3 +19,7 @@ export interface StateSlice<T> {
   readonly byId: ById<T>,
   readonly allIds: AllIds,
 }
+
+export interface StoreSlice<T> {
+  readonly [index: string]: StateSlice<T>
+}

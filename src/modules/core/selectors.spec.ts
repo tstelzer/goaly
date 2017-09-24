@@ -117,11 +117,11 @@ describe('core', () => {
     describe('globalize', () => {
       it('delegates local selectors', () => {
         const state = {
-          a: {
+          setReps: {
             byId: {'1': 'a', '2': 'b'},
             allIds: ['1', '2'],
           },
-          b: {
+          repetitions: {
             byId: {'1': 'z', '2': 'x'},
             allIds: ['1', '2'],
           },
@@ -133,11 +133,11 @@ describe('core', () => {
           getEntity,
         }
 
-        const result: any = globalize(selectors)('a')
+        const result: any = globalize(selectors)('setReps')
 
-        expect(result.getIds(state)).toEqual(state.a.allIds)
-        expect(result.getEntities(state)).toEqual(state.a.byId)
-        expect(result.getEntitiesList(state)).toEqual(getEntitiesList(state.a))
+        expect(result.getIds(state)).toEqual(state.setReps.allIds)
+        expect(result.getEntities(state)).toEqual(state.setReps.byId)
+        expect(result.getEntitiesList(state)).toEqual(getEntitiesList(state.setReps))
         expect(result.getEntity(state)('2')).toEqual('b')
       })
     })
