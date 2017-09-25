@@ -50,7 +50,10 @@ export const setReps = {
 }
 
 export const main = {
-  /** Returns a materialized set-rep. */
+  /**
+   * Returns materialized set-reps by resolving the
+   * setId and repId properties.
+   */
   getSetRepsList: createSelector(
     [setReps.getEntitiesList, repetitions.getRepetition, sets.getSet],
     (
