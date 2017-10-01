@@ -30,7 +30,8 @@
             ]
         },
 
-        "types": ["jest"]
+        "types": ["jest"],
+        "typeRoots": ["types"]
     },
     "include": [
         "src/**/*.ts",
