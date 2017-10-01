@@ -17,3 +17,12 @@ button {
 }
 
 a {text-decoration: inherit; color: inherit;}
+textarea {
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    max-width: inherit;
+    resize: none;
+}

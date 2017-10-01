@@ -18,6 +18,19 @@ export enum Muscle {
  'Shoulders' = 14,
  'Traps' = 15,
  'Triceps' = 16,
+ 'Chest' = 17,
+}
+
+export enum Level {
+  'Beginner' = 1,
+  'Intermediate' = 2,
+  'Expert' = 3,
+}
+
+export enum Type {
+  'Cardio' = 1,
+  'Strength' = 2,
+  'Stretching' = 3,
 }
 
 /**
@@ -27,7 +40,9 @@ export interface RepetitionEntity {
   readonly id: string
   readonly name: string
   readonly description: string
-  readonly targets?: Muscle[]
+  readonly level?: Level,
+  readonly type?: Type,
+  readonly muscles?: Muscle[]
 }
 
 /**
@@ -38,5 +53,7 @@ export interface Repetition {
   readonly id: string
   readonly name: string
   readonly description: string
-  readonly targets?: Muscle[]
+  readonly level?: Level,
+  readonly type?: Type,
+  readonly muscles?: Muscle[]
 }

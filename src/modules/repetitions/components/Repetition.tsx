@@ -1,24 +1,23 @@
 import * as React from 'react'
+import {Dispatch} from 'redux'
+import Textarea from 'react-textarea-autosize'
 
+import * as actions from 'modules/repetitions/repetitions-actions'
 import * as model from '../repetitions-model'
 
-interface Props {
+interface RepetitionProps {
   readonly repetition: model.Repetition,
 }
 
-const Title = ({title}: {readonly title: string}) =>
-  <h3 className="uppercase m-b-1-em">{title}</h3>
-
-const Paragraph = ({text}: {readonly text: string}) =>
-  <p className="m-b-1-em">{text}</p>
-
-export const Repetition: React.SFC<Props> = ({repetition}) => {
-  const {name, description, targets} = repetition
-  return (
-    <article className="m-1-em mw-20-em b-1-px-gray p-1-em">
-        <Title title={name} />
-        <Paragraph text={description} />
-        <p>Muscles:{targets && targets.map(x => ` ${model.Muscle[x]}`)}</p>
-    </article>
-  )
-}
+// export const Repetition: React.SFC<RepetitionProps> = ({repetition}) => {
+//   const {name, description, targets} = repetition
+//   const n = targets && targets.map(x => model.Muscle[x]).join(', ')
+//   return (
+//     <article className="m-l-1-u m-t-1-u">
+//       <div className="b-b-1-px-gray ta-c">
+//         <h3 className="uppercase fs-sm">{name}</h3>
+//         {/* <p className="fs-sm fw-normal co-gray">{n}</p> */}
+//       </div>
+//     </article>
+//   )
+// }

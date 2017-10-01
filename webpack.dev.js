@@ -20,6 +20,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.css$/,
+        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
+        use: [
+          { loader: 'style-loader', options: { sourceMap: true } },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'postcss-loader', options: { sourceMap: true } },
+        ],
+      },
+      {
         test: /\.scss$/,
         include: [path.resolve(__dirname, 'src')],
         use: [
@@ -32,7 +41,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx", ".scss", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".scss", ".ts", ".tsx", ".css"],
     modules: [
       path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'node_modules'),
