@@ -7,7 +7,6 @@ import {model} from 'modules/repetitions/'
 import {repetitions} from 'app/selectors/global-selectors'
 
 interface Props {
-  readonly className: string
   readonly repetition: model.Repetition,
 }
 
@@ -16,16 +15,12 @@ const mapState = (state: Store) => ({
   repetition: repetitions.getRepetition(state)(state.ui.description.selected),
 })
 
-export const Description: React.SFC<Props> = ({
-  repetition,
-  className,
-}) => {
+export const Description: React.SFC<Props> = ({repetition}) => {
   const {name, description} = repetition
   return (
     <article className="w-45-rem b-1-px-gray">
       <h3 className="ta-c p-1-u">{name}</h3>
       <p>{description}</p>
-      {/* <Expandable /> */}
     </article>
   )
 }

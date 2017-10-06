@@ -16,27 +16,28 @@ const mapState = (state: Store) => ({
 })
 
 // TODO: refactor
-const SELECT_ROW = 'SELECT_ROW'
-interface SELECT_ROW {readonly id: string}
+const SELECT = 'SELECT_ROW'
+interface SELECT {
+  readonly id: string
+}
 
-const _selectRow = (id: string): core.Action<SELECT_ROW> => ({type: SELECT_ROW, payload: {id}})
+const selectRow = (id: string): core.Action<SELECT> => ({
+  type: SELECT,
+  payload: {id},
+})
 const mapDispatch = (dispatch: Dispatch<any>) => ({
-  selectRow: (id: string) => dispatch(_selectRow(id))
+  select: (id: string) => dispatch(selectRow(id)),
 })
 
 export const RepetitionList = ({
   repetitions,
-  selectRow,
+  select,
 }: {
-  readonly repetitions: model.Repetition[],
-  readonly selectRow: typeof _selectRow,
+  readonly repetitions: model.Repetition[]
+  readonly select: typeof selectRow,
 }) => {
   const rows = repetitions.map(rep => {
-    const {
-      id,
-      name,
-      description,
-    } = rep
+    const {id, name, description} = rep
     const muscles = rep.muscles && rep.muscles.map(x => model.Muscle[x])
     const level = rep.level && model.Level[rep.level]
     const type = rep.type && model.Type[rep.type]
@@ -68,28 +69,30 @@ export const RepetitionList = ({
       accessor: 'type',
     },
   ]
-  return <ReactTable
-    className='m-l-2-u'
-    data={rows}
-    filterable={true}
-    defaultPageSize={15}
-    minRows={5}
-    showPageJump={false}
-    showPageSizeOptions={false}
-    columns={columns}
-    getTrProps={(state: any, rowInfo: any) => {
-      return {
-        style: {
-          cursor: 'pointer',
-        },
-        onClick: (e: Event, handleOriginal: any) => {
-          selectRow(rowInfo.row.id)
-          if (handleOriginal)
-            handleOriginal()
-        }
-      }
-    }}
-  />
+  const onTr = (state: any, rowInfo: any) => {
+    return {
+      style: {
+        cursor: 'pointer',
+      },
+      onClick: (e: Event, handleOriginal: any) => {
+        select(rowInfo.row.id)
+        if (handleOriginal) handleOriginal()
+      },
+    }
+  }
+  return (
+    <ReactTable
+      className="m-l-2-u"
+      data={rows}
+      filterable={true}
+      defaultPageSize={15}
+      minRows={5}
+      showPageJump={false}
+      showPageSizeOptions={false}
+      columns={columns}
+      getTrProps={onTr}
+    />
+  )
 }
 
 export default connect(mapState, mapDispatch)(RepetitionList)

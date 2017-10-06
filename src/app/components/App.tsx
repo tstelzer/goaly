@@ -9,10 +9,8 @@ import 'assets/base.scss'
 import 'assets/utility.scss'
 
 const App = () => (
-  <div
-    className='d-f ff-r jc-c ai-s'
-  >
-    <Description className='' />
+  <div className='d-f ff-r jc-c ai-s'>
+    <Description />
     <RepetitionList />
   </div>
 )
