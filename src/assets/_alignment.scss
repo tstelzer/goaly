@@ -1,0 +1,26 @@
+.ff-r-nw { flex-flow: row nowrap; }
+.ff-r { flex-flow: row wrap; }
+.ff-c-nw { flex-flow: column nowrap; }
+.ff-c { flex-flow: column wrap; }
+
+// default values
+// flex: <flex-grow> <flex-shrink> <flex-basis>
+.fx { flex: 1 0 auto; }
+
+.fx-2 { flex: 2 auto; }
+.fx-0 { flex: 0 auto; }
+.fx-0-1 { flex: 0 1 auto; }
+
+.jc-s { justify-content: flex-start; }
+.jc-e { justify-content: flex-end; }
+.jc-c { justify-content: center; }
+.jc-sb { justify-content: space-between; }
+.jc-sa { justify-content: space-around; }
+
+.ai-s { align-items: flex-start; }
+.ai-e { align-items: flex-end; }
+.ai-c { align-items: center; }
+.ai-b { align-items: baseline; }
+.ai-st { align-items: stretch; }
+
+.ta-c { text-align: center; }

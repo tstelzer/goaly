@@ -1,60 +1,10 @@
 $unit: 0.625rem;
 
-.flex {
-  display: flex;
-  flex-flow: row wrap;
-}
-.uppercase {
-  text-transform: uppercase;
-}
-.b-1-px-gray {
-  border: 1px solid gray;
-  border-radius: 3px;
-}
-
-.ta-c { text-align: center; }
-
-@each $step in 1, 5, 10, 20 {
-  .mw-#{$step}-rem { max-width: #{$step}rem; }
-}
-
-.w-100 { width: 100%; }
-.h-a { height: auto; }
-
-@each $p, $prop in (p: padding, m: margin) {
-  @each $step in 1 {
-    .#{$p}-#{$step}-rem { #{$prop}: #{$step}rem; }
-    .#{$p}-t-#{$step}-rem { #{$prop}-top: #{$step}rem; }
-    .#{$p}-b-#{$step}-rem { #{$prop}-bottom: #{$step}rem; }
-    .#{$p}-l-#{$step}-rem { #{$prop}-left: #{$step}rem; }
-  }
-  @each $step in 1 {
-    .#{$p}-#{$step}-u { #{$prop}: $unit * $step; }
-    .#{$p}-t-#{$step}-u { #{$prop}-top: $unit * $step; }
-    .#{$p}-b-#{$step}-u { #{$prop}-bottom: $unit * $step; }
-    .#{$p}-l-#{$step}-u { #{$prop}-left: $unit * $step; }
-  }
-}
-
-@each $step in 1 {
-  .m-l-#{$step}-u { margin-left: $unit * $step; }
-  .m-t-#{$step}-u { margin-top: $unit * $step; }
-}
-
-.fs-sm { font-size: 0.9em; }
-.fw-normal { font-weight: normal; }
-.fw-thick { font-weight: 600; }
-.co-gray { color: gray; }
-
-.raised {
-  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 
-    0 2px 10px 0 rgba(34,36,38,.15);
-}
-
-.raise:hover {  
-  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12), 
-    0 2px 10px 0 rgba(34,36,38,.15);
-}
-.b-1-px-gray { border: 1px solid rgba(34,36,38,.15); }
-.b-t-1-px-gray { border-top: 1px solid rgba(34,36,38,.15); }
-.b-b-1-px-gray { border-bottom: 1px solid rgba(34,36,38,.15); }
+@import './_alignment.scss';
+@import './_size.scss';
+@import './_spacing.scss';
+@import './_text.scss';
+@import './_border.scss';
+@import './_shadow.scss';
+@import './_color.scss';
+@import './_display.scss';

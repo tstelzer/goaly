@@ -1,0 +1,38 @@
+@each $p, $prop in (p: padding, m: margin) {
+  @each $step in 1 {
+    .#{$p}-#{$step}-rem { #{$prop}: #{$step}rem; }
+    .#{$p}-t-#{$step}-rem { #{$prop}-top: #{$step}rem; }
+    .#{$p}-b-#{$step}-rem { #{$prop}-bottom: #{$step}rem; }
+    .#{$p}-l-#{$step}-rem { #{$prop}-left: #{$step}rem; }
+  }
+  @each $step in 1, 2 {
+    .#{$p}-#{$step}-em { #{$prop}: #{$step}em; }
+    .#{$p}-t-#{$step}-em { #{$prop}-top: #{$step}em; }
+    .#{$p}-b-#{$step}-em { #{$prop}-bottom: #{$step}em; }
+    .#{$p}-l-#{$step}-em { #{$prop}-left: #{$step}em; }
+    .#{$p}-h-#{$step}-em { 
+      #{$prop}-left: #{$step}em; 
+      #{$prop}-right: #{$step}em; 
+    }
+    .#{$p}-v-#{$step}-em { 
+      #{$prop}-top: #{$step}em; 
+      #{$prop}-bottom: #{$step}em; 
+    }
+  }
+  @each $step in 1 {
+    .#{$p}-#{$step}-u { #{$prop}: $unit * $step; }
+    .#{$p}-t-#{$step}-u { #{$prop}-top: $unit * $step; }
+    .#{$p}-b-#{$step}-u { #{$prop}-bottom: $unit * $step; }
+    .#{$p}-l-#{$step}-u { #{$prop}-left: $unit * $step; }
+  }
+}
+
+@each $step in 1, 2 {
+  .m-l-#{$step}-u { margin-left: $unit * $step; }
+  .m-t-#{$step}-u { margin-top: $unit * $step; }
+}
+
+.m-h-a { 
+  margin-left: auto; 
+  margin-right: auto;
+}
