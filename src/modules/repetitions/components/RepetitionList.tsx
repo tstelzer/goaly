@@ -7,24 +7,14 @@ import {Dispatch} from 'redux'
 
 import {Store} from 'app/store/store-types'
 import {repetitions} from 'app/selectors/global-selectors'
+import {selectRow} from 'app/actions/ui-actions'
 import {model} from 'modules/repetitions/'
-import * as core from 'modules/core'
 import 'assets/react-table.css'
 
 const mapState = (state: Store) => ({
   repetitions: repetitions.getRepetitionsList(state),
 })
 
-// TODO: refactor
-const SELECT = 'SELECT_ROW'
-interface SELECT {
-  readonly id: string
-}
-
-const selectRow = (id: string): core.Action<SELECT> => ({
-  type: SELECT,
-  payload: {id},
-})
 const mapDispatch = (dispatch: Dispatch<any>) => ({
   select: (id: string) => dispatch(selectRow(id)),
 })

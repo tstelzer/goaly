@@ -4,15 +4,14 @@ import {connect} from 'react-redux'
 import {Expandable} from 'modules/core/components/'
 import {Store} from 'app/store/store-types'
 import {model} from 'modules/repetitions/'
-import {repetitions} from 'app/selectors/global-selectors'
+import {repetitions, getSelected} from 'app/selectors/global-selectors'
 
 interface Props {
   readonly repetition: model.Repetition,
 }
 
 const mapState = (state: Store) => ({
-  // TODO: refactor
-  repetition: repetitions.getRepetition(state)(state.ui.description.selected),
+  repetition: getSelected(state),
 })
 
 export const Description: React.SFC<Props> = ({repetition}) => {

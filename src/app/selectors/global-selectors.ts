@@ -7,14 +7,18 @@ import {model as repsModel} from 'modules/repetitions/'
 
 export const repetitions = {
   getIds: (state: Store) =>
-    selectors.getIds(state['repetitions']),
+    selectors.getIds(state.repetitions),
 
   getRepetition: (state: Store) =>
-    selectors.getEntity(state['repetitions']),
+    selectors.getEntity(state.repetitions),
 
   getRepetitions: (state: Store) =>
-    selectors.getEntities(state['repetitions']),
+    selectors.getEntities(state.repetitions),
 
   getRepetitionsList: (state: Store) =>
-    selectors.getEntitiesList(state['repetitions']),
+    selectors.getEntitiesList(state.repetitions),
 }
+
+const getSelectedId = (state: Store) => state.ui.repetitions.selected
+export const getSelected = (state: Store) =>
+  repetitions.getRepetition(state)(getSelectedId(state))

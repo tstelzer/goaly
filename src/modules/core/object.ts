@@ -1,4 +1,3 @@
-// TODO: throw on illegal property literal
 /**
  * Flips an objects property.
  *
