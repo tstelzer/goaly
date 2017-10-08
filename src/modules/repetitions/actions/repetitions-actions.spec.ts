@@ -1,7 +1,8 @@
+/* tslint:disable no-expression-statement */
 import {hasIn} from 'ramda'
 
 import * as actions from './repetitions-actions'
-import {Repetition} from './repetitions-model'
+import {Repetition} from '../repetitions-model'
 
 describe('repetitions', () => {
   describe('action-creators', () => {
