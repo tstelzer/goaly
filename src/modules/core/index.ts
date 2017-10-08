@@ -4,4 +4,12 @@ export {selectors}
 export {flipProp, swapProp} from './object'
 export {filterHtmlTags, filterDashes} from './string'
 export {handleActions, add, edit} from './state'
-export {Action, HandlersMap, Entities, AllIds, StoreSlice, StateSlice} from './types'
+export {
+  Action,
+  HandlersMap,
+  Entities,
+  AllIds,
+  StoreSlice,
+  StateSlice,
+  Reducer,
+} from './types'

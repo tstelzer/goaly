@@ -1,8 +1,9 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
+import {Action, AllIds} from 'modules/core'
 import {entities, allIds} from './repetitions-reducer'
-import * as actions from '../actions/repetitions-actions'
+import {ADD, EDIT, REMOVE} from '../actions/repetitions-actions'
 import {Repetition} from '../repetitions-model'
 
 describe('repetitions', () => {
@@ -19,27 +20,28 @@ describe('repetitions', () => {
         name: 'other name',
         description: 'other description',
       }
-
-      expect(entities({}, {
-        type: actions.ADD,
+      const actionOne: Action<ADD> = {
+        type: ADD,
         payload: {
           repetition: repetitionOne,
         },
-      })).toEqual({
-        1: repetitionOne,
-      })
-
-      expect(entities({
-        1: repetitionOne,
-      }, {
-        type: actions.ADD,
+      }
+      const actionTwo: Action<ADD> = {
+        type: ADD,
         payload: {
           repetition: repetitionTwo,
         },
-      })).toEqual({
-        1: repetitionOne,
-        2: repetitionTwo,
-      })
+      }
+
+      expect(entities({}, actionOne))
+        .toEqual({
+          1: repetitionOne,
+        })
+      expect(entities({1: repetitionOne}, actionTwo))
+        .toEqual({
+          1: repetitionOne,
+          2: repetitionTwo,
+        })
     })
 
     it('drops the addAction when the id already exists', () => {
@@ -50,9 +52,8 @@ describe('repetitions', () => {
           description: 'description',
         },
       }
-
-      expect(entities(state, {
-        type: actions.ADD,
+      const action: Action<ADD> = {
+        type: ADD,
         payload: {
           repetition: {
             id: '1',
@@ -60,7 +61,9 @@ describe('repetitions', () => {
             description: 'another description',
           },
         },
-      })).toEqual(state)
+      }
+
+      expect(entities(state, action)).toEqual(state)
     })
 
     it('updates a repetition', () => {
@@ -69,34 +72,34 @@ describe('repetitions', () => {
         name: 'old name',
         description: 'old description',
       }
-      const state = {
-        1: repetitionOld,
-      }
-
-      expect(entities(state, {
-        type: actions.EDIT,
+      const state = {1: repetitionOld}
+      const action1: Action<EDIT> = {
+        type: EDIT,
         payload: {
           repetition: {
             id: '1',
             name: 'new name',
           },
         },
-      })).toEqual({
-        1: {
-          id: '1',
-          name: 'new name',
-          description: 'old description',
-        },
-      })
-      expect(entities(state, {
-        type: actions.EDIT,
+      }
+      const action2: Action<EDIT> = {
+        type: EDIT,
         payload: {
           repetition: {
             id: '1',
             description: 'new description',
           },
         },
-      })).toEqual({
+      }
+
+      expect(entities(state, action1)).toEqual({
+        1: {
+          id: '1',
+          name: 'new name',
+          description: 'old description',
+        },
+      })
+      expect(entities(state, action2)).toEqual({
         1: {
           id: '1',
           name: 'old name',
@@ -113,8 +116,8 @@ describe('repetitions', () => {
           description: 'some description',
         },
       }
-      expect(entities(state, {
-        type: actions.EDIT,
+      const action: Action<EDIT> = {
+        type: EDIT,
         payload: {
           repetition: {
             id: '2',
@@ -122,7 +125,9 @@ describe('repetitions', () => {
             description: 'another description',
           },
         },
-      })).toEqual(state)
+      }
+
+      expect(entities(state, action)).toEqual(state)
     })
 
     it('removes a repetition', () => {
@@ -133,10 +138,12 @@ describe('repetitions', () => {
           description: 'description',
         },
       }
-      expect(entities(state, {
-        type: actions.REMOVE,
+      const action: Action<REMOVE> = {
+        type: REMOVE,
         payload: {id: '1'},
-      })).toEqual({})
+      }
+
+      expect(entities(state, action)).toEqual({})
     })
 
   })
@@ -144,8 +151,8 @@ describe('repetitions', () => {
   describe('allIds reducer', () => {
 
     it('adds the id of a new repetition', () => {
-      expect(allIds([], {
-        type: actions.ADD,
+      const action: Action<ADD> = {
+        type: ADD,
         payload: {
           repetition: {
             id: '1',
@@ -153,12 +160,15 @@ describe('repetitions', () => {
             description: 'description',
           },
         },
-      })).toEqual(['1'])
+      }
+
+      expect(allIds([], action)).toEqual(['1'])
     })
 
     it('drops the addAction if the id already exists', () => {
-      expect(allIds(['1'], {
-        type: actions.ADD,
+      const state: AllIds = ['1']
+      const action: Action<ADD> = {
+        type: ADD,
         payload: {
           repetition: {
             id: '1',
@@ -166,14 +176,19 @@ describe('repetitions', () => {
             description: 'description',
           },
         },
-      })).toEqual(['1'])
+      }
+
+      expect(allIds(state, action)).toEqual(['1'])
     })
 
     it('removes an id', () => {
-      expect(allIds(['1', '2', '3'], {
-        type: actions.REMOVE,
+      const state: AllIds = ['1', '2', '3']
+      const action: Action<REMOVE> = {
+        type: REMOVE,
         payload: {id: '1'},
-      })).toEqual(['2', '3'])
+      }
+
+      expect(allIds(state, action)).toEqual(['2', '3'])
     })
 
   })

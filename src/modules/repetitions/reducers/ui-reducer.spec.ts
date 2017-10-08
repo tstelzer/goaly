@@ -1,13 +1,14 @@
 /* tslint:disable no-expression-statement */
 import {Action} from 'modules/core'
 import {Store} from 'app/store/store-types'
-import {ui, UiState} from './ui-reducer'
+import {ui} from './ui-reducer'
 import * as actions from '../actions/ui-actions'
+import * as model from '../repetitions-model'
 
 describe('repetitions', () => {
   describe('ui reducer', () => {
     it('selects a repetition', () => {
-      const state: UiState = {
+      const state: model.UiState = {
         selectedRepetition: '1',
       }
       const action: Action<actions.SELECT> = {
@@ -16,7 +17,7 @@ describe('repetitions', () => {
       }
 
       const result = ui(state, action)
-      const expected: UiState = {
+      const expected: model.UiState = {
         selectedRepetition: '2',
       }
 

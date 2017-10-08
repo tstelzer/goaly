@@ -2,22 +2,20 @@ import {combineReducers, Reducer} from 'redux'
 
 import * as core from 'modules/core'
 import * as actions from '../actions/ui-actions'
+import * as model from '../repetitions-model'
 
-export interface UiState {
-  readonly selectedRepetition: string,
-}
-
-export const ui: Reducer<UiState> = (
+export const ui: model.UiReducer = (
   s = {selectedRepetition: ''},
   a,
 ) => {
-  switch (a.type) {
-    case 'SELECT_ROW':
-      return {
+  return core.handleActions<model.UiState>(
+    a,
+    {
+      [actions.SELECT]: ({payload}) => ({
         ...s,
-        selectedRepetition: a.payload.id,
-      }
-    default:
-      return s
-  }
+        selectedRepetition: payload.id,
+      }),
+    },
+    s,
+  )
 }

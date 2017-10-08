@@ -23,7 +23,7 @@ export const add = (
 })
 
 export const EDIT = `${DOMAIN}/EDIT`
-export interface EDIT {readonly repetition: Repetition}
+export interface EDIT {readonly repetition: Partial<Repetition>}
 
 export const edit = (
   repetition: Repetition,
