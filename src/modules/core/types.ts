@@ -9,15 +9,16 @@ export interface HandlersMap<T> {
   readonly [type: string]: (action: Action<any>) => T,
 }
 
-export interface ById<T> {
+export interface Entities<T> {
   readonly [id: string]: T
 }
 
 export type AllIds = string[]
 
 export interface StateSlice<T> {
-  readonly byId: ById<T>,
+  readonly entities: Entities<T>,
   readonly allIds: AllIds,
+  readonly ui?: any,
 }
 
 export interface StoreSlice<T> {

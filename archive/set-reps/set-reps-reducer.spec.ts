@@ -1,13 +1,13 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {byId, allIds} from './set-reps-reducer'
+import {entities, allIds} from './set-reps-reducer'
 import * as actions from './set-reps-actions'
 import {SetRep} from './set-reps-model'
 import {Action} from 'modules/core'
 
 describe('set-reps', () => {
-  describe('byId reducer', () => {
+  describe('entities reducer', () => {
 
     it('adds a setRep with all parameters', () => {
       const setRepOne: SetRep = {
@@ -33,11 +33,11 @@ describe('set-reps', () => {
         payload: {setRep: setRepTwo},
       }
 
-      expect(byId({}, addAction1)).toEqual({
+      expect(entities({}, addAction1)).toEqual({
         '1': setRepOne
       })
 
-      expect(byId(
+      expect(entities(
         {'1': setRepOne},
         addAction2,
       )).toEqual({
@@ -60,7 +60,7 @@ describe('set-reps', () => {
       }
       const state = {'1': setRepOne}
 
-      expect(byId(state, addAction1)).toEqual(state)
+      expect(entities(state, addAction1)).toEqual(state)
     })
 
     it('updates a set-rep', () => {
@@ -84,7 +84,7 @@ describe('set-reps', () => {
       }
       const state = {'1': setRepOld}
 
-      expect(byId(state, editAction1)).toEqual({
+      expect(entities(state, editAction1)).toEqual({
         '1': setRepNew,
       })
     })
@@ -110,7 +110,7 @@ describe('set-reps', () => {
       }
       const state = {'1': setRepOld}
 
-      expect(byId(state, editAction1)).toEqual(state)
+      expect(entities(state, editAction1)).toEqual(state)
     })
 
     it('removes a set-rep', () => {
@@ -127,7 +127,7 @@ describe('set-reps', () => {
       }
       const state = {'1': setRep}
 
-      expect(byId(state, removeAction)).toEqual({})
+      expect(entities(state, removeAction)).toEqual({})
     })
 
   })

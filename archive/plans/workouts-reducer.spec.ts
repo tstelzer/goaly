@@ -1,12 +1,12 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {byId, allIds} from './workouts-reducer'
+import {entities, allIds} from './workouts-reducer'
 import * as actions from './workouts-actions'
 import {Workout} from './workouts-model'
 
 describe('workouts', () => {
-  describe('byId reducer', () => {
+  describe('entities reducer', () => {
 
     it('adds a workout', () => {
       const workoutOne: Workout = {
@@ -20,7 +20,7 @@ describe('workouts', () => {
         description: 'other description',
       }
 
-      expect(byId({}, {
+      expect(entities({}, {
         type: actions.ADD,
         payload: {
           workout: workoutOne
@@ -29,7 +29,7 @@ describe('workouts', () => {
         '1': workoutOne
       })
 
-      expect(byId({
+      expect(entities({
         '1': workoutOne
       }, {
         type: actions.ADD,
@@ -51,7 +51,7 @@ describe('workouts', () => {
         }
       }
 
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.ADD,
         payload: {
           workout: {
@@ -73,7 +73,7 @@ describe('workouts', () => {
         '1': workoutOld
       }
 
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.EDIT,
         payload: {
           workout: {
@@ -88,7 +88,7 @@ describe('workouts', () => {
           description: 'old description',
         }
       })
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.EDIT,
         payload: {
           workout: {
@@ -113,7 +113,7 @@ describe('workouts', () => {
           description: 'some description'
         }
       }
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.EDIT,
         payload: {
           workout: {
@@ -133,7 +133,7 @@ describe('workouts', () => {
           description: 'description',
         }
       }
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.REMOVE,
         payload: {id: '1'},
       })).toEqual({})

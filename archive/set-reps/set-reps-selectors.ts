@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect'
 import {values} from 'ramda'
 
-import {StateSlice, ById, AllIds, selectors} from 'modules/core'
+import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
 import {SetRep} from './set-reps-model'
 
 export const getEntities: typeof selectors.getEntities = state =>

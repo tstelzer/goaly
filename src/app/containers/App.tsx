@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import RepetitionList from 'modules/repetitions/components/RepetitionList'
-import Description from 'app/components/Description'
+import Description from 'modules/repetitions/containers/Description'
+import RepetitionList from 'modules/repetitions/containers/RepetitionList'
 
 import 'assets/normalize.css'
 import 'assets/reset.scss'

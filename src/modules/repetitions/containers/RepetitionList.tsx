@@ -7,7 +7,7 @@ import {Dispatch} from 'redux'
 
 import {Store} from 'app/store/store-types'
 import {repetitions} from 'app/selectors/global-selectors'
-import {selectRow} from 'app/actions/ui-actions'
+import {selectRow} from '../actions/ui-actions'
 import {model} from 'modules/repetitions/'
 import 'assets/react-table.css'
 

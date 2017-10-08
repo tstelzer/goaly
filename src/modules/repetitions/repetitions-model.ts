@@ -36,14 +36,14 @@ export enum Type {
 /**
  * An unresolved Repetition.
  */
-export interface RepetitionEntity {
-  readonly id: string
-  readonly name: string
-  readonly description: string
-  readonly level?: Level,
-  readonly type?: Type,
-  readonly muscles?: Muscle[]
-}
+// export interface RepetitionEntity {
+//   readonly id: string
+//   readonly name: string
+//   readonly description: string
+//   readonly level?: Level,
+//   readonly type?: Type,
+//   readonly muscles?: Muscle[]
+// }
 
 /**
  * A repetition is a single, controlled exercise.

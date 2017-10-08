@@ -1,7 +1,7 @@
 import {v4} from 'uuid'
 
-import {Repetition} from './repetitions-model'
-import {DOMAIN} from './repetitions-constants'
+import {Repetition} from '../repetitions-model'
+import {DOMAIN} from '../repetitions-constants'
 import {Action} from 'modules/core'
 
 export const ADD = `${DOMAIN}/ADD`

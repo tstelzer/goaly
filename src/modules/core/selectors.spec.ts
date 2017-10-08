@@ -1,3 +1,4 @@
+/* tslint:disable no-expression-statement */
 import {
   getEntities,
   getIds,
@@ -7,10 +8,10 @@ import {
 import {StateSlice} from './types'
 
 interface Dummy {
-  id: string | number
-  stringProp?: string
-  numberProp?: number
-  fnProp?: () => any
+  readonly id: string | number
+  readonly stringProp?: string
+  readonly numberProp?: number
+  readonly fnProp?: () => any
 }
 
 describe('core', () => {
@@ -30,11 +31,12 @@ describe('core', () => {
           fnProp: () => {},
         }
         const state: StateSlice<Dummy> = {
-          byId: {'1': one, '2': two},
+          entities: {1: one, 2: two},
           allIds: ['1', '2'],
+          ui: {},
         }
 
-        expect(getEntities(state)).toEqual(state.byId)
+        expect(getEntities(state)).toEqual(state.entities)
       })
 
       describe('getIds', () => {
@@ -52,8 +54,9 @@ describe('core', () => {
             fnProp: () => {},
           }
           const state: StateSlice<Dummy> = {
-            byId: {'1': one, '2': two},
+            entities: {1: one, 2: two},
             allIds: ['1', '2'],
+            ui: {},
           }
 
           expect(getIds(state)).toEqual(state.allIds)
@@ -75,8 +78,9 @@ describe('core', () => {
             fnProp: () => {},
           }
           const state: StateSlice<Dummy> = {
-            byId: {'1': one, '2': two},
+            entities: {1: one, 2: two},
             allIds: ['1', '2'],
+            ui: {},
           }
 
           const result: Dummy[] = getEntitiesList(state)
@@ -101,8 +105,9 @@ describe('core', () => {
             fnProp: () => {},
           }
           const state: StateSlice<Dummy> = {
-            byId: {'1': one, '2': two},
+            entities: {1: one, 2: two},
             allIds: ['1', '2'],
+            ui: {},
           }
 
           const result: Dummy = getEntity(state)('1')

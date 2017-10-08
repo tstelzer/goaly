@@ -1,12 +1,12 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {byId, allIds} from './sets-reducer'
+import {entities, allIds} from './sets-reducer'
 import * as actions from './sets-actions'
 import {Set} from './sets-model'
 
 describe('sets', () => {
-  describe('byId reducer', () => {
+  describe('entities reducer', () => {
 
     it('adds a set', () => {
       const setOne: Set = {
@@ -20,7 +20,7 @@ describe('sets', () => {
         description: 'other description',
       }
 
-      expect(byId({}, {
+      expect(entities({}, {
         type: actions.ADD,
         payload: {
           set: setOne
@@ -29,7 +29,7 @@ describe('sets', () => {
         '1': setOne
       })
 
-      expect(byId({
+      expect(entities({
         '1': setOne
       }, {
         type: actions.ADD,
@@ -51,7 +51,7 @@ describe('sets', () => {
         }
       }
 
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.ADD,
         payload: {
           set: {
@@ -73,7 +73,7 @@ describe('sets', () => {
         '1': setOld
       }
 
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.EDIT,
         payload: {
           set: {
@@ -88,7 +88,7 @@ describe('sets', () => {
           description: 'old description',
         }
       })
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.EDIT,
         payload: {
           set: {
@@ -113,7 +113,7 @@ describe('sets', () => {
           description: 'some description'
         }
       }
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.EDIT,
         payload: {
           set: {
@@ -133,7 +133,7 @@ describe('sets', () => {
           description: 'description',
         }
       }
-      expect(byId(state, {
+      expect(entities(state, {
         type: actions.REMOVE,
         payload: {id: '1'},
       })).toEqual({})

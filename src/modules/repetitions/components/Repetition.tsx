@@ -2,7 +2,7 @@ import * as React from 'react'
 import {Dispatch} from 'redux'
 import Textarea from 'react-textarea-autosize'
 
-import * as actions from 'modules/repetitions/repetitions-actions'
+import * as actions from '../actions/repetitions-actions'
 import * as model from '../repetitions-model'
 
 interface RepetitionProps {

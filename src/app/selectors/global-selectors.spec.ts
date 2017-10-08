@@ -1,8 +1,6 @@
 /* tslint:disable no-expression-statement */
 import {getSelected} from './global-selectors'
 import {Store} from 'app/store/store-types'
-import {fakeData} from 'app/store/fakeData'
-import {model as repsModel} from 'modules/repetitions/'
 
 describe('global selectors', () => {
   describe('ui', () => {
@@ -10,7 +8,7 @@ describe('global selectors', () => {
       it('returns the currently selected repetition', () => {
         const fakeData: Store = {
           repetitions: {
-            byId: {
+            entities: {
               1: {
                 id: '1',
                 name: 'ONE',
@@ -29,11 +27,11 @@ describe('global selectors', () => {
               },
             },
             allIds: ['1', '2'],
+            ui: {selectedRepetition: '1'},
           },
-          ui: {repetitions: {selected: '1'}},
         }
         const result = getSelected(fakeData)
-        const expected = fakeData.repetitions.byId[1]
+        const expected = fakeData.repetitions.entities[1]
 
         expect(result).toEqual(expected)
       })

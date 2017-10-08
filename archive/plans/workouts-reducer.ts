@@ -9,11 +9,11 @@ import * as core from 'modules/core'
 /**
  * Workouts keyed by their ID.
  */
-export const byId = (
-  s: core.ById<Workout> = {},
+export const entities = (
+  s: core.Entities<Workout> = {},
   a: core.Action<any>,
-): core.ById<Workout> => {
-  return core.handleActions<core.ById<Workout>>(
+): core.Entities<Workout> => {
+  return core.handleActions<core.Entities<Workout>>(
     a,
     {
       [actions.ADD]: ({payload}) => !s[payload.workout.id]
@@ -51,6 +51,6 @@ export const allIds = (
 }
 
 export default combineReducers({
-  byId,
+  entities,
   allIds,
 })

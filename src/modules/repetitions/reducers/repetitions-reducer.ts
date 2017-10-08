@@ -2,18 +2,18 @@ import {createSelector} from 'reselect'
 import {combineReducers} from 'redux'
 import {pickBy} from 'ramda'
 
-import * as actions from './repetitions-actions'
-import {Repetition} from './repetitions-model'
+import * as actions from '../actions/repetitions-actions'
+import {Repetition} from '../repetitions-model'
 import * as core from 'modules/core'
 
 /**
  * Repetitions keyed by their ID.
  */
-export const byId = (
-  s: core.ById<Repetition> = {},
+export const entities = (
+  s: core.Entities<Repetition> = {},
   a: core.Action<any>,
-): core.ById<Repetition> => {
-  return core.handleActions<core.ById<Repetition>>(
+): core.Entities<Repetition> => {
+  return core.handleActions<core.Entities<Repetition>>(
     a,
     {
       [actions.ADD]: ({payload}) => !s[payload.repetition.id]
@@ -49,8 +49,3 @@ export const allIds = (
     s,
   )
 }
-
-export default combineReducers({
-  byId,
-  allIds,
-})

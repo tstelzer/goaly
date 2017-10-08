@@ -1,9 +1,12 @@
-import {StateSlice} from 'modules/core'
+import {Entities, AllIds} from 'modules/core'
 import * as repetitions from 'modules/repetitions/'
 
 export interface Store {
-  readonly repetitions: StateSlice<repetitions.model.Repetition>,
-  readonly ui: {
-    readonly repetitions: {readonly selected: string},
-  },
+  readonly repetitions: {
+    readonly ui: {
+      readonly selectedRepetition: string,
+    },
+    readonly entities: Entities<repetitions.model.Repetition>,
+    readonly allIds: AllIds,
+  }
 }

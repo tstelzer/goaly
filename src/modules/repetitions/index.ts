@@ -1,6 +1,6 @@
-import * as actions from './repetitions-actions'
+import * as actions from './actions/repetitions-actions'
 import * as model from './repetitions-model'
-import * as selectors from './repetitions-selectors'
-import reducer from './repetitions-reducer'
+import * as selectors from './selectors/repetitions-selectors'
+import reducer from './reducers'
 
 export {actions, reducer, model, selectors}

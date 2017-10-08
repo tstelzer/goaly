@@ -9,11 +9,11 @@ import * as core from 'modules/core'
 /**
  * set keyed by their ID.
  */
-export const byId = (
-  s: core.ById<Set> = {},
+export const entities = (
+  s: core.Entities<Set> = {},
   a: core.Action<any>,
-): core.ById<Set> => {
-  return core.handleActions<core.ById<Set>>(
+): core.Entities<Set> => {
+  return core.handleActions<core.Entities<Set>>(
     a,
     {
       [actions.ADD]: ({payload}) => !s[payload.set.id]
@@ -51,6 +51,6 @@ export const allIds = (
 }
 
 export default combineReducers({
-  byId,
+  entities,
   allIds,
 })

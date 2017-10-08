@@ -19,6 +19,8 @@ export const repetitions = {
     selectors.getEntitiesList(state.repetitions),
 }
 
-const getSelectedId = (state: Store) => state.ui.repetitions.selected
+const getSelectedId = (state: Store) =>
+  state.repetitions.ui.selectedRepetition
+
 export const getSelected = (state: Store) =>
   repetitions.getRepetition(state)(getSelectedId(state))

@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-import {StateSlice, ById, AllIds, selectors} from 'modules/core'
+import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
 import {Set} from './sets-model'
 
 export const getEntities = (state: StateSlice<Set>) =>

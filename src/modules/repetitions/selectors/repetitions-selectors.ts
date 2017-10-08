@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect'
 
-import {StateSlice, ById, AllIds, selectors} from 'modules/core'
-import {Repetition} from './repetitions-model'
+import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
+import {Repetition} from '../repetitions-model'
 
 export const getEntities = (state: StateSlice<Repetition>) =>
   selectors.getEntities(state)

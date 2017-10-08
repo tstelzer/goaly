@@ -1,13 +1,13 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 
-import {Expandable} from 'modules/core/components/'
-import {Store} from 'app/store/store-types'
-import {model} from 'modules/repetitions/'
 import {repetitions, getSelected} from 'app/selectors/global-selectors'
+import {Store} from 'app/store/store-types'
+import {Expandable} from 'modules/core/components/'
+import {Repetition} from '../repetitions-model'
 
 interface Props {
-  readonly repetition: model.Repetition,
+  readonly repetition: Repetition,
 }
 
 const mapState = (state: Store) => ({

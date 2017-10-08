@@ -45,7 +45,7 @@
 //
 // // export interface RepetitionState {
 // //     readonly allIds: number[]
-// //     readonly byId: any,
+// //     readonly entities: any,
 // // }
 //
 // export interface CreateAction {
