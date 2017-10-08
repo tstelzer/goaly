@@ -7,6 +7,9 @@ import {Action} from 'modules/core'
 export const ADD = `${DOMAIN}/ADD`
 export interface ADD {readonly repetition: Repetition}
 
+/**
+ * Creates ADD action.
+ */
 export const add = (
   name: string = '',
   description: string = '',
@@ -25,6 +28,9 @@ export const add = (
 export const EDIT = `${DOMAIN}/EDIT`
 export interface EDIT {readonly repetition: Partial<Repetition>}
 
+/**
+ * Creates EDIT action.
+ */
 export const edit = (
   repetition: Repetition,
 ): Action<EDIT> => ({
@@ -35,6 +41,9 @@ export const edit = (
 export const REMOVE = `${DOMAIN}/REMOVE`
 export interface REMOVE {readonly id: string}
 
+/**
+ * Creates REMOVE action.
+ */
 export const remove = (
   id: string,
 ): Action<REMOVE> => ({

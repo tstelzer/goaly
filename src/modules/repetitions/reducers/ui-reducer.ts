@@ -4,6 +4,9 @@ import * as core from 'modules/core'
 import * as actions from '../actions/ui-actions'
 import * as model from '../repetitions-model'
 
+/**
+ * Repetitions UI specific state.
+ */
 export const ui: model.UiReducer = (
   s = {selectedRepetition: ''},
   a,
