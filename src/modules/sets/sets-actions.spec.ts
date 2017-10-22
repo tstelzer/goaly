@@ -1,3 +1,4 @@
+/* tslint:disable no-expression-statement */
 import {hasIn} from 'ramda'
 
 import * as actions from './sets-actions'

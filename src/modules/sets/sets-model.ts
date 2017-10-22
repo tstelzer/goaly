@@ -1,9 +1,11 @@
 /**
- * @prop {String} description A short description of the set.
- * @prop {String} name A terse identifier for the set.
+ * A set is a collection of repetitions.
  */
 export interface Set {
     readonly id: string
     readonly name?: string
     readonly description?: string
+    readonly repetitions?: {
+      readonly [slot: number]: string,
+    }
 }

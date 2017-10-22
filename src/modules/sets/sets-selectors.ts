@@ -14,4 +14,3 @@ export const getIds = (state: StateSlice<Set>) =>
 
 export const getEntity = (state: StateSlice<Set>) =>
   selectors.getEntity(state)
-
