@@ -12,3 +12,6 @@ export const selectRow = (
   type: SELECT,
   payload: {id},
 })
+
+export type UiActions =
+  | SELECT

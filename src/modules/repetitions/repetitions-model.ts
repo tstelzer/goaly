@@ -1,7 +1,3 @@
-import {Entities, AllIds, Action, Reducer} from 'modules/core'
-import * as repActions from './actions/repetitions-actions'
-import * as uiActions from './actions/ui-actions'
-
 /**
  * Target muscle group.
  */
@@ -39,37 +35,12 @@ export enum Type {
 
 /**
  * A repetition is a single, controlled exercise.
- * A group of repetitions is a set.
  */
 export interface Repetition {
   readonly id: string
-  readonly name: string
-  readonly description: string
+  readonly name?: string
+  readonly description?: string
   readonly level?: Level
   readonly type?: Type
   readonly muscles?: Muscle[]
 }
-
-type EntitiesActions =
-  | repActions.ADD
-  | repActions.EDIT
-  | repActions.REMOVE
-
-export type EntitiesReducer =
-  Reducer<Entities<Repetition>, Action<EntitiesActions>>
-
-type AllIdsActions =
-  | repActions.ADD
-  | repActions.REMOVE
-
-export type AllIdsReducer =
-  Reducer<AllIds, Action<AllIdsActions>>
-
-export interface UiState {
-  readonly selectedRepetition: string
-}
-
-type UiActions =
-  | uiActions.SELECT
-
-export type UiReducer = Reducer<UiState, Action<UiActions>>

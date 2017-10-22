@@ -23,7 +23,7 @@ export const RepetitionList = ({
   repetitions,
   select,
 }: {
-  readonly repetitions: model.Repetition[]
+  readonly repetitions: model.Repetition[],
   readonly select: typeof selectRow,
 }) => {
   const rows = repetitions.map(rep => {

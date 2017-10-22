@@ -1,17 +1,22 @@
-import {combineReducers, Reducer} from 'redux'
+import {combineReducers} from 'redux'
 
-import * as core from 'modules/core'
+import {Action, Reducer, handleActions} from 'modules/core'
 import * as actions from '../actions/ui-actions'
 import * as model from '../repetitions-model'
+
+export interface UiState {
+  readonly selectedRepetition: string
+}
+type ui = Reducer<UiState, Action<actions.UiActions>>
 
 /**
  * Repetitions UI specific state.
  */
-export const ui: model.UiReducer = (
+export const ui: ui = (
   s = {selectedRepetition: ''},
   a,
 ) => {
-  return core.handleActions<model.UiState>(
+  return handleActions<UiState>(
     a,
     {
       [actions.SELECT]: ({payload}) => ({

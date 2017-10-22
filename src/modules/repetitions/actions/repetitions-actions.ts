@@ -51,7 +51,11 @@ export const remove = (
   payload: {id},
 })
 
-export type AllActions =
+export type EntitiesActions =
   | ADD
   | EDIT
+  | REMOVE
+
+export type AllIdsActions =
+  | ADD
   | REMOVE

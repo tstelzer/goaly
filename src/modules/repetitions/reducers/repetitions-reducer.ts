@@ -2,21 +2,24 @@ import {createSelector} from 'reselect'
 import {combineReducers} from 'redux'
 import {pickBy} from 'ramda'
 
+import {Entities, AllIds, Action, Reducer, handleActions, add, edit} from 'modules/core'
 import * as actions from '../actions/repetitions-actions'
-import {Repetition, EntitiesReducer, AllIdsReducer} from '../repetitions-model'
-import * as core from 'modules/core'
+import {Repetition} from '../repetitions-model'
+
+type EntitiesState = Entities<Repetition>
+type entities = Reducer<EntitiesState, Action<actions.EntitiesActions>>
 
 /**
  * Repetitions keyed by their ID.
  */
-export const entities: EntitiesReducer = (s = {}, a) => {
-  return core.handleActions<core.Entities<Repetition>>(
+export const entities: entities = (s = {}, a) => {
+  return handleActions<EntitiesState>(
     a,
     {
       [actions.ADD]: ({payload}) =>
-        !s[payload.repetition.id] ? core.add(s, payload.repetition) : s,
+        !s[payload.repetition.id] ? add(s, payload.repetition) : s,
       [actions.EDIT]: ({payload}) =>
-        s[payload.repetition.id] ? core.edit(s, payload.repetition) : s,
+        s[payload.repetition.id] ? edit(s, payload.repetition) : s,
       [actions.REMOVE]: ({payload}) =>
         pickBy((repetition, id) => id !== payload.id, s),
       ['DEFAULT']: ({payload}) => s,
@@ -25,11 +28,13 @@ export const entities: EntitiesReducer = (s = {}, a) => {
   )
 }
 
+type allIds = Reducer<AllIds, Action<actions.AllIdsActions>>
+
 /**
  * Collection of IDs of existing repetitions.
  */
-export const allIds: AllIdsReducer = (s = [], a) => {
-  return core.handleActions<core.AllIds>(
+export const allIds: allIds = (s = [], a) => {
+  return handleActions<AllIds>(
     a,
     {
       [actions.ADD]: ({payload}) =>
