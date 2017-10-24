@@ -1,3 +1,4 @@
+import {range} from 'ramda'
 /**
  * Flips an objects property.
  *
@@ -34,3 +35,37 @@ export const swapProp = (prop: string) =>
             {...a2, [prop]: a1[prop]},
         ]
 }
+
+interface OrderedHash<T> {readonly [i: number]: T}
+/**
+ * Fixes order in ordered hash.
+ */
+/* tslint:disable no-let no-expression-statement no-object-mutation readonly-keyword prefer-const*/
+export const fixOrder = <T>(input: OrderedHash<T> = {}): OrderedHash<T> => {
+  const length = Object.keys(input).length
+  const order = range(1, length + 1)
+  let output: {[i: number]: any} = {...input}
+
+  order.forEach((value, index) => {
+    if (!output[value]) {
+      for (let i = 0; i <= length; i++) {
+        if (output[value + i]) {
+          output[value] = output[value + i]
+          delete output[value + i]
+          break
+        }
+      }
+    }
+  })
+
+  return output
+}
+/* tslint:enable no-let no-expression-statement no-object-mutation readonly-keyword prefer-const*/
+
+/**
+ * Adds a value to an ordered hash.
+ */
+export const addToOrdered = <T>(o: OrderedHash<T> = {}) => (value: T): OrderedHash<T> => ({
+  ...o,
+  [Object.keys(o).length + 1]: value,
+})
