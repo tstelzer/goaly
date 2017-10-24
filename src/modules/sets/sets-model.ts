@@ -1,5 +1,8 @@
 /**
- * A set is a collection of repetitions.
+ * A set is an ordered collection of repetitions.
+ * Each entry is uniquely identifiable by its slot,
+ * which is why we can have more than one of the same
+ * repetition per set. Sets can be emtpy.
  */
 export interface Set {
     readonly id: string

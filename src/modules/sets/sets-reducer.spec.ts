@@ -1,7 +1,8 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {entities, allIds} from './sets-reducer'
+import {Action} from 'modules/core'
+import {entities, allIds, setReps, SetRepsState} from './sets-reducer'
 import * as actions from './sets-actions'
 import {Set} from './sets-model'
 
@@ -21,7 +22,7 @@ describe('sets', () => {
       }
 
       expect(entities({}, {
-        type: actions.ADD,
+        type: actions.ADD_SET,
         payload: {
           set: setOne
         },
@@ -32,7 +33,7 @@ describe('sets', () => {
       expect(entities({
         '1': setOne
       }, {
-        type: actions.ADD,
+        type: actions.ADD_SET,
         payload: {
           set: setTwo
         },
@@ -52,7 +53,7 @@ describe('sets', () => {
       }
 
       expect(entities(state, {
-        type: actions.ADD,
+        type: actions.ADD_SET,
         payload: {
           set: {
             id: '1',
@@ -74,7 +75,7 @@ describe('sets', () => {
       }
 
       expect(entities(state, {
-        type: actions.EDIT,
+        type: actions.EDIT_SET,
         payload: {
           set: {
             id: '1',
@@ -89,7 +90,7 @@ describe('sets', () => {
         }
       })
       expect(entities(state, {
-        type: actions.EDIT,
+        type: actions.EDIT_SET,
         payload: {
           set: {
             id: '1',
@@ -114,7 +115,7 @@ describe('sets', () => {
         }
       }
       expect(entities(state, {
-        type: actions.EDIT,
+        type: actions.EDIT_SET,
         payload: {
           set: {
             id: '2',
@@ -134,7 +135,7 @@ describe('sets', () => {
         }
       }
       expect(entities(state, {
-        type: actions.REMOVE,
+        type: actions.REMOVE_SET,
         payload: {id: '1'},
       })).toEqual({})
     })
@@ -145,7 +146,7 @@ describe('sets', () => {
 
     it('adds the id of a new set', () => {
       expect(allIds([], {
-        type: actions.ADD,
+        type: actions.ADD_SET,
         payload: {
           set: {
             id: '1',
@@ -158,7 +159,7 @@ describe('sets', () => {
 
     it('drops the addAction if the id already exists', () => {
       expect(allIds(['1'], {
-        type: actions.ADD,
+        type: actions.ADD_SET,
         payload: {
           set: {
             id: '1',
@@ -171,10 +172,50 @@ describe('sets', () => {
 
     it('removes an id', () => {
       expect(allIds(['1', '2', '3'], {
-        type: actions.REMOVE,
+        type: actions.REMOVE_SET,
         payload: {id: '1'}
       })).toEqual(['2', '3'])
     })
 
+  })
+
+  describe('set-repetitions reducer', () => {
+    it('adds the id of a repetition', () => {
+      const state1: SetRepsState = {}
+      const action1: Action<actions.ADD_SETREP> = {
+        type: actions.ADD_SETREP,
+        payload: {
+          setId: 'S_ID',
+          repId: 'R_ID',
+        },
+      }
+      const expected1: SetRepsState = {S_ID: {1: 'R_ID'}}
+
+      expect(setReps(state1, action1)).toEqual(expected1)
+
+      const state2: SetRepsState = {S_ID: {1: 'a'}}
+      const action2: Action<actions.ADD_SETREP> = {
+        type: actions.ADD_SETREP,
+        payload: {
+          setId: 'S_ID',
+          repId: 'b',
+        },
+      }
+      const expected2: SetRepsState = {S_ID: {1: 'a', 2: 'b'}}
+
+      expect(setReps(state2, action2)).toEqual(expected2)
+
+      const state3: SetRepsState = {S_ID: {1: 'a', 3: 'c'}}
+      const action3: Action<actions.ADD_SETREP> = {
+        type: actions.ADD_SETREP,
+        payload: {
+          setId: 'S_ID',
+          repId: 'b',
+        },
+      }
+      const expected3: SetRepsState = {S_ID: {1: 'a', 2: 'c', 3: 'b'}}
+
+      expect(setReps(state3, action3)).toEqual(expected3)
+    })
   })
 })
