@@ -21,12 +21,18 @@ export enum Muscle {
   'Chest' = 17,
 }
 
+/**
+ * The aproximate skill level of the exercise.
+ */
 export enum Level {
   'Beginner' = 1,
   'Intermediate' = 2,
   'Expert' = 3,
 }
 
+/**
+ * The type of the exercise.
+ */
 export enum Type {
   'Cardio' = 1,
   'Strength' = 2,

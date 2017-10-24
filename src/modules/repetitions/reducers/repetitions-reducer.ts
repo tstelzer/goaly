@@ -6,7 +6,7 @@ import {Entities, AllIds, Action, Reducer, handleActions, add, edit} from 'modul
 import * as actions from '../actions/repetitions-actions'
 import {Repetition} from '../repetitions-model'
 
-type EntitiesState = Entities<Repetition>
+export type EntitiesState = Entities<Repetition>
 type entities = Reducer<EntitiesState, Action<actions.EntitiesActions>>
 
 /**
@@ -28,7 +28,8 @@ export const entities: entities = (s = {}, a) => {
   )
 }
 
-type allIds = Reducer<AllIds, Action<actions.AllIdsActions>>
+export type AllIdsState = AllIds
+type allIds = Reducer<AllIdsState, Action<actions.AllIdsActions>>
 
 /**
  * Collection of IDs of existing repetitions.
