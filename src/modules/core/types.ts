@@ -9,9 +9,10 @@ export interface Action<T> {
   readonly error?: boolean
   readonly meta?: any
 }
+export type HandleActions = <S, A>(a: Action<A>, h: HandlersMap<S, A>, s: S) => S
 
-export interface HandlersMap<T> {
-  readonly [type: string]: (action: Action<any>) => T,
+export interface HandlersMap<S, A> {
+  readonly [i: string]: (action: Action<A>) => S,
 }
 
 export interface Entities<T> {

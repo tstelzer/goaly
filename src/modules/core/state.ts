@@ -1,6 +1,6 @@
 import {merge} from 'ramda'
 
-import {Action, HandlersMap} from 'modules/core'
+import {Action, HandlersMap, HandleActions} from 'modules/core'
 
 /**
  * Updates the state with an entity.
@@ -31,11 +31,11 @@ const DEFAULT = 'DEFAULT'
  * 1. Typesafety for state and return values.
  * 2. Reduce boilerplace in reducer, removes switch/case.
  */
-export const handleActions = <T>(
-  action: Action<any>,
-  handlers: HandlersMap<T>,
-  defaultState: T,
-): T => {
+export const handleActions: HandleActions = (
+  action,
+  handlers,
+  defaultState,
+) => {
   const handler = handlers[action.type] || handlers[DEFAULT]
   return handler ? handler(action) : defaultState
 }

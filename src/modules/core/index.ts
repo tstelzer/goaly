@@ -7,6 +7,7 @@ export {handleActions, add, edit} from './state'
 export {
   Action,
   HandlersMap,
+  HandleActions,
   Entities,
   AllIds,
   StoreSlice,
