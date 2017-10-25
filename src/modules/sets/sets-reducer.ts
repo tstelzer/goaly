@@ -7,7 +7,7 @@ import {Set} from './sets-model'
 import * as core from 'modules/core'
 
 export type EntitiesState = core.Entities<Set>
-type entities = core.Reducer<EntitiesState, core.Action<actions.EntitiesActions>>
+type entities = core.Reducer<EntitiesState, actions.EntitiesActions>
 
 /**
  * Sets keyed by their ID.
@@ -16,25 +16,20 @@ export const entities: entities = (
   s = {},
   a,
 ) => {
-  return core.handleActions<EntitiesState>(
-    a,
-    {
-      [actions.ADD_SET]: ({payload}) => !s[payload.set.id]
-        ? core.add(s, payload.set)
-        : s,
-      [actions.EDIT_SET]: ({payload}) => s[payload.set.id]
-        ? core.edit(s, payload.set)
-        : s,
-      [actions.REMOVE_SET]: ({payload}) =>
-        pickBy((set, id) => id !== payload.id, s),
-      ['DEFAULT']: ({payload}) => s,
-    },
-    s,
-  )
+  switch (a.type) {
+    case 'sets/ADD_SET': return !s[a.payload.set.id]
+        ? core.add(s, a.payload.set)
+        : s
+    case 'sets/EDIT_SET': return s[a.payload.set.id]
+        ? core.edit(s, a.payload.set)
+        : s
+    case 'sets/REMOVE_SET': return  pickBy((set, id) => id !== a.payload.id, s)
+    default: return s
+  }
 }
 
 export type AllIdsState = core.AllIds
-type allIds = core.Reducer<AllIdsState, core.Action<actions.AllIdsActions>>
+type allIds = core.Reducer<AllIdsState, actions.AllIdsActions>
 
 /**
  * Collection of IDs of existing sets.
@@ -43,17 +38,13 @@ export const allIds: allIds = (
   s = [],
   a,
 ) => {
-  return core.handleActions<core.AllIds>(
-    a,
-    {
-      [actions.ADD_SET]: ({payload}) => !s.includes(payload.set.id)
-        ? s.concat(payload.set.id)
-        : s,
-      [actions.REMOVE_SET]: ({payload}) => s.filter(x => x !== payload.id),
-      ['DEFAULT']: ({payload}) => s,
-    },
-    s,
-  )
+  switch (a.type) {
+    case 'sets/ADD_SET': return !s.includes(a.payload.set.id)
+        ? s.concat(a.payload.set.id)
+        : s
+    case 'sets/REMOVE_SET': return s.filter(x => x !== a.payload.id)
+    default: return s
+  }
 }
 
 export interface SetRepsState {
@@ -61,7 +52,7 @@ export interface SetRepsState {
     readonly [index: number]: string,
   }
 }
-type setReps = core.Reducer<SetRepsState, core.Action<actions.SetRepActions>>
+type setReps = core.Reducer<SetRepsState, actions.SetRepActions>
 
 /**
  * Ordered hash of repetition ids on sets.
@@ -70,18 +61,15 @@ export const setReps: setReps = (
   s = {},
   a,
 ) => {
-  return core.handleActions<SetRepsState>(
-    a,
-    {
-      [actions.ADD_SETREP]: ({payload}) => ({
-        ...s,
-        [payload.setId]: {
-          ...core.addToOrdered(core.fixOrder(s[payload.setId]))(payload.repId),
-        },
-      }),
-    },
-    s,
-  )
+  switch (a.type) {
+    case 'sets/ADD_SETREP': return {
+      ...s,
+      [a.payload.setId]: {
+        ...core.addToOrdered(core.fixOrder(s[a.payload.setId]))(a.payload.repId),
+      },
+    }
+    default: return s
+  }
 }
 
 export default combineReducers({
