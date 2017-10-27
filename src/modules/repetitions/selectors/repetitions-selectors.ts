@@ -1,16 +1,17 @@
 import {createSelector} from 'reselect'
 
 import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
+import {RepetitionsState} from '../reducers'
 import {Repetition} from '../repetitions-model'
 
-export const getEntities = (state: StateSlice<Repetition>) =>
+export const getEntities = (state: RepetitionsState) =>
   selectors.getEntities(state)
 
-export const getEntitiesList = (state: StateSlice<Repetition>) =>
+export const getEntitiesList = (state: RepetitionsState) =>
   selectors.getEntitiesList(state)
 
-export const getIds = (state: StateSlice<Repetition>) =>
+export const getIds = (state: RepetitionsState) =>
   selectors.getIds(state)
 
-export const getEntity = (state: StateSlice<Repetition>) =>
+export const getEntity = (state: RepetitionsState) =>
   selectors.getEntity(state)

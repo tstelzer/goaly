@@ -1,9 +1,8 @@
 import {keys} from 'ramda'
 import {createSelector} from 'reselect'
 
-import {StateSlice, StoreSlice, selectors} from 'modules/core'
+import {selectors} from 'modules/core'
 import {Store} from 'app/store/store-types'
-import {model as repsModel} from 'modules/repetitions/'
 
 export const repetitions = {
   getIds: (state: Store) =>

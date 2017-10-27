@@ -21,7 +21,7 @@ export const add = (state: any, entity: any): any => ({
   [entity.id]: entity,
 })
 
-const DEFAULT = 'DEFAULT'
+// const DEFAULT = 'DEFAULT'
 
 /**
  * Pattern for handling actions in a reducer.

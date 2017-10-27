@@ -2,6 +2,11 @@
 import {Store} from './store-types'
 
 export const fakeData: Store = {
+  sets: {
+    entities: {},
+    allIds: [],
+    setReps: {},
+  },
   repetitions: {
     entities: {
       1: {

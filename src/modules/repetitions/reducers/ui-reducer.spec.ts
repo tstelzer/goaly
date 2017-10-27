@@ -2,7 +2,7 @@
 import {Action} from 'modules/core'
 import {Store} from 'app/store/store-types'
 import {ui, UiState} from './ui-reducer'
-import * as actions from '../actions/ui-actions'
+import {types, SelectAction} from '../actions/ui-actions'
 import * as model from '../repetitions-model'
 
 describe('repetitions', () => {
@@ -11,8 +11,8 @@ describe('repetitions', () => {
       const state: UiState = {
         selectedRepetition: '1',
       }
-      const action: actions.SELECT = {
-        type: actions.SELECT,
+      const action: SelectAction = {
+        type: types.SELECT,
         payload: {id: '2'},
       }
 

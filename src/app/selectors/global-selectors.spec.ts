@@ -7,6 +7,11 @@ describe('global selectors', () => {
     describe('getSelectedRepetition', () => {
       it('returns the currently selected repetition', () => {
         const fakeData: Store = {
+          sets: {
+            entities: {},
+            allIds: [],
+            setReps: {},
+          },
           repetitions: {
             entities: {
               1: {

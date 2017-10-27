@@ -12,7 +12,7 @@ describe('sets', () => {
       const set = {id: '1', name, description}
       const result = actions.add(name, description, () => '1')
       const expectedResult = {
-        type: actions.ADD_SET,
+        type: actions.types.ADD_SET,
         payload: {set},
       }
 
@@ -26,7 +26,7 @@ describe('sets', () => {
         description: 'some description',
       }
       const expectedResult = {
-        type: actions.EDIT_SET,
+        type: actions.types.EDIT_SET,
         payload: {set},
       }
       const result = actions.edit(set)
@@ -36,7 +36,7 @@ describe('sets', () => {
 
     it('creates an action to remove a set', () => {
       const expectedResult = {
-        type: actions.REMOVE_SET,
+        type: actions.types.REMOVE_SET,
         payload: {id: '1'},
       }
       const result = actions.remove("1")

@@ -1,12 +1,8 @@
 import {Entities, AllIds} from 'modules/core'
-import * as repetitions from 'modules/repetitions/'
+import {state as RepetitionsState} from 'modules/repetitions/'
+import {state as SetsState} from 'modules/sets/'
 
 export interface Store {
-  readonly repetitions: {
-    readonly ui: {
-      readonly selectedRepetition: string,
-    },
-    readonly entities: Entities<repetitions.model.Repetition>,
-    readonly allIds: AllIds,
-  }
+  readonly repetitions: RepetitionsState,
+  readonly sets: SetsState,
 }

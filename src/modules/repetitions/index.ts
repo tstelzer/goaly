@@ -1,6 +1,5 @@
-import * as actions from './actions/repetitions-actions'
 import * as model from './repetitions-model'
 import * as selectors from './selectors/repetitions-selectors'
-import reducer from './reducers'
+import reducer, {RepetitionsState as state} from './reducers'
 
-export {actions, reducer, model, selectors}
+export {reducer, model, selectors, state}

@@ -1,9 +1,15 @@
 import {combineReducers} from 'redux'
 
-import {allIds, entities} from './repetitions-reducer'
-import {ui} from './ui-reducer'
+import {allIds, entities, EntitiesState, AllIdsState} from './repetitions-reducer'
+import {ui, UiState} from './ui-reducer'
 
-export default combineReducers({
+export interface RepetitionsState {
+  readonly ui: UiState,
+  readonly entities: EntitiesState,
+  readonly allIds: AllIdsState,
+}
+
+export default combineReducers<RepetitionsState>({
   entities,
   allIds,
   ui,

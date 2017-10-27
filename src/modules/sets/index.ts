@@ -1,6 +1,5 @@
-import * as actions from './sets-actions'
 import * as selectors from './sets-selectors'
 import * as model from './sets-model'
-import reducer from './sets-reducer'
+import reducer, {SetsState as state} from './reducers'
 
-export {actions, reducer, selectors, model}
+export {reducer, selectors, model, state}

@@ -3,7 +3,7 @@ import {propEq, find} from 'ramda'
 
 import {Action, AllIds} from 'modules/core'
 import {entities, allIds} from './repetitions-reducer'
-import {ADD, EDIT, REMOVE} from '../actions/repetitions-actions'
+import * as actions from '../actions/repetitions-actions'
 import {Repetition} from '../repetitions-model'
 
 describe('repetitions', () => {
@@ -20,14 +20,14 @@ describe('repetitions', () => {
         name: 'other name',
         description: 'other description',
       }
-      const actionOne: ADD = {
-        type: ADD,
+      const actionOne: actions.AddAction = {
+        type: actions.types.ADD,
         payload: {
           repetition: repetitionOne,
         },
       }
-      const actionTwo: ADD = {
-        type: ADD,
+      const actionTwo: actions.AddAction = {
+        type: actions.types.ADD,
         payload: {
           repetition: repetitionTwo,
         },
@@ -52,8 +52,8 @@ describe('repetitions', () => {
           description: 'description',
         },
       }
-      const action: ADD = {
-        type: ADD,
+      const action: actions.AddAction = {
+        type: actions.types.ADD,
         payload: {
           repetition: {
             id: '1',
@@ -73,8 +73,8 @@ describe('repetitions', () => {
         description: 'old description',
       }
       const state = {1: repetitionOld}
-      const action1: EDIT = {
-        type: EDIT,
+      const action1: actions.EditAction = {
+        type: actions.types.EDIT,
         payload: {
           repetition: {
             id: '1',
@@ -82,8 +82,8 @@ describe('repetitions', () => {
           },
         },
       }
-      const action2: EDIT = {
-        type: EDIT,
+      const action2: actions.EditAction = {
+        type: actions.types.EDIT,
         payload: {
           repetition: {
             id: '1',
@@ -116,8 +116,8 @@ describe('repetitions', () => {
           description: 'some description',
         },
       }
-      const action: EDIT = {
-        type: EDIT,
+      const action: actions.EditAction = {
+        type: actions.types.EDIT,
         payload: {
           repetition: {
             id: '2',
@@ -138,8 +138,8 @@ describe('repetitions', () => {
           description: 'description',
         },
       }
-      const action: REMOVE = {
-        type: REMOVE,
+      const action: actions.RemoveAction = {
+        type: actions.types.REMOVE,
         payload: {id: '1'},
       }
 
@@ -151,8 +151,8 @@ describe('repetitions', () => {
   describe('allIds reducer', () => {
 
     it('adds the id of a new repetition', () => {
-      const action: ADD = {
-        type: ADD,
+      const action: actions.AddAction = {
+        type: actions.types.ADD,
         payload: {
           repetition: {
             id: '1',
@@ -167,8 +167,8 @@ describe('repetitions', () => {
 
     it('drops the addAction if the id already exists', () => {
       const state: AllIds = ['1']
-      const action: ADD = {
-        type: ADD,
+      const action: actions.AddAction = {
+        type: actions.types.ADD,
         payload: {
           repetition: {
             id: '1',
@@ -183,8 +183,8 @@ describe('repetitions', () => {
 
     it('removes an id', () => {
       const state: AllIds = ['1', '2', '3']
-      const action: REMOVE = {
-        type: REMOVE,
+      const action: actions.RemoveAction = {
+        type: actions.types.REMOVE,
         payload: {id: '1'},
       }
 

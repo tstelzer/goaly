@@ -1,17 +1,19 @@
 import {Action} from 'modules/core'
 
-export const SELECT = 'SELECT_ROW'
-export type SELECT = Action<'SELECT_ROW', {readonly id: string}>
+export enum types {
+  SELECT = 'SELECT_ROW',
+}
+export type SelectAction = Action<types.SELECT, {readonly id: string}>
 
 /**
  * Creates SELECT action.
  */
 export const selectRow = (
   id: string,
-): SELECT => ({
-  type: SELECT,
+): SelectAction => ({
+  type: types.SELECT,
   payload: {id},
 })
 
 export type UiActions =
-  | SELECT
+  | SelectAction

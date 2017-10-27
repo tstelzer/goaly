@@ -13,8 +13,8 @@ describe('repetitions', () => {
       const repetition: Repetition = {id: '1', name, description}
 
       const result = actions.add(name, description, () => '1')
-      const expectedResult: actions.ADD = {
-        type: actions.ADD,
+      const expectedResult: actions.AddAction = {
+        type: actions.types.ADD,
         payload: {repetition},
       }
 
@@ -29,8 +29,8 @@ describe('repetitions', () => {
       }
 
       const result = actions.edit(repetition)
-      const expectedResult: actions.EDIT = {
-        type: actions.EDIT,
+      const expectedResult: actions.EditAction = {
+        type: actions.types.EDIT,
         payload: {repetition},
       }
 
@@ -39,8 +39,8 @@ describe('repetitions', () => {
 
     it('creates an action to remove a repetition', () => {
       const result = actions.remove('1')
-      const expectedResult: actions.REMOVE = {
-        type: actions.REMOVE,
+      const expectedResult: actions.RemoveAction = {
+        type: actions.types.REMOVE,
         payload: {id: '1'},
       }
 
