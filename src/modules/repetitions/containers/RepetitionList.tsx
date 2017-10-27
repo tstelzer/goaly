@@ -65,8 +65,10 @@ export const RepetitionList = ({
         cursor: 'pointer',
       },
       onClick: (e: Event, handleOriginal: any) => {
+        /* tslint:disable no-expression-statement */
         select(rowInfo.row.id)
-        if (handleOriginal) handleOriginal()
+        if (handleOriginal) {handleOriginal()}
+        /* tslint:enable no-expression-statement */
       },
     }
   }
