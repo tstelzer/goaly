@@ -24,32 +24,32 @@ describe('sets', () => {
       expect(entities({}, {
         type: actions.ADD_SET,
         payload: {
-          set: setOne
+          set: setOne,
         },
       })).toEqual({
-        '1': setOne
+        1: setOne,
       })
 
       expect(entities({
-        '1': setOne
+        1: setOne,
       }, {
         type: actions.ADD_SET,
         payload: {
-          set: setTwo
+          set: setTwo,
         },
       })).toEqual({
-        '1': setOne,
-        '2': setTwo,
+        1: setOne,
+        2: setTwo,
       })
     })
 
     it('drops the addAction when the id already exists', () => {
       const state = {
-        '1': {
+        1: {
           id: '1',
           name: 'name',
           description: 'description',
-        }
+        },
       }
 
       expect(entities(state, {
@@ -59,8 +59,8 @@ describe('sets', () => {
             id: '1',
             name: 'another name',
             description: 'another description',
-          }
-        }
+          },
+        },
       })).toEqual(state)
     })
 
@@ -71,7 +71,7 @@ describe('sets', () => {
         description: 'old description',
       }
       const state = {
-        '1': setOld
+        1: setOld,
       }
 
       expect(entities(state, {
@@ -80,14 +80,14 @@ describe('sets', () => {
           set: {
             id: '1',
             name: 'new name',
-          }
-        }
+          },
+        },
       })).toEqual({
-        '1': {
+        1: {
           id: '1',
           name: 'new name',
           description: 'old description',
-        }
+        },
       })
       expect(entities(state, {
         type: actions.EDIT_SET,
@@ -95,24 +95,24 @@ describe('sets', () => {
           set: {
             id: '1',
             description: 'new description',
-          }
-        }
+          },
+        },
       })).toEqual({
-        '1': {
+        1: {
           id: '1',
           name: 'old name',
           description: 'new description',
-        }
+        },
       })
     })
 
     it('drops the editAction when the id does not exist', () => {
       const state = {
-        '1': {
+        1: {
           id: '1',
           name: 'some name',
-          description: 'some description'
-        }
+          description: 'some description',
+        },
       }
       expect(entities(state, {
         type: actions.EDIT_SET,
@@ -121,18 +121,18 @@ describe('sets', () => {
             id: '2',
             name: 'another name',
             description: 'another description',
-          }
-        }
+          },
+        },
       })).toEqual(state)
     })
 
     it('removes a set', () => {
       const state = {
-        '1': {
+        1: {
           id: '1',
           name: 'name',
           description: 'description',
-        }
+        },
       }
       expect(entities(state, {
         type: actions.REMOVE_SET,
@@ -152,8 +152,8 @@ describe('sets', () => {
             id: '1',
             name: 'name',
             description: 'description',
-          }
-        }
+          },
+        },
       })).toEqual(['1'])
     })
 
@@ -165,8 +165,8 @@ describe('sets', () => {
             id: '1',
             name: 'name',
             description: 'description',
-          }
-        }
+          },
+        },
       })).toEqual(['1'])
     })
 
@@ -182,7 +182,7 @@ describe('sets', () => {
   describe('set-repetitions reducer', () => {
     it('adds the id of a repetition', () => {
       const state1: SetRepsState = {}
-      const action1: Action<actions.ADD_SETREP> = {
+      const action1: actions.ADD_SETREP = {
         type: actions.ADD_SETREP,
         payload: {
           setId: 'S_ID',
@@ -194,7 +194,7 @@ describe('sets', () => {
       expect(setReps(state1, action1)).toEqual(expected1)
 
       const state2: SetRepsState = {S_ID: {1: 'a'}}
-      const action2: Action<actions.ADD_SETREP> = {
+      const action2: actions.ADD_SETREP = {
         type: actions.ADD_SETREP,
         payload: {
           setId: 'S_ID',
@@ -206,7 +206,7 @@ describe('sets', () => {
       expect(setReps(state2, action2)).toEqual(expected2)
 
       const state3: SetRepsState = {S_ID: {1: 'a', 3: 'c'}}
-      const action3: Action<actions.ADD_SETREP> = {
+      const action3: actions.ADD_SETREP = {
         type: actions.ADD_SETREP,
         payload: {
           setId: 'S_ID',

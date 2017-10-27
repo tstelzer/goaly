@@ -3,17 +3,17 @@ export type Reducer<S, A> = (
   action: A,
 ) => S
 
-export interface Action<T> {
-  readonly type: string
-  readonly payload: T
+export interface Action<T, P> {
+  readonly type: T
+  readonly payload: P
   readonly error?: boolean
   readonly meta?: any
 }
-export type HandleActions = <S, A>(a: Action<A>, h: HandlersMap<S, A>, s: S) => S
+// export type HandleActions = <S, A>(a: Action<A>, h: HandlersMap<S, A>, s: S) => S
 
-export interface HandlersMap<S, A> {
-  readonly [i: string]: (action: Action<A>) => S,
-}
+// export interface HandlersMap<S, A> {
+//   readonly [i: string]: (action: Action<A>) => S,
+// }
 
 export interface Entities<T> {
   readonly [id: string]: T

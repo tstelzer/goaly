@@ -2,49 +2,47 @@ import {createSelector} from 'reselect'
 import {combineReducers} from 'redux'
 import {pickBy} from 'ramda'
 
-import {Entities, AllIds, Action, Reducer, handleActions, add, edit} from 'modules/core'
+import * as core from 'modules/core'
 import * as actions from '../actions/repetitions-actions'
 import {Repetition} from '../repetitions-model'
 
-export type EntitiesState = Entities<Repetition>
-type entities = Reducer<EntitiesState, Action<actions.EntitiesActions>>
+export type EntitiesState = core.Entities<Repetition>
+type entities = core.Reducer<EntitiesState, actions.EntitiesActions>
 
 /**
  * Repetitions keyed by their ID.
  */
-export const entities: entities = (s = {}, a) => {
-  return handleActions<EntitiesState>(
-    a,
-    {
-      [actions.ADD]: ({payload}) =>
-        !s[payload.repetition.id] ? add(s, payload.repetition) : s,
-      [actions.EDIT]: ({payload}) =>
-        s[payload.repetition.id] ? edit(s, payload.repetition) : s,
-      [actions.REMOVE]: ({payload}) =>
-        pickBy((repetition, id) => id !== payload.id, s),
-      ['DEFAULT']: ({payload}) => s,
-    },
-    s,
-  )
+export const entities: entities = (
+  s = {},
+  a,
+) => {
+  switch (a.type) {
+    case actions.ADD: return !s[a.payload.repetition.id]
+      ? core.add(s, a.payload.repetition)
+      : s
+    case actions.EDIT: return s[a.payload.repetition.id]
+      ? core.edit(s, a.payload.repetition)
+      : s
+    case actions.REMOVE: return pickBy((repetition, id) => id !== a.payload.id, s)
+    default: return s
+  }
 }
 
-export type AllIdsState = AllIds
-type allIds = Reducer<AllIdsState, Action<actions.AllIdsActions>>
+export type AllIdsState = core.AllIds
+type allIds = core.Reducer<AllIdsState, actions.AllIdsActions>
 
 /**
  * Collection of IDs of existing repetitions.
  */
-export const allIds: allIds = (s = [], a) => {
-  return handleActions<AllIds>(
-    a,
-    {
-      [actions.ADD]: ({payload}) =>
-        !s.includes(payload.repetition.id)
-          ? s.concat(payload.repetition.id)
-          : s,
-      [actions.REMOVE]: ({payload}) => s.filter(x => x !== payload.id),
-      ['DEFAULT']: ({payload}) => s,
-    },
-    s,
-  )
+export const allIds: allIds = (
+  s = [],
+  a,
+) => {
+  switch (a.type) {
+    case actions.ADD: return !s.includes(a.payload.repetition.id)
+      ? s.concat(a.payload.repetition.id)
+      : s
+    case actions.REMOVE: return s.filter(x => x !== a.payload.id)
+    default: return s
+  }
 }

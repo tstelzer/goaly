@@ -11,7 +11,7 @@ describe('repetitions', () => {
       const state: UiState = {
         selectedRepetition: '1',
       }
-      const action: Action<actions.SELECT> = {
+      const action: actions.SELECT = {
         type: actions.SELECT,
         payload: {id: '2'},
       }

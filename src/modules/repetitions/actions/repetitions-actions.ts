@@ -4,8 +4,15 @@ import {Repetition} from '../repetitions-model'
 import {DOMAIN} from '../repetitions-constants'
 import {Action} from 'modules/core'
 
-export const ADD = `${DOMAIN}/ADD`
-export interface ADD {readonly repetition: Repetition}
+export interface Action<T, P> {
+  readonly type: T
+  readonly payload: P
+  readonly error?: boolean
+  readonly meta?: any
+}
+
+export const ADD = 'repetitions/ADD'
+export type ADD = Action<'repetitions/ADD', {readonly repetition: Repetition}>
 
 /**
  * Creates ADD action.
@@ -14,7 +21,7 @@ export const add = (
   name: string = '',
   description: string = '',
   hashFn: () => string = v4,
-): Action<ADD> => ({
+): ADD => ({
   type: ADD,
   payload: {
     repetition: {
@@ -25,28 +32,28 @@ export const add = (
   },
 })
 
-export const EDIT = `${DOMAIN}/EDIT`
-export interface EDIT {readonly repetition: Partial<Repetition>}
+export const EDIT = 'repetitions/EDIT'
+export type EDIT = Action<'repetitions/EDIT', {readonly repetition: Repetition}>
 
 /**
  * Creates EDIT action.
  */
 export const edit = (
   repetition: Repetition,
-): Action<EDIT> => ({
+): EDIT => ({
   type: EDIT,
   payload: {repetition},
 })
 
-export const REMOVE = `${DOMAIN}/REMOVE`
-export interface REMOVE {readonly id: string}
+export const REMOVE = 'repetitions/REMOVE'
+export type REMOVE = Action<'repetitions/REMOVE', {readonly id: string}>
 
 /**
  * Creates REMOVE action.
  */
 export const remove = (
   id: string,
-): Action<REMOVE> => ({
+): REMOVE => ({
   type: REMOVE,
   payload: {id},
 })

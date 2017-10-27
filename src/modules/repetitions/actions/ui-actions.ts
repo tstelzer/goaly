@@ -1,14 +1,14 @@
 import {Action} from 'modules/core'
 
 export const SELECT = 'SELECT_ROW'
-export interface SELECT {readonly id: string}
+export type SELECT = Action<'SELECT_ROW', {readonly id: string}>
 
 /**
  * Creates SELECT action.
  */
 export const selectRow = (
   id: string,
-): Action<SELECT> => ({
+): SELECT => ({
   type: SELECT,
   payload: {id},
 })

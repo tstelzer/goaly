@@ -20,13 +20,13 @@ describe('repetitions', () => {
         name: 'other name',
         description: 'other description',
       }
-      const actionOne: Action<ADD> = {
+      const actionOne: ADD = {
         type: ADD,
         payload: {
           repetition: repetitionOne,
         },
       }
-      const actionTwo: Action<ADD> = {
+      const actionTwo: ADD = {
         type: ADD,
         payload: {
           repetition: repetitionTwo,
@@ -52,7 +52,7 @@ describe('repetitions', () => {
           description: 'description',
         },
       }
-      const action: Action<ADD> = {
+      const action: ADD = {
         type: ADD,
         payload: {
           repetition: {
@@ -73,7 +73,7 @@ describe('repetitions', () => {
         description: 'old description',
       }
       const state = {1: repetitionOld}
-      const action1: Action<EDIT> = {
+      const action1: EDIT = {
         type: EDIT,
         payload: {
           repetition: {
@@ -82,7 +82,7 @@ describe('repetitions', () => {
           },
         },
       }
-      const action2: Action<EDIT> = {
+      const action2: EDIT = {
         type: EDIT,
         payload: {
           repetition: {
@@ -116,7 +116,7 @@ describe('repetitions', () => {
           description: 'some description',
         },
       }
-      const action: Action<EDIT> = {
+      const action: EDIT = {
         type: EDIT,
         payload: {
           repetition: {
@@ -138,7 +138,7 @@ describe('repetitions', () => {
           description: 'description',
         },
       }
-      const action: Action<REMOVE> = {
+      const action: REMOVE = {
         type: REMOVE,
         payload: {id: '1'},
       }
@@ -151,7 +151,7 @@ describe('repetitions', () => {
   describe('allIds reducer', () => {
 
     it('adds the id of a new repetition', () => {
-      const action: Action<ADD> = {
+      const action: ADD = {
         type: ADD,
         payload: {
           repetition: {
@@ -167,7 +167,7 @@ describe('repetitions', () => {
 
     it('drops the addAction if the id already exists', () => {
       const state: AllIds = ['1']
-      const action: Action<ADD> = {
+      const action: ADD = {
         type: ADD,
         payload: {
           repetition: {
@@ -183,7 +183,7 @@ describe('repetitions', () => {
 
     it('removes an id', () => {
       const state: AllIds = ['1', '2', '3']
-      const action: Action<REMOVE> = {
+      const action: REMOVE = {
         type: REMOVE,
         payload: {id: '1'},
       }

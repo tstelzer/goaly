@@ -6,12 +6,7 @@ import {DOMAIN} from './sets-constants'
 import {Action} from 'modules/core'
 
 export const ADD_SET = 'sets/ADD_SET'
-export interface ADD_SET {
-  readonly type: 'sets/ADD_SET',
-  readonly payload: {
-    readonly set: Set,
-  }
-}
+export type ADD_SET = Action<'sets/ADD_SET', {readonly set: Set}>
 
 /** Create action to add a set. */
 export const add = (
@@ -30,13 +25,7 @@ export const add = (
 })
 
 export const EDIT_SET = 'sets/EDIT_SET'
-
-export interface EDIT_SET {
-  readonly type: 'sets/EDIT_SET',
-  readonly payload: {
-    readonly set: Set,
-  }
-}
+export type EDIT_SET = Action<'sets/EDIT_SET', {readonly set: Set}>
 
 /** Create action to edit a set.  */
 export const edit = (
@@ -49,12 +38,7 @@ export const edit = (
 })
 
 export const REMOVE_SET = `sets/REMOVE_SET`
-export interface REMOVE_SET {
-  readonly type: 'sets/REMOVE_SET',
-  readonly payload: {
-    readonly id: string,
-  }
-}
+export type REMOVE_SET = Action<'sets/REMOVE_SET', {readonly id: string}>
 
 /** Create action to remove a set. */
 export const remove = (
@@ -65,13 +49,10 @@ export const remove = (
 })
 
 export const ADD_SETREP = 'sets/ADD_SETREP'
-export interface ADD_SETREP {
-  readonly type: 'sets/ADD_SETREP',
-  readonly payload: {
-    readonly setId: string,
-    readonly repId: string,
-  }
-}
+export type ADD_SETREP = Action<'sets/ADD_SETREP', {
+  readonly setId: string,
+  readonly repId: string,
+}>
 
 /** Create action to add a repetition to a set. */
 export const addSetRep = (

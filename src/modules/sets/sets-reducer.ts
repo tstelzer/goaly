@@ -17,13 +17,13 @@ export const entities: entities = (
   a,
 ) => {
   switch (a.type) {
-    case 'sets/ADD_SET': return !s[a.payload.set.id]
-        ? core.add(s, a.payload.set)
-        : s
-    case 'sets/EDIT_SET': return s[a.payload.set.id]
-        ? core.edit(s, a.payload.set)
-        : s
-    case 'sets/REMOVE_SET': return  pickBy((set, id) => id !== a.payload.id, s)
+    case actions.ADD_SET: return !s[a.payload.set.id]
+      ? core.add(s, a.payload.set)
+      : s
+    case actions.EDIT_SET: return s[a.payload.set.id]
+      ? core.edit(s, a.payload.set)
+      : s
+    case actions.REMOVE_SET: return  pickBy((set, id) => id !== a.payload.id, s)
     default: return s
   }
 }
@@ -39,10 +39,10 @@ export const allIds: allIds = (
   a,
 ) => {
   switch (a.type) {
-    case 'sets/ADD_SET': return !s.includes(a.payload.set.id)
-        ? s.concat(a.payload.set.id)
-        : s
-    case 'sets/REMOVE_SET': return s.filter(x => x !== a.payload.id)
+    case actions.ADD_SET: return !s.includes(a.payload.set.id)
+      ? s.concat(a.payload.set.id)
+      : s
+    case actions.REMOVE_SET: return s.filter(x => x !== a.payload.id)
     default: return s
   }
 }
@@ -62,7 +62,7 @@ export const setReps: setReps = (
   a,
 ) => {
   switch (a.type) {
-    case 'sets/ADD_SETREP': return {
+    case actions.ADD_SETREP: return {
       ...s,
       [a.payload.setId]: {
         ...core.addToOrdered(core.fixOrder(s[a.payload.setId]))(a.payload.repId),
