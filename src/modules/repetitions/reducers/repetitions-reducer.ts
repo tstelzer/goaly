@@ -2,7 +2,7 @@ import {createSelector} from 'reselect'
 import {combineReducers} from 'redux'
 import {pickBy} from 'ramda'
 
-import * as core from 'modules/core'
+import * as core from 'common'
 import {types, EntitiesActions, AllIdsActions} from '../actions/repetitions-actions'
 import {Repetition} from '../repetitions-model'
 

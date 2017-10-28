@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
+import {StateSlice, Entities, AllIds, selectors} from 'common'
 import {Set} from './sets-model'
 import {SetsState} from './reducers'
 

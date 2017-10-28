@@ -1,7 +1,7 @@
 /* tslint:disable no-expression-statement */
 import {hasIn} from 'ramda'
 
-import {Action} from 'modules/core'
+import {Action} from 'common'
 import * as actions from './repetitions-actions'
 import {Repetition} from '../repetitions-model'
 

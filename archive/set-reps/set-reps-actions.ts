@@ -2,7 +2,7 @@ import {v4} from 'uuid'
 
 import {SetRep} from './set-reps-model'
 import {DOMAIN} from './set-reps-constants'
-import {Action} from 'modules/core'
+import {Action} from 'common'
 
 export const ADD = `${DOMAIN}/ADD`
 export interface ADD {readonly setRep: SetRep}

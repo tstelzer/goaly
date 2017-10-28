@@ -4,7 +4,7 @@ import {pickBy} from 'ramda'
 
 import {types, EntitiesActions, SetRepActions, AllIdsActions} from '../sets-actions'
 import {Set} from '../sets-model'
-import * as core from 'modules/core'
+import * as core from 'common'
 
 export type EntitiesState = core.Entities<Set>
 type EntitiesReducer = core.Reducer<EntitiesState, EntitiesActions>

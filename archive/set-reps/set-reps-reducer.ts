@@ -4,7 +4,7 @@ import {pickBy} from 'ramda'
 
 import * as actions from './set-reps-actions'
 import {SetRep} from './set-reps-model'
-import * as core from 'modules/core'
+import * as core from 'common'
 
 /**
  * setRep keyed by their ID.

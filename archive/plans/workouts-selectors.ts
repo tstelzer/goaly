@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
+import {StateSlice, Entities, AllIds, selectors} from 'common'
 import {Workout} from './workouts-model'
 
 export const getEntities = (state: StateSlice<Workout>) =>

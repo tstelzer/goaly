@@ -1,5 +1,5 @@
 /* tslint:disable no-expression-statement */
-import {Action} from 'modules/core'
+import {Action} from 'common'
 import {Store} from 'app/store/store-types'
 import {ui, UiState} from './ui-reducer'
 import {types, SelectAction} from '../actions/ui-actions'

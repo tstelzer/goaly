@@ -1,4 +1,4 @@
-import {Action} from 'modules/core'
+import {Action} from 'common'
 
 export enum types {
   SELECT = 'SELECT_ROW',

@@ -1,7 +1,7 @@
 import {keys} from 'ramda'
 import {createSelector} from 'reselect'
 
-import {selectors} from 'modules/core'
+import {selectors} from 'common'
 import {Store} from 'app/store/store-types'
 
 export const repetitions = {
@@ -16,6 +16,14 @@ export const repetitions = {
 
   getRepetitionsList: (state: Store) =>
     selectors.getEntitiesList(state.repetitions),
+}
+
+export const sets = {
+  getSets: (state: Store) =>
+    selectors.getEntities(state.sets),
+
+  getSetsList: (state: Store) =>
+    selectors.getEntitiesList(state.sets),
 }
 
 const getSelectedId = (state: Store) =>

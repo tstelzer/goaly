@@ -2,7 +2,6 @@ export type Reducer<S, A> = (
   state: S,
   action: A,
 ) => S
-
 export interface Action<T, P> {
   readonly type: T
   readonly payload: P

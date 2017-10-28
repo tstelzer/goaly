@@ -4,7 +4,7 @@ import {pickBy} from 'ramda'
 
 import * as actions from './workouts-actions'
 import {Workout} from './workouts-model'
-import * as core from 'modules/core'
+import * as core from 'common'
 
 /**
  * Workouts keyed by their ID.

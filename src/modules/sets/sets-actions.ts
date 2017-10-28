@@ -2,7 +2,7 @@ import {v4} from 'uuid'
 
 import {Set} from './sets-model'
 import {DOMAIN} from './sets-constants'
-import {Action} from 'modules/core'
+import {Action} from 'common'
 
 export enum types {
   ADD_SET = 'sets/ADD_SET',

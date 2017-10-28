@@ -1,7 +1,7 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {Action} from 'modules/core'
+import {Action} from 'common'
 import {entities, allIds, setReps, SetRepsState} from './sets-reducer'
 import * as actions from '../sets-actions'
 import {Set} from '../sets-model'

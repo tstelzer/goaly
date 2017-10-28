@@ -1,4 +1,4 @@
-import {Entities, AllIds} from 'modules/core'
+import {Entities, AllIds} from 'common'
 import {state as RepetitionsState} from 'modules/repetitions/'
 import {state as SetsState} from 'modules/sets/'
 

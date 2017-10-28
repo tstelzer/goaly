@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 
-import {Action, Reducer} from 'modules/core'
+import {Action, Reducer} from 'common'
 import {types, UiActions} from '../actions/ui-actions'
 import * as model from '../repetitions-model'
 

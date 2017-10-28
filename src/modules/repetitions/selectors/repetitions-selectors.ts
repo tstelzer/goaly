@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-import {StateSlice, Entities, AllIds, selectors} from 'modules/core'
+import {StateSlice, Entities, AllIds, selectors} from 'common'
 import {RepetitionsState} from '../reducers'
 import {Repetition} from '../repetitions-model'
 

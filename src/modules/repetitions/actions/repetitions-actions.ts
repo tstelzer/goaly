@@ -2,7 +2,7 @@ import {v4} from 'uuid'
 
 import {Repetition} from '../repetitions-model'
 import {DOMAIN} from '../repetitions-constants'
-import {Action} from 'modules/core'
+import {Action} from 'common'
 
 export enum types {
   ADD = 'repetitions/ADD',

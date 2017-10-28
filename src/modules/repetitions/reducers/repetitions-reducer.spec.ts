@@ -1,7 +1,7 @@
 /* tslint:disable no-expression-statement */
 import {propEq, find} from 'ramda'
 
-import {Action, AllIds} from 'modules/core'
+import {Action, AllIds} from 'common'
 import {entities, allIds} from './repetitions-reducer'
 import * as actions from '../actions/repetitions-actions'
 import {Repetition} from '../repetitions-model'

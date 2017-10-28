@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {SetRepItem} from './SetRepItem'
 import {model} from 'modules/set-reps/'
-import {StoreSlice} from 'modules/core/'
+import {StoreSlice} from 'common/'
 import {main} from 'modules/main/global-selectors'
 import {Store} from 'modules/main/store-types'
 
