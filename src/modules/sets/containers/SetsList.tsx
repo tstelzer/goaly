@@ -7,8 +7,6 @@ import {sets} from 'app/selectors/global-selectors'
 import {model} from 'modules/sets/'
 import {Action, Table} from 'common'
 
-import 'assets/react-table.css'
-
 type SelectRow = (id: string | number) => (dispatch: Dispatch<any>) => Action<any, any>
 
 const mapState = (state: Store) => ({
@@ -42,9 +40,7 @@ export const SetsList = ({
       accessor: 'description',
     },
   ]
-  const rows = [
-    {id: '1', name: 'bla', description: 'hi'},
-  ]
+  const rows = sets
   return (
     <Table
       columns={columns}

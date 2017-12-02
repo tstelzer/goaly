@@ -3,7 +3,6 @@ import ReactTable from 'react-table'
 import {Dispatch} from 'redux'
 
 import {Action} from 'common'
-import 'assets/react-table.css'
 
 interface Column {
   readonly Header: string,
@@ -19,7 +18,9 @@ interface Row {
   readonly [column: string]: any
 }
 
-type SelectRow = (id: string | number) => (dispatch: Dispatch<any>) => Action<any, any>
+type SelectRow = (id: string | number)
+  => (dispatch: Dispatch<any>)
+  => Action<any, any>
 
 export const Table = ({
   rows,

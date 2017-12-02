@@ -21,19 +21,3 @@ export const add = (state: any, entity: any): any => ({
   [entity.id]: entity,
 })
 
-// const DEFAULT = 'DEFAULT'
-
-/**
- * Pattern for handling actions in a reducer.
- * With this we achieve 2 things:
- * 1. Typesafety for state and return values.
- * 2. Reduce boilerplace in reducer, removes switch/case.
- */
-// export const handleActions: HandleActions = (
-//   action,
-//   handlers,
-//   defaultState,
-// ) => {
-//   const handler = handlers[action.type] || handlers[DEFAULT]
-//   return handler ? handler(action) : defaultState
-// }

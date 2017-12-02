@@ -24,6 +24,9 @@ export const sets = {
 
   getSetsList: (state: Store) =>
     selectors.getEntitiesList(state.sets),
+
+  getSet: (state: Store) =>
+    selectors.getEntity(state.sets),
 }
 
 const getSelectedId = (state: Store) =>

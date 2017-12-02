@@ -1,3 +1,4 @@
 import SetsList from './SetsList'
+import SetRepsList from './SetRepsList'
 
-export {SetsList}
+export {SetsList, SetRepsList}

@@ -9,7 +9,6 @@ import {Store} from 'app/store/store-types'
 import {repetitions} from 'app/selectors/global-selectors'
 import {selectRow} from '../actions/ui-actions'
 import {model} from 'modules/repetitions/'
-import 'assets/react-table.css'
 
 const mapState = (state: Store) => ({
   repetitions: repetitions.getRepetitionsList(state),

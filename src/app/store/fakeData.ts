@@ -3,8 +3,34 @@ import {Store} from './store-types'
 
 export const fakeData: Store = {
   sets: {
-    entities: {},
-    allIds: [],
+    entities: {
+      1: {
+        id: '1',
+        name: 'upper body',
+        description: 'lorem ipsum',
+        repetitions: {
+          1: '1',
+          2: '2',
+          3: '1',
+        },
+      },
+      2: {
+        id: '2',
+        name: 'lower body',
+        description: 'lorem ipsum',
+      },
+      3: {
+        id: '3',
+        name: '',
+        description: 'lorem ipsum',
+      },
+      4: {
+        id: '4',
+        name: '',
+        description: '',
+      },
+    },
+    allIds: ['1', '2', '3', '4'],
     setReps: {},
   },
   repetitions: {

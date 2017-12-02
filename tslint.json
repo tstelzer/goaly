@@ -8,7 +8,6 @@
     "node_modules"
   ],
   "rules": {
-
     "no-var-keyword": true,
     "typedef": [true, "call-signature"],
 
@@ -26,6 +25,8 @@
     "eofline": true,
     "indent": [true, "spaces", 2],
     "no-default-export": false,
+    "no-implicit-dependencies": false,
+    "no-consecutive-blank-lines": false,
     "trailing-comma": [true, {
       "multiline": {
         "objects": "always",
