@@ -9,6 +9,7 @@
   ],
   "rules": {
     "no-var-keyword": true,
+    "no-parameter-reassignment": true,
     "typedef": [true, "call-signature"],
 
     "readonly-keyword": true,
@@ -33,7 +34,7 @@
         "arrays": "always",
         "functions": "always",
         "typeLiterals": "always"
-      }, 
+      },
       "singleline": "never"
     }],
     "semicolon": [false],
