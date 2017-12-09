@@ -1,49 +1,32 @@
-/* tslint:disable */
 import * as React from 'react'
+import styled, {css, injectGlobal, fontFace} from 'react-emotion'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+} from 'react-router-dom'
 
 import {SetRepsList} from 'modules/sets'
-import {Route, Link} from 'modules/router'
-
-import 'assets/normalize.css'
-import 'assets/reset.scss'
-import 'assets/base.scss'
-import 'assets/utility.scss'
-
-// TODO: Remove.
-import 'assets/react-table.css'
-
-let instances: React.Component[] = []
+import {RepetitionList} from 'modules/repetitions'
 
 const Main = () => (
-  <div>
-    <h1>Main</h1>
-  </div>
-)
-
-const Two = () => (
-  <div>
-    <h1>Two</h1>
-  </div>
-)
-
-const Three = () => (
-  <div>
-    <h1>Three</h1>
-  </div>
+  <h1>Empty</h1>
 )
 
 const App = () => (
-  <div>
-    <ul>
-      <li><Link instances={instances} to='/'>Main</Link></li>
-      <li><Link instances={instances} to='/two'>Two</Link></li>
-      <li><Link instances={instances} to='/three'>Three</Link></li>
-    </ul>
+  <Router>
+    <div>
+      <ul>
+        <li><Link to='/'>Main</Link></li>
+        <li><Link to='/sets'>Sets</Link></li>
+        <li><Link to='/reps'>Reps</Link></li>
+      </ul>
 
-    <Route instances={instances} path='/' exact component={Main} />
-    <Route instances={instances} path='/two' component={Two} />
-    <Route instances={instances} path='/three' component={Three} />
-  </div>
+      <Route exact={true} path='/' component={Main} />
+      <Route path='/sets' component={SetRepsList} />
+      <Route path='/reps' component={RepetitionList} />
+    </div>
+  </Router>
 )
 
 export default App

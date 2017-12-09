@@ -25,6 +25,9 @@ export const SetRepList: React.SFC<Props> = ({set}) => {
 
   return (
     <article>
+      <h2>name</h2>
+      <h2>description</h2>
+      <h2>repetitions</h2>
       <h3>{name}</h3>
       <p>{description}</p>
       <ul>
