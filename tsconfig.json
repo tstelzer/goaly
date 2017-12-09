@@ -1,4 +1,9 @@
 {
+    "awesomeTypescriptLoaderOptions": {
+        "reportFiles": ["src/**/*.{ts,tsx}"],
+        "cacheDirectory": ".cache/atl/",
+        "useCache": true
+    },
     "compilerOptions": {
         "jsx": "react",
         "module": "commonjs",
@@ -30,7 +35,12 @@
             ]
         },
 
-        "types": ["jest"],
+        "types": [
+            "jest",
+            "webpack-env",
+            "webpack",
+            "node"
+        ],
         "typeRoots": ["types"]
     },
     "include": [

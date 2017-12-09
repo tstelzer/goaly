@@ -4,6 +4,7 @@ out/
 coverage/
 node_modules/
 .yarn-integrity
+.cache
 yarn.lock
 logs
 *.log
