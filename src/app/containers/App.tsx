@@ -10,7 +10,7 @@ import {SetRepsList} from 'modules/sets'
 import {RepetitionList} from 'modules/repetitions'
 
 const Main = () => (
-  <h1>Empty</h1>
+  <h1>Still Empty</h1>
 )
 
 const App = () => (

@@ -5,7 +5,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/index.tsx'],
+  entry: [
+    'react-hot-loader/patch',
+    './src/index.tsx',
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].app.js',
@@ -16,6 +19,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: [
+          { loader: 'react-hot-loader/webpack' },
           { loader: 'source-map-loader' },
           { loader: 'awesome-typescript-loader' },
         ]
@@ -44,13 +48,17 @@ module.exports = {
     open: false,
     historyApiFallback: true,
     compress: true,
-    hot: false,
+    hot: true,
     stats: 'errors-only',
   },
   devtool: 'cheap-eval-source-map',
   plugins: [
-    new HtmlWebpackPlugin({ template: 'src/index.html' }),
-    // new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'react-hot-ts',
+      chunksSortMode: 'dependency',
+      template: 'src/index.html',
+    }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HardSourceWebpackPlugin({
       cacheDirectory: '.cache/hard-source/[confighash]'
