@@ -1,8 +1,6 @@
 {
     "awesomeTypescriptLoaderOptions": {
-        "reportFiles": ["src/**/*.{ts,tsx}"],
-        "cacheDirectory": ".cache/atl/",
-        "useCache": true
+        "reportFiles": ["src/**/*.{ts,tsx}"]
     },
     "compilerOptions": {
         "jsx": "react",
