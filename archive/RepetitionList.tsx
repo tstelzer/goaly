@@ -4,6 +4,7 @@ import {v4 as hash} from 'uuid'
 import {toLower, sortBy, compose, prop} from 'ramda'
 import ReactTable from 'react-table'
 import {Dispatch} from 'redux'
+import styled from 'react-emotion'
 
 import {Store} from 'app/store/store-types'
 import {repetitions} from 'app/selectors/global-selectors'
@@ -73,7 +74,6 @@ export const RepetitionList = ({
   }
   return (
     <ReactTable
-      className="m-l-2-u"
       data={rows}
       filterable={true}
       defaultPageSize={15}

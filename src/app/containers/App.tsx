@@ -7,10 +7,9 @@ import {
 } from 'react-router-dom'
 
 import {SetRepsList} from 'modules/sets'
-import {RepetitionList} from 'modules/repetitions'
 
 const Main = () => (
-  <h1>Still Empty</h1>
+  <h1>A Horse! A Kingdom For A Horse!</h1>
 )
 
 const App = () => (
@@ -19,12 +18,10 @@ const App = () => (
       <ul>
         <li><Link to='/'>Main</Link></li>
         <li><Link to='/sets'>Sets</Link></li>
-        <li><Link to='/reps'>Reps</Link></li>
       </ul>
 
       <Route exact={true} path='/' component={Main} />
       <Route path='/sets' component={SetRepsList} />
-      <Route path='/reps' component={RepetitionList} />
     </div>
   </Router>
 )

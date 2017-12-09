@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 
 import {repetitions, getSelected} from 'app/selectors/global-selectors'
 import {Store} from 'app/store/store-types'
-import {Expandable} from 'common/components/'
 import {Repetition} from '../repetitions-model'
 
 interface Props {
