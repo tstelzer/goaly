@@ -1,0 +1,50 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+li,
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font: inherit;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+textarea {
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  max-width: inherit;
+  resize: none;
+}

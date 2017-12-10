@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
@@ -26,11 +25,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: [path.resolve(__dirname, 'src')],
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
           { loader: 'css-loader', options: { sourceMap: true } },
-          { loader: 'postcss-loader', options: { sourceMap: true } },
         ],
       },
     ],

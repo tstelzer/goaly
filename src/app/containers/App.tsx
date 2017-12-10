@@ -1,12 +1,16 @@
 import * as React from 'react'
-import styled, {css, injectGlobal, fontFace} from 'react-emotion'
 import {
   BrowserRouter as Router,
   Route,
   Link,
 } from 'react-router-dom'
 
+import 'normalize.css'
+import './reset.css'
+
+import {Container} from 'common'
 import {SetRepsList} from 'modules/sets'
+import {WorkoutList} from 'modules/workout'
 
 const Main = () => (
   <h1>A Horse! A Kingdom For A Horse!</h1>
@@ -14,15 +18,15 @@ const Main = () => (
 
 const App = () => (
   <Router>
-    <div>
+    <Container>
       <ul>
-        <li><Link to='/'>Main</Link></li>
-        <li><Link to='/sets'>Sets</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/workouts'>Workouts</Link></li>
       </ul>
 
       <Route exact={true} path='/' component={Main} />
-      <Route path='/sets' component={SetRepsList} />
-    </div>
+      <Route path='/workouts' component={WorkoutList} />
+    </Container>
   </Router>
 )
 
