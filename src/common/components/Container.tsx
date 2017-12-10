@@ -1,4 +1,4 @@
-import styled from 'react-emotion'
+import emotion from 'react-emotion'
 
 const ffUi = `
   font-family: -apple-system,
@@ -19,7 +19,7 @@ const ffMono = `
   font-family: monospace;
 `
 
-export const Container = styled('main')`
+export const Container = emotion('main')`
   ${ffMono}
   color: black;
   font-size: 1em;
