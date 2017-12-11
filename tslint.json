@@ -1,7 +1,6 @@
 {
   "extends": [
     "tslint:latest",
-    "tslint-immutable",
     "tslint-react"
   ],
   "exclude": [
