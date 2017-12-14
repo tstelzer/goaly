@@ -1,19 +1,18 @@
 import styled from 'react-emotion'
 
-enum colors {
-  lightgray = '#ccc',
-  darkgray = '#1c1c1c',
-}
+import {colors} from 'common/constants'
+import {css} from 'common'
 
 export const BorderSection = styled('section')`
   position: relative;
+  ${css.bgco.bg};
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   padding-top: 1rem;
-  background-color: white;
-  border: 2px solid ${colors.darkgray};
+  ${css.b.sm.fg};
 
   & h2 {
+    ${css.co.fg_2};
     position: absolute;
     display: inline-block;
     font-size: 1rem;
@@ -27,49 +26,53 @@ export const BorderSection = styled('section')`
   }
 `
 
-export const StripedListItem = styled('li')`
+BorderSection.displayName = 'BorderSection'
+
+export const LiStriped = styled('li')`
   &:not(:first-of-type) {
-    border-top: 1px solid ${colors.lightgray};
+    border-top: 1px solid ${colors.fg};
   }
   &:nth-of-type(even) {
     background-color: #f7feff;
   }
 `
 
-StripedListItem.displayName = 'StripedListItem'
+LiStriped.displayName = 'LiStriped'
 
 export const Button = styled('button') `
   padding: 0.25rem 0.5rem;
   &:hover {
     color: white;
-    background-color: ${colors.darkgray};
+    background-color: ${colors.fg};
   }
 `
+
+Button.displayName = 'Button'
 
 export const SmallButton = styled('button')`
   padding: 0.25rem 0.5rem;
   &:hover {
     color: white;
-    background-color: ${colors.darkgray};
+    background-color: ${colors.fg};
   }
 `
 
 SmallButton.displayName = 'SmallButton'
 
-export const Paragraph = styled('p') `
-  padding: 0.25rem 0.5rem;
+export const P = styled('p') `
+  padding: 0.5rem 0.75rem;
 `
 
-Paragraph.displayName = 'Paragraph'
+P.displayName = 'P'
 
 export const WideButton = styled('button')`
   width: 100%;
   padding: 0.25rem 0.5rem;
-  border-top: 1px solid ${colors.lightgray};
+  border-top: 1px solid ${colors.fg};
   &:hover {
     color: white;
     background-color: #1c1c1c;
-    border-top: 1px solid ${colors.darkgray};
+    border-top: 1px solid ${colors.fg};
   }
 `
 

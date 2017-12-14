@@ -1,6 +1,7 @@
 import * as selectors from './selectors'
+import * as css from './css'
 
-export {selectors}
+export {selectors, css}
 export {Container} from './components/Container'
 export {flipProp, swapProp, fixOrder, addToOrdered} from './object'
 export {filterHtmlTags, filterDashes} from './string'

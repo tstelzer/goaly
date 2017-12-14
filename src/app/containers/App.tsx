@@ -4,13 +4,24 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
+import {injectGlobal} from 'emotion'
 
 import 'normalize.css'
 import './reset.css'
 
-import {Container} from 'common'
+import {Container, css} from 'common'
 import {SetRepsList} from 'modules/sets'
 import {WorkoutList} from 'modules/workout'
+
+/* tslint:disable no-unused-expression */
+injectGlobal`
+  body {
+    ${css.co.fg};
+    ${css.bgco.bg};
+    ${css.ff.mono};
+  };
+`
+/* tslint:enable no-unused-expression */
 
 const Main = () => (
   <h1>A Horse! A Kingdom For A Horse!</h1>
