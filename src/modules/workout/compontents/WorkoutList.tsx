@@ -5,6 +5,7 @@ import {cx} from 'react-emotion'
 import {Store} from 'app/store/store-types'
 import {css} from 'common/'
 import {P, BorderSection, LiStriped} from 'common/components/Styled'
+import {Editable} from 'common/components/Editable'
 
 const mapState = (state: Store) => {}
 
@@ -26,9 +27,11 @@ class WorkoutList extends React.Component<RouteComponentProps<any>, State> {
           <ol>
             <LiStriped>
               <P className={css.ta.c}>workout one</P>
-              <P>
+              <Editable
+                onDone={value => console.log('got a value', value)}
+              >
                 A cool workout with many hard exercizes!
-              </P>
+              </Editable>
             </LiStriped>
           </ol>
         </BorderSection>
