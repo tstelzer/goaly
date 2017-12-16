@@ -48,3 +48,7 @@ textarea {
   max-width: inherit;
   resize: none;
 }
+
+input {
+  font-family: inherit;
+}

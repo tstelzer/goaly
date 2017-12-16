@@ -1,4 +1,5 @@
 import {css, cx} from 'react-emotion'
+import {curry} from 'ramda'
 
 import {colors} from './constants'
 
@@ -64,6 +65,12 @@ export const grid = {
     display: grid;
     grid-template-columns: 33% 33% 33%;
   `,
+}
+
+export const boxed = {
+  xs: css`padding: 0.5rem 0.75rem;`,
+  sm: css`padding: 1rem 1.5rem;`,
+  md: css`padding: 2rem 3rem;`,
 }
 
 export const col = {
