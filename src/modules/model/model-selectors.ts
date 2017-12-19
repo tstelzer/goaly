@@ -1,8 +1,14 @@
-import {keys} from 'ramda'
 import {createSelector} from 'reselect'
+import * as R from 'ramda'
 
-import {selectors} from 'common'
+import {selectors as repetitionSelectors} from './repetition'
+import {selectors as setSelectors} from './set'
 
+export const getSetRepetitions = createSelector(
+  repetitionSelectors.getRepetitions,
+  setSelectors.getSets,
+  (repetitions, sets) => undefined,
+)
 // export const repetitions = {
 //   getIds: (state: Store) =>
 //     selectors.getIds(state.repetitions),

@@ -1,16 +1,17 @@
 import {createSelector} from 'reselect'
+import * as R from 'ramda'
 
-import {StateSlice, Entities, AllIds, selectors} from 'common'
-import {Set, SetState} from './set'
+import {Store} from 'app/store/store'
 
-// export const getEntities = (state: SetState) =>
-//   selectors.getEntities(state)
+export const getSets = (state: Store) => state.model.sets
 
-// export const getEntitiesList = (state: SetState) =>
-//   selectors.getEntitiesList(state)
+export const getSetList = createSelector(
+  getSets,
+  sets => R.values(sets),
+)
 
-// export const getIds = (state: SetState) =>
-//   selectors.getIds(state)
+export const getSetIds = createSelector(
+  getSets,
+  sets => R.keys(sets),
+)
 
-// export const getEntity = (state: SetState) =>
-//   selectors.getEntity(state)

@@ -1,16 +1,16 @@
 import {createSelector} from 'reselect'
+import * as R from 'ramda'
 
-import {StateSlice, Entities, AllIds, selectors} from 'common'
-import {RepetitionState, Repetition} from './repetition'
+import {Store} from 'app/store/store'
 
-// export const getEntities = (state: RepetitionState) =>
-//   selectors.getEntities(state)
+export const getRepetitions = (state: Store) => state.model.repetitions
 
-// export const getEntitiesList = (state: RepetitionState) =>
-//   selectors.getEntitiesList(state)
+export const getRepetitionList = createSelector(
+  getRepetitions,
+  repetitions => R.values(repetitions),
+)
 
-// export const getIds = (state: RepetitionState) =>
-//   selectors.getIds(state)
-
-// export const getEntity = (state: RepetitionState) =>
-//   selectors.getEntity(state)
+export const getRepetitionIds = createSelector(
+  getRepetitions,
+  repetitions => R.keys(repetitions),
+)
