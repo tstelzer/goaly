@@ -1,6 +1,8 @@
 import {FSA, Reducer, ID} from 'common'
 import {constants} from './repetition-constants'
 
+export type RepetitionID = string
+
 /**
  * Target muscle group.
  */
@@ -46,7 +48,7 @@ export enum ExerciseType {
  * A repetition is a single, controlled exercise.
  */
 export interface Repetition {
-  readonly id: string
+  readonly id: RepetitionID
   readonly name?: string
   readonly description?: string
   readonly level?: Level
