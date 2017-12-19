@@ -58,8 +58,8 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new HardSourceWebpackPlugin({
-      cacheDirectory: './.cache/hard-source/[confighash]'
-    }),
+    // new HardSourceWebpackPlugin({
+    //   cacheDirectory: './.cache/hard-source/[confighash]'
+    // }),
   ],
 };
