@@ -20,4 +20,3 @@ export const add = (state: any, entity: any): any => ({
   ...state,
   [entity.id]: entity,
 })
-

@@ -2,17 +2,16 @@ export type Reducer<S, A> = (
   state: S,
   action: A,
 ) => S
-export interface Action<T, P> {
+
+// Flux Standard Action
+export interface FSA<T, P> {
   readonly type: T
   readonly payload: P
   readonly error?: boolean
   readonly meta?: any
 }
-// export type HandleActions = <S, A>(a: Action<A>, h: HandlersMap<S, A>, s: S) => S
 
-// export interface HandlersMap<S, A> {
-//   readonly [i: string]: (action: Action<A>) => S,
-// }
+export type ID = string
 
 export interface Entities<T> {
   readonly [id: string]: T

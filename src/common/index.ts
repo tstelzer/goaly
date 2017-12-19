@@ -7,10 +7,11 @@ export {flipProp, swapProp, fixOrder, addToOrdered} from './object'
 export {filterHtmlTags, filterDashes} from './string'
 export {add, edit} from './state'
 export {
-  Action,
+  FSA,
   Entities,
   AllIds,
   StoreSlice,
   StateSlice,
   Reducer,
+  ID,
 } from './types'
