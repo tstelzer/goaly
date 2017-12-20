@@ -1,5 +1,4 @@
-/* tslint:disable max-line-length */
-import {Store} from './store'
+import {Store} from './store-types'
 
 export const fakeData: Store = {
   model: {
@@ -54,7 +53,11 @@ export const fakeData: Store = {
           id: '1',
           name: 'Plank',
           description:
-            'Get into a prone position on the floor, supporting your weight on your toes and your forearms. Your arms are bent and directly below the shoulder. Keep your body straight at all times, and hold this position as long as possible. To increase difficulty, an arm or leg can be raised.',
+            `Get into a prone position on the floor, supporting your weight
+            on your toes and your forearms. Your arms are bent and directly
+            below the shoulder. Keep your body straight at all times, and
+            hold this position as long as possible. To increase difficulty,
+            an arm or leg can be raised.`,
           muscles: [1],
           level: 1,
           type: 2,
@@ -63,7 +66,12 @@ export const fakeData: Store = {
           id: '2',
           name: 'Hip circles (prone)',
           description:
-            'Position yourself on your hands and knees on the ground. Maintaining good posture, raise one bent knee off of the ground. This will be your starting position. Keeping the knee in a bent position, rotate the femur in an arc, attempting to make a big circle with your knee. Perform this slowly for a number of repetitions, and repeat on the other side.',
+            `Position yourself on your hands and knees on the ground.
+            Maintaining good posture, raise one bent knee off of the ground.
+            This will be your starting position. Keeping the knee in a bent
+            position, rotate the femur in an arc, attempting to make a big
+            circle with your knee. Perform this slowly for a number of
+            repetitions, and repeat on the other side.`,
           muscles: [2],
           level: 1,
           type: 3,
@@ -72,7 +80,17 @@ export const fakeData: Store = {
           id: '3',
           name: 'Superman',
           description:
-            'To begin, lie straight and face down on the floor or exercise mat. Your arms should be fully extended in front of you. This is the starting position. Simultaneously raise your arms, legs, and chest off of the floor and hold this contraction for 2 seconds. Tip: Squeeze your lower back to get the best results from this exercise. Remember to exhale during this movement. Note: When holding the contracted position, you should look like superman when he is flying. Slowly begin to lower your arms, legs and chest back down to the starting position while inhaling. Repeat for the recommended amount of repetitions prescribed in your program.',
+            `To begin, lie straight and face down on the floor or exercise
+            mat. Your arms should be fully extended in front of you. This is
+            the starting position. Simultaneously raise your arms, legs, and
+            chest off of the floor and hold this contraction for 2 seconds.
+            Tip: Squeeze your lower back to get the best results from this
+            exercise. Remember to exhale during this movement. Note: When
+            holding the contracted position, you should look like superman
+            when he is flying. Slowly begin to lower your arms, legs and
+            chest back down to the starting position while inhaling. Repeat
+            for the recommended amount of repetitions prescribed in your
+            program.`,
           muscles: [10],
           level: 1,
           type: 3,
@@ -81,7 +99,11 @@ export const fakeData: Store = {
           id: '4',
           name: 'Groiners',
           description:
-            'Begin in a pushup position on the floor. This will be your starting position. Using both legs, jump forward landing with your feet next to your hands. Keep your head up as you do so. Return to the starting position and immediately repeat the movement, continuing for 10-20 repetitions.',
+            `Begin in a pushup position on the floor. This will be your
+            starting position. Using both legs, jump forward landing with
+            your feet next to your hands. Keep your head up as you do so.
+            Return to the starting position and immediately repeat the
+            movement, continuing for 10-20 repetitions.`,
           muscles: [3],
           level: 2,
           type: 3,
@@ -90,7 +112,20 @@ export const fakeData: Store = {
           id: '5',
           name: 'Dumbbell Goblet Squat',
           description:
-            'From a standing position cradle the head of a dumbbell close to your chest with both hands. You should be looking straight forward, with your shoulders back, your spine straight, and your feet just outside of shoulder width. This will be your starting position. Initiate the movement by descending into a squat, flexing the hips and knees to lower your body. Maintain the angle of your torso, paying close attention to the preservation of your spine. As you descend, push your knees outward and keep your weight on your heels. Descend until you either reach the full squat position with your hamstrings on your calves or until your back starts to round. At the bottom of the motion pause briefly. Return to the starting position by driving through your heels, extending the knees and hips to return to the starting position. Repeat the movement for the desired number of repetitions.',
+            `From a standing position cradle the head of a dumbbell close to
+            your chest with both hands. You should be looking straight
+            forward, with your shoulders back, your spine straight, and your
+            feet just outside of shoulder width. This will be your starting
+            position. Initiate the movement by descending into a squat,
+            flexing the hips and knees to lower your body. Maintain the angle
+            of your torso, paying close attention to the preservation of your
+            spine. As you descend, push your knees outward and keep your
+            weight on your heels. Descend until you either reach the full
+            squat position with your hamstrings on your calves or until your
+            back starts to round. At the bottom of the motion pause briefly.
+            Return to the starting position by driving through your heels,
+            extending the knees and hips to return to the starting position.
+            Repeat the movement for the desired number of repetitions.`,
           muscles: [13],
           level: 1,
           type: 2,

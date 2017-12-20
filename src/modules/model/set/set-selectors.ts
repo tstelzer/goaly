@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect'
 import * as R from 'ramda'
 
-import {Store} from 'app/store/store'
+import {Store} from 'app/store/store-types'
 
 export const getEntities = (state: Store) => state.model.sets.entities
 export const getAllIds = (state: Store) => state.model.sets.result

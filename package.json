@@ -41,7 +41,7 @@
     "react-emotion": "8.0.12",
     "react-redux": "5.0.6",
     "react-router-dom": "4.2.2",
-    "redux": "4.0.0-beta.1",
+    "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
     "reselect": "3.0.1",
     "uuid": "3.1.0"
@@ -49,7 +49,6 @@
   "devDependencies": {
     "@types/enzyme": "3.1.6",
     "@types/jest": "21.1.8",
-    "@types/node": "8.5.1",
     "@types/prop-types": "15.5.2",
     "@types/ramda": "0.25.8",
     "@types/react": "16.0.31",

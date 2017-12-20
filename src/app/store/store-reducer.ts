@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
 import {modelReducer} from 'modules/model'
-import * as types from './store'
+import * as types from './store-types'
 
 export const root = combineReducers<types.Store>({
   model: modelReducer,

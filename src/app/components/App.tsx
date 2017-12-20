@@ -10,6 +10,7 @@ import 'normalize.css'
 import './reset.css'
 
 import {Container, css} from 'common'
+import SetList from './SetList'
 
 /* tslint:disable no-unused-expression */
 injectGlobal`
@@ -30,11 +31,11 @@ const App = () => (
     <Container>
       <ul>
         <li><Link to='/'>Home</Link></li>
-        {/* <li><Link to='/workouts'>Workouts</Link></li> */}
+        <li><Link to='/workouts'>Workouts</Link></li>
       </ul>
 
       <Route exact={true} path='/' component={Main} />
-      {/* <Route path='/workouts' component={} /> */}
+      <Route path='/workouts' component={SetList} />
     </Container>
   </Router>
 )

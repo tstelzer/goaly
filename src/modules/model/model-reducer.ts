@@ -10,8 +10,3 @@ const model = combineReducers<types.ModelState>({
 })
 
 export default model
-
-// export default combineReducers<types.ModelState>({
-//   repetitions: repetitionReducer,
-//   sets: setReducer,
-// })

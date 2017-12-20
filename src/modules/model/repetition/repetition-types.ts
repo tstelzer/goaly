@@ -1,5 +1,4 @@
-import {Reducer} from 'redux'
-import {FSA} from 'common'
+import {FSA, Reducer} from 'common'
 import {constants} from './repetition-constants'
 
 export type RepetitionID = string
