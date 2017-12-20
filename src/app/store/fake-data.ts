@@ -3,12 +3,39 @@ import {Store} from './store'
 
 export const fakeData: Store = {
   model: {
-    result: {
-      repetitions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'],
-      sets: ['1', '2', '3', '4'],
+    sets: {
+      result: ['1', '2', '3', '4'],
+      entities: {
+        1: {
+          id: '1',
+          name: 'upper body',
+          description: 'lorem ipsum',
+          repetitions: {
+            1: '1',
+            2: '2',
+            3: '1',
+          },
+        },
+        2: {
+          id: '2',
+          name: 'lower body',
+          description: 'lorem ipsum',
+        },
+        3: {
+          id: '3',
+          name: '',
+          description: 'lorem ipsum',
+        },
+        4: {
+          id: '4',
+          name: '',
+          description: '',
+        },
+      },
     },
-    entities: {
-      repetitions: {
+    repetitions: {
+      result: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'],
+      entities: {
         1: {
           id: '1',
           name: 'Plank',
@@ -125,33 +152,6 @@ export const fakeData: Store = {
           muscles: [13],
           level: 1,
           type: 2,
-        },
-      },
-      sets: {
-        1: {
-          id: '1',
-          name: 'upper body',
-          description: 'lorem ipsum',
-          repetitions: {
-            1: '1',
-            2: '2',
-            3: '1',
-          },
-        },
-        2: {
-          id: '2',
-          name: 'lower body',
-          description: 'lorem ipsum',
-        },
-        3: {
-          id: '3',
-          name: '',
-          description: 'lorem ipsum',
-        },
-        4: {
-          id: '4',
-          name: '',
-          description: '',
         },
       },
     },

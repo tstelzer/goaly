@@ -29,3 +29,10 @@ export type AllSetActions =
   | AddSet
   | UpdateSet
   | RemoveSet
+
+export interface SetState {
+  readonly entities: {readonly [id: string]: Set}
+  readonly result: SetID[],
+}
+
+export type SetReducer = Reducer<SetState, AllSetActions>
