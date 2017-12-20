@@ -1,8 +1,20 @@
 import {FSA, Reducer, ID} from 'common'
-import * as repetitionTypes from 'modules/model/repetition/repetition'
-import * as setTypes from 'modules/model/set/set'
+import * as repetition from './repetition'
+import * as set from './set'
 
 export interface ModelState {
-  readonly repetitions: repetitionTypes.RepetitionState,
-  readonly sets: setTypes.SetState,
+  readonly entities: {
+    readonly repetitions: {readonly [id: string]: repetition.Repetition},
+    readonly sets: {readonly [id: string]: set.Set},
+  }
+  readonly result: {
+    readonly repetitions: repetition.RepetitionID[],
+    readonly sets: set.SetID[],
+  }
 }
+
+export type AllModelActions =
+  | repetition.AllRepetitionActions
+  | set.AllSetActions
+
+export type ModelReducer = Reducer<ModelState, AllModelActions>

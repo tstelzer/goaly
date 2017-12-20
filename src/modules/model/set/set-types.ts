@@ -1,6 +1,6 @@
 import {FSA, Reducer, ID} from 'common'
 import {constants} from './set-constants'
-import {RepetitionID} from 'modules/model/repetition/repetition'
+import * as repetition from 'modules/model/repetition'
 
 export type SetID = string
 
@@ -15,7 +15,7 @@ export interface Set {
   readonly name?: string
   readonly description?: string
   readonly repetitions?: {
-    readonly [slot: number]: RepetitionID
+    readonly [slot: number]: repetition.RepetitionID,
   }
 }
 
@@ -25,11 +25,7 @@ export type UpdateSet = FSA<constants.UPDATE, {readonly set: Set}>
 
 export type RemoveSet = FSA<constants.REMOVE, {readonly id: string}>
 
-export interface SetState {
-  readonly [id: string]: Set
-}
-
-export type SetReducer = Reducer<
-  SetState,
-  AddSet | UpdateSet | RemoveSet
->
+export type AllSetActions =
+  | AddSet
+  | UpdateSet
+  | RemoveSet

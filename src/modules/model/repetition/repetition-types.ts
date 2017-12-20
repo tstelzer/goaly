@@ -68,18 +68,7 @@ export type UpdateRepetition = FSA<
 
 export type RemoveRepetition = FSA<constants.REMOVE, {readonly id: string}>
 
-export interface RepetitionState {
-  readonly [id: string]: Repetition
-}
-
-export type RepetitionReducer = Reducer<
-  RepetitionState,
-  AddRepetition | UpdateRepetition | RemoveRepetition
->
-
-export type AllRepetitionState = ID[]
-
-export type AllRepetitionReducer = Reducer<
-  AllRepetitionState,
-  AddRepetition | RemoveRepetition
->
+export type AllRepetitionActions =
+  | AddRepetition
+  | UpdateRepetition
+  | RemoveRepetition
