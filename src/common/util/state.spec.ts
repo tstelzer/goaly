@@ -14,7 +14,7 @@ import * as util from './state'
 //         result: ['1'],
 //       }
 //       const action = {
-//         type: '@model/ADD',
+//         type: 'model/ADD',
 //         meta: {model: 'entities'},
 //         payload: {
 //           entity: {

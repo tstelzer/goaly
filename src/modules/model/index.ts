@@ -1,6 +1,6 @@
 import modelReducer from './model-reducer'
-import {selectors as repetition} from './repetition'
-import {selectors as set} from './set'
+import * as repetition from './repetition'
+import * as set from './set'
 
 export * from './model-types'
 export {modelReducer, repetition, set}

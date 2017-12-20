@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+// var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -58,8 +58,8 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new HardSourceWebpackPlugin({
-      cacheDirectory: './.cache/hard-source/[confighash]'
-    }),
+    // new HardSourceWebpackPlugin({
+    //   cacheDirectory: './.cache/hard-source/[confighash]'
+    // }),
   ],
 };

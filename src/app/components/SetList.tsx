@@ -2,24 +2,26 @@ import * as React from 'react'
 import {connect} from 'react-redux'
 
 import {Store} from 'app/store/store-types'
-import * as model from 'modules/model'
+import {set} from 'modules/model'
+import SetItem from './SetItem'
 
 interface Props {
-  sets: any,
+  readonly setList: string[],
 }
 
-const mapState = (state: Store) => ({
-  sets: model.set.getEntities(state),
+const mapState = (state: Store): Props => ({
+  setList: set.selectors.getAllIds(state),
 })
 
 export class SetList extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props)
-  }
-
   public render(): JSX.Element {
+    const listItems = this.props.setList.map(
+      id => (<li key={id}><SetItem id={id} /></li>),
+    )
     return (
-      <h1>hi</h1>
+      <ul>
+        {listItems}
+      </ul>
     )
   }
 }
