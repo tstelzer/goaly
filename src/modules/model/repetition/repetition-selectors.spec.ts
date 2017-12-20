@@ -1,56 +1,31 @@
 /* tslint:disable max-line-length */
-import {Store} from './store'
+import {fakeData} from 'app/store/fake-data'
+import * as selectors from './repetition-selectors'
 
-export const fakeData: Store = {
-  model: {
-    sets: {
-      result: ['1', '2', '3', '4'],
-      entities: {
-        1: {
-          id: '1',
-          name: 'upper body',
-          description: 'lorem ipsum',
-          repetitions: {
-            1: '1',
-            2: '2',
-            3: '1',
-          },
-        },
-        2: {
-          id: '2',
-          name: 'lower body',
-          description: 'lorem ipsum',
-        },
-        3: {
-          id: '3',
-          name: '',
-          description: 'lorem ipsum',
-        },
-        4: {
-          id: '4',
-          name: '',
-          description: '',
-        },
-      },
-    },
-    repetitions: {
-      result: [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '13',
-        '12',
-      ],
-      entities: {
-        1: {
+describe('model.repetition', () => {
+  describe('selectors.getRepetition', () => {
+    it('selects a repetition by ID', () => {
+      const state = fakeData
+
+      const expected = {
+        id: '1',
+        name: 'Plank',
+        description:
+          'Get into a prone position on the floor, supporting your weight on your toes and your forearms. Your arms are bent and directly below the shoulder. Keep your body straight at all times, and hold this position as long as possible. To increase difficulty, an arm or leg can be raised.',
+        muscles: [1],
+        level: 1,
+        type: 2,
+      }
+      const result = selectors.getRepetition(state)('1')
+
+      expect(result).toEqual(expected)
+    })
+  })
+  describe('selectors.getRepetitionList', () => {
+    it('selects repetition entities as an ordered list', () => {
+      const state = fakeData
+      const expected = [
+        {
           id: '1',
           name: 'Plank',
           description:
@@ -59,7 +34,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        2: {
+        {
           id: '2',
           name: 'Hip circles (prone)',
           description:
@@ -68,7 +43,7 @@ export const fakeData: Store = {
           level: 1,
           type: 3,
         },
-        3: {
+        {
           id: '3',
           name: 'Superman',
           description:
@@ -77,7 +52,7 @@ export const fakeData: Store = {
           level: 1,
           type: 3,
         },
-        4: {
+        {
           id: '4',
           name: 'Groiners',
           description:
@@ -86,7 +61,7 @@ export const fakeData: Store = {
           level: 2,
           type: 3,
         },
-        5: {
+        {
           id: '5',
           name: 'Dumbbell Goblet Squat',
           description:
@@ -95,7 +70,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        6: {
+        {
           id: '6',
           name: 'Hammer Curls',
           description:
@@ -104,7 +79,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        7: {
+        {
           id: '7',
           name: 'Standing Dumbbell Calf Raise',
           description:
@@ -113,7 +88,7 @@ export const fakeData: Store = {
           level: 2,
           type: 2,
         },
-        8: {
+        {
           id: '8',
           name: 'Pushups',
           description:
@@ -122,7 +97,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        9: {
+        {
           id: '9',
           name: 'Side Laterals to Front Raise',
           description:
@@ -131,7 +106,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        10: {
+        {
           id: '10',
           name: 'Bridge',
           description:
@@ -140,7 +115,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        11: {
+        {
           id: '11',
           name: 'Bench Dips',
           description:
@@ -149,16 +124,7 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-        12: {
-          id: '12',
-          name: 'Romanian Deadlift With Dumbbells',
-          description:
-            'Begin in a standing position with a dumbbell in each hand. Ensure that your back is straight and stays that way for the duration of the exercise. Allow your arms to hang perpendicular to the floor, with the wrists pronated and the elbows pointed to your sides. This will be your starting position. Initiate the movement by flexing your hips, slowly pushing your butt as far back as you can. This should entail a horizontal movement of the hips, rather than a downward movement. The knees should only partially bend, and your weight should remain on your heels. Drive your butt back as far as you can, which should generate tension in your hamstrings as your hands approach knee level. Maintain an arch in your back throughout the exercise. When your hips cannot perform any further backward movement, pause, and then slowly return to the starting position by extending the hips.',
-          muscles: [8],
-          level: 2,
-          type: 2,
-        },
-        13: {
+        {
           id: '13',
           name: 'Dumbbell Lunges',
           description:
@@ -167,7 +133,20 @@ export const fakeData: Store = {
           level: 1,
           type: 2,
         },
-      },
-    },
-  },
-}
+        {
+          id: '12',
+          name: 'Romanian Deadlift With Dumbbells',
+          description:
+            'Begin in a standing position with a dumbbell in each hand. Ensure that your back is straight and stays that way for the duration of the exercise. Allow your arms to hang perpendicular to the floor, with the wrists pronated and the elbows pointed to your sides. This will be your starting position. Initiate the movement by flexing your hips, slowly pushing your butt as far back as you can. This should entail a horizontal movement of the hips, rather than a downward movement. The knees should only partially bend, and your weight should remain on your heels. Drive your butt back as far as you can, which should generate tension in your hamstrings as your hands approach knee level. Maintain an arch in your back throughout the exercise. When your hips cannot perform any further backward movement, pause, and then slowly return to the starting position by extending the hips.',
+          muscles: [8],
+          level: 2,
+          type: 2,
+        },
+      ]
+
+      const result = selectors.getRepetitionList(state)
+
+      expect(result).toEqual(expected)
+    })
+  })
+})

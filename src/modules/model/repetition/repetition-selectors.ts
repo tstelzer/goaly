@@ -3,14 +3,19 @@ import * as R from 'ramda'
 
 import {Store} from 'app/store/store'
 
-export const getRepetitions = (state: Store) => state.model.repetitions.entities
+export const getEntities = (state: Store) => state.model.repetitions.entities
+export const getAllIds = (state: Store) => state.model.repetitions.result
 
+/**
+ * Selects array of repetitions with retained order of ids.
+ */
 export const getRepetitionList = createSelector(
-  getRepetitions,
-  repetitions => R.values(repetitions),
+  getAllIds,
+  getEntities,
+  (ids, entities) => ids.map(id => R.prop(id, entities)),
 )
 
-export const getRepetitionIds = createSelector(
-  getRepetitions,
-  repetitions => R.keys(repetitions),
+export const getRepetition = createSelector(
+  getEntities,
+  entities => R.memoize(id => R.prop(id, entities)),
 )
