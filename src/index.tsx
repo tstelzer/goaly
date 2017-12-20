@@ -17,6 +17,16 @@ ReactDOM.render(
   root,
 )
 
+configureStore.dispatch({
+  type: '@model/ADD_REPETITION',
+  payload: {
+    repetition: {
+      id: '104',
+      name: 'Something',
+    },
+  },
+})
+
 if (module.hot) {
   module.hot.accept('app/components/App', () => {
     const NextApp = require<{readonly default: typeof App}>('app/components/App').default;

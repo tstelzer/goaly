@@ -1,5 +1,5 @@
-import * as modelTypes from 'modules/model/model'
+import * as model from 'modules/model'
 
 export interface Store {
-  readonly model: modelTypes.ModelState,
+  readonly model: model.ModelState,
 }

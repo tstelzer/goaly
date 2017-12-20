@@ -1,11 +1,8 @@
 import * as selectors from './selectors'
 import * as css from './css'
+import * as util from './util'
 
-export {selectors, css}
 export {Container} from './components/Container'
-export {flipProp, swapProp, fixOrder, addToOrdered} from './object'
-export {filterHtmlTags, filterDashes} from './string'
-export {add, edit} from './state'
 export {
   FSA,
   Entities,
@@ -15,3 +12,4 @@ export {
   Reducer,
   ID,
 } from './types'
+export {selectors, css, util}

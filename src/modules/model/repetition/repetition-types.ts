@@ -72,3 +72,10 @@ export type AllRepetitionActions =
   | AddRepetition
   | UpdateRepetition
   | RemoveRepetition
+
+export interface RepetitionState {
+  readonly entities: {readonly [id: string]: Repetition}
+  readonly result: RepetitionID[],
+}
+
+export type RepetitionReducer = Reducer<RepetitionState, AllRepetitionActions>
