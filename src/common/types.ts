@@ -4,14 +4,16 @@ export type Reducer<S, A> = (
 ) => S
 
 // Flux Standard Action
+/**
+ * @template T The actions `type` property.
+ * @template P The type of the action payload.
+ */
 export interface FSA<T, P> {
   readonly type: T
   readonly payload: P
   readonly error?: boolean
   readonly meta?: any
 }
-
-export type ID = string
 
 export interface Entities<T> {
   readonly [id: string]: T

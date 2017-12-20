@@ -3,7 +3,7 @@ import * as R from 'ramda'
 
 import {Store} from 'app/store/store'
 
-export const getRepetitions = (state: Store) => state.model.entities.repetitions
+export const getRepetitions = (state: Store) => state.model.repetitions.entities
 
 export const getRepetitionList = createSelector(
   getRepetitions,

@@ -1,4 +1,5 @@
-import {FSA, Reducer, ID} from 'common'
+import {Reducer} from 'redux'
+import {FSA} from 'common'
 import {constants} from './set-constants'
 import * as repetition from 'modules/model/repetition'
 

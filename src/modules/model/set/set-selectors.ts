@@ -3,7 +3,7 @@ import * as R from 'ramda'
 
 import {Store} from 'app/store/store'
 
-export const getSets = (state: Store) => state.model.entities.sets
+export const getSets = (state: Store) => state.model.sets.entities
 
 export const getSetList = createSelector(
   getSets,

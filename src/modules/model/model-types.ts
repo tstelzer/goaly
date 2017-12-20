@@ -1,4 +1,3 @@
-import {FSA, Reducer, ID} from 'common'
 import * as repetition from './repetition'
 import * as set from './set'
 
