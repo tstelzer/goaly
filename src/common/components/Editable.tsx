@@ -1,12 +1,13 @@
 import * as React from 'react'
 import {cx, css as style} from 'emotion'
+import * as R from 'ramda'
+import Textarea from 'react-textarea-autosize'
 
 import {P} from 'common/components/Styled'
 
 interface State {
   readonly isEditing: boolean,
   readonly transientValue: string,
-  readonly height: number,
 }
 
 interface Props {
@@ -28,25 +29,17 @@ class Editable extends React.Component<Props, State> {
     this.state = {
       isEditing: false,
       transientValue: '',
-      height: 0,
-    }
-  }
-
-  public setHeight = (element: null | HTMLElement) => {
-    if (element !== null && this.state.height !== element.clientHeight) {
-      this.setState({height: element.clientHeight})
     }
   }
 
   public render(): JSX.Element {
-    // TODO: Does the render prop need more args?
     if (this.props.render) {
       return this.props.render(this.state.isEditing)
     }
     return this.state.isEditing
       ? (
-        <textarea
-          className={cx(this.props.className, style`height: ${this.state.height}px`)}
+        <Textarea
+          className={cx(this.props.className)}
           defaultValue={this.props.children}
           onKeyDown={this.onKeyDown}
           onBlur={this.cancel}
@@ -54,7 +47,6 @@ class Editable extends React.Component<Props, State> {
       )
       : (
         <div
-          ref={e => this.setHeight(e)}
           className={this.props.className}
           onClick={this.edit}
           onFocus={this.edit}

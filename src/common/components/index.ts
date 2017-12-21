@@ -1,6 +1,4 @@
-import * as Styled from './Styled'
-
-export {Expandable} from './Expandable'
-export {Container} from './Container'
-
-export {Styled}
+export * from './Styled'
+export * from './Expandable'
+export * from './Container'
+export * from './Editable'

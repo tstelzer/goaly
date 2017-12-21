@@ -1,31 +1,31 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 
-import {Store} from 'app/store/store-types'
 import {set} from 'modules/model'
+import {Editable} from 'common'
+import {Store} from 'app/store/store-types'
 
-interface OwnProps {
-  readonly id: string
+interface CProps {readonly id: string}
+interface SProps {readonly set: set.Set}
+
+const actions = {
+  update: set.actions.updateSet,
 }
 
-interface Props extends OwnProps {
-  readonly set: set.Set
-}
-
-const mapState = (state: Store, ownProps: OwnProps) => ({
+const mapState = (state: Store, ownProps: CProps) => ({
   set: set.selectors.getSet(state)(ownProps.id),
 })
 
-export class SetItem extends React.Component<Props> {
+export class SetItem extends React.Component<SProps & CProps & typeof actions> {
   public render(): JSX.Element {
-    const {name, description} = this.props.set
+    const {id, update, set} = this.props
+    const updateName = (name: string) => update({...set, name})
     return (
       <article>
-        <h3>{name}</h3>
-        <p>{description}</p>
+        <Editable onDone={updateName}>{set.name || ''}</Editable>
       </article>
     )
   }
 }
 
-export default connect(mapState)(SetItem)
+export default connect(mapState, actions)(SetItem)
