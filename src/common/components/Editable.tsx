@@ -46,6 +46,7 @@ class Editable extends React.Component<Props, State> {
           defaultValue={this.props.children || ''}
           onKeyDown={this.onKeyDown}
           onBlur={this.cancel}
+          tabIndex={0}
         />
       )
       : (
