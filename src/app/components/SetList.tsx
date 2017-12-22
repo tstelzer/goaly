@@ -16,7 +16,7 @@ const mapState = (state: Store): Props => ({
 export class SetList extends React.Component<Props> {
   public render(): JSX.Element {
     const listItems = this.props.setList.map(
-      id => (<li key={id}><SetItem id={id} /></li>),
+      (id, index) => (<li key={id}><SetItem id={id} /></li>),
     )
     return (
       <ul>
