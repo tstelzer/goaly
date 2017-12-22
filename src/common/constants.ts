@@ -26,11 +26,3 @@ export enum colors {
   accent = namedColors.tiffany_blue,
   highlight = namedColors.mulberry,
 }
-
-// export enum colors {
-//   bg = namedColors.rich_black,
-//   bg_2 = namedColors.eerie_black,
-//   fg = namedColors.medium_aquamarine,
-//   fg_2 = namedColors.linen,
-//   accent = namedColors.medium_aquamarine,
-// }

@@ -4,7 +4,7 @@ import Select from 'react-select'
 import {css} from 'emotion'
 
 import {set} from 'modules/model'
-import {Editable} from 'common'
+import {Editable} from 'common/components'
 import {Store} from 'app/store/store-types'
 
 interface CProps {readonly id: string}

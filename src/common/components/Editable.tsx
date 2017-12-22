@@ -87,7 +87,7 @@ class Editable extends React.Component<Props, State> {
     this.setState({
       isEditing: false,
       // not sure if we need to set it again
-      transientValue: event.target.value,
+      // transientValue: event.target.value,
     })
   }
 }
