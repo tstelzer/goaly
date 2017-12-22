@@ -16,6 +16,7 @@ enum namedColors {
   raisin_black = '#262626',
   eerie_black = '#161616',
   spanish_gray = '#919191',
+  unnamed = '#ccc'
 }
 
 export enum colors {
@@ -23,6 +24,7 @@ export enum colors {
   background_lighter = namedColors.eerie_black,
   foreground = namedColors.white,
   foreground_lighter = namedColors.linen,
+  neutral = namedColors.unnamed,
   accent = namedColors.tiffany_blue,
   highlight = namedColors.mulberry,
 }

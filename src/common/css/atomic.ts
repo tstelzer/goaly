@@ -17,6 +17,11 @@ export const b = {
     sm: {
       fg: css`border-top: 2px solid ${colors.foreground};`,
     },
+    xs: {
+      fg: css`border-top: 1px solid ${colors.foreground};`,
+      fg_2: css`border-top: 1px solid ${colors.foreground_lighter};`,
+      nt: css`border-top: 1px solid ${colors.neutral};`,
+    },
   },
 }
 
@@ -75,6 +80,10 @@ export const sunken = css`
 export const mw = {
   sm: css`max-width: 30rem;`,
   lg: css`max-width: 60rem;`,
+}
+
+export const w = {
+  _100: css`width: 100%;`,
 }
 
 /** macro: grid layouts */

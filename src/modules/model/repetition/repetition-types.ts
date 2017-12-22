@@ -42,6 +42,7 @@ export enum ExerciseType {
   'Cardio' = 1,
   'Strength' = 2,
   'Stretching' = 3,
+  'Plyometrics' = 4,
 }
 
 /**

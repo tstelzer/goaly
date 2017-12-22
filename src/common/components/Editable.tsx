@@ -1,9 +1,10 @@
 import * as React from 'react'
-import {cx, css as style} from 'emotion'
+import {cx} from 'emotion'
 import * as R from 'ramda'
 import Textarea from 'react-textarea-autosize'
 
-import {P} from 'common/components/Styled'
+import {P, Em} from 'common/components/Styled'
+import * as css from 'common/css'
 
 interface State {
   readonly isEditing: boolean,
@@ -15,7 +16,7 @@ interface Props {
   readonly children: string,
 
   /** String to display when children are undefined. */
-  readonly placeholder?: string,
+  readonly placeholder?: string | JSX.Element,
   readonly render?: (isEditing: boolean) => JSX.Element,
   readonly className?: string,
 }
@@ -23,7 +24,7 @@ interface Props {
 class Editable extends React.Component<Props, State> {
   public static defaultProps = {
     onDone: (value: string) => undefined,
-    placeholder: 'No value.',
+    placeholder: <Em>No Value</Em>,
   }
   public static displayName = 'Editable'
 
@@ -42,7 +43,7 @@ class Editable extends React.Component<Props, State> {
     return this.state.isEditing
       ? (
         <Textarea
-          className={cx(this.props.className)}
+          className={cx(this.props.className, css.w._100)}
           defaultValue={this.props.children || ''}
           onKeyDown={this.onKeyDown}
           onBlur={this.cancel}

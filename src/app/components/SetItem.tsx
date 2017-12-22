@@ -1,10 +1,10 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
 import Select from 'react-select'
-import {css} from 'emotion'
 
 import {set, repetition} from 'modules/model'
 import {Editable} from 'common/components'
+import * as css from 'common/css'
 import {Store} from 'app/store/store-types'
 
 interface CProps {
@@ -45,7 +45,7 @@ export class SetItem extends React.Component<SProps & CProps & typeof actions> {
       update({...set, description})
 
     return (
-      <article>
+      <div className={css.m.t._1}>
         <Editable onDone={updateName}>
           {set.name}
         </Editable>
@@ -53,7 +53,7 @@ export class SetItem extends React.Component<SProps & CProps & typeof actions> {
           {set.description}
         </Editable>
         <ul>{RepList}</ul>
-      </article>
+      </div>
     )
   }
 }
