@@ -4,12 +4,26 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
+import {injectGlobal} from 'emotion'
 
 import 'normalize.css'
 import './reset.css'
 
 import {Container} from 'common/components'
+import {co, bgco, ff} from 'common/css'
 import {Workouts, Main} from 'app/routes'
+
+/* tslint:disable no-unused-expression */
+injectGlobal`
+  body {
+    font-size: 1.5em;
+    ${co.fg};
+    ${bgco.bg};
+    ${ff.mono};
+  };
+`
+/* tslint:enable no-unused-expression */
+
 
 const App = () => (
   <Router>
