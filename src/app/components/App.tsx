@@ -18,7 +18,7 @@ injectGlobal`
   body {
     font-size: 1.5em;
     ${co.fg};
-    ${bgco.bg};
+    ${bgco.bg_2};
     ${ff.mono};
   };
 `

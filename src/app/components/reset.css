@@ -2,6 +2,8 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  font-style: inherit;
+  font-family: inherit;
 }
 
 li,
@@ -20,6 +22,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-size: inherit;
   margin: 0;
   padding: 0;
   font-weight: normal;

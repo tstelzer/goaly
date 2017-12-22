@@ -13,6 +13,20 @@ export const b = {
   xs: {
     fg: css`border: 1px solid ${colors.foreground};`,
   },
+  t: {
+    sm: {
+      fg: css`border-top: 2px solid ${colors.foreground};`,
+    },
+  },
+}
+
+/** font-size */
+export const fs = {
+  xs: css`font-size: 0.5rem;`,
+  sm: css`font-size: 0.8rem;`,
+  df: css`font-size: 1rem;`,
+  xl: css`font-size: 1.2rem;`,
+  xxl: css`font-size: 1.6rem;`,
 }
 
 /** font-family */
@@ -76,7 +90,7 @@ export const grid = {
 }
 
 /** macro: box */
-export const boxed = {
+export const box = {
   xs: css`padding: 0.5rem 0.75rem;`,
   sm: css`padding: 1rem 1.5rem;`,
   md: css`padding: 2rem 3rem;`,
@@ -116,6 +130,28 @@ export const ta = {
   l: css`text-align: left;`,
   c: css`text-align: center;`,
   r: css`text-align: right;`,
+}
+
+export const p = {
+  _1: css`padding: 0.5rem;`,
+  _2: css`padding: 1rem;`,
+  _3: css`padding: 1.5rem;`,
+  _4: css`padding: 2rem;`,
+  t: {
+    _1: css`padding-top: 0.5rem;`,
+    _2: css`padding-top: 1rem;`,
+    _3: css`padding-top: 1.5rem;`,
+    _4: css`padding-top: 2rem;`,
+  },
+}
+
+export const m = {
+  t: {
+    _1: css`margin-top: 0.5rem;`,
+    _2: css`margin-top: 1rem;`,
+    _3: css`margin-top: 1.5rem;`,
+    _4: css`margin-top: 2rem;`,
+  },
 }
 
 /** macro: flex row space-around */
