@@ -4,28 +4,12 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
-import {injectGlobal} from 'emotion'
 
 import 'normalize.css'
 import './reset.css'
 
 import {Container} from 'common/components'
-import {co, bgco, ff} from 'common/css'
-import SetList from './SetList'
-
-/* tslint:disable no-unused-expression */
-injectGlobal`
-  body {
-    ${co.fg};
-    ${bgco.bg};
-    ${ff.mono};
-  };
-`
-/* tslint:enable no-unused-expression */
-
-const Main = () => (
-  <h1>A Horse! A Kingdom For A Horse!</h1>
-)
+import {Workouts, Main} from 'app/routes'
 
 const App = () => (
   <Router>
@@ -36,7 +20,7 @@ const App = () => (
       </ul>
 
       <Route exact={true} path='/' component={Main} />
-      <Route path='/workouts' component={SetList} />
+      <Route path='/workouts' component={Workouts} />
     </Container>
   </Router>
 )
