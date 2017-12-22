@@ -30,7 +30,7 @@ BorderSection.displayName = 'BorderSection'
 
 export const LiStriped = styled('li')`
   &:not(:first-of-type) {
-    border-top: 1px solid ${colors.fg};
+    border-top: 1px solid ${colors.foreground};
   }
   &:nth-of-type(even) {
     background-color: #f7feff;
@@ -43,7 +43,7 @@ export const Button = styled('button') `
   padding: 0.25rem 0.5rem;
   &:hover {
     color: white;
-    background-color: ${colors.fg};
+    background-color: ${colors.foreground};
   }
 `
 
@@ -53,7 +53,7 @@ export const SmallButton = styled('button')`
   padding: 0.25rem 0.5rem;
   &:hover {
     color: white;
-    background-color: ${colors.fg};
+    background-color: ${colors.foreground};
   }
 `
 
@@ -68,11 +68,11 @@ P.displayName = 'P'
 export const WideButton = styled('button')`
   width: 100%;
   padding: 0.25rem 0.5rem;
-  border-top: 1px solid ${colors.fg};
+  border-top: 1px solid ${colors.foreground};
   &:hover {
     color: white;
     background-color: #1c1c1c;
-    border-top: 1px solid ${colors.fg};
+    border-top: 1px solid ${colors.foreground};
   }
 `
 

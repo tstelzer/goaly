@@ -8,10 +8,10 @@ export const centered = css`text-align: center;`
 /** * border */
 export const b = {
   sm: {
-    fg: css`border: 2px solid ${colors.fg};`,
+    fg: css`border: 2px solid ${colors.foreground};`,
   },
   xs: {
-    fg: css`border: 1px solid ${colors.fg};`,
+    fg: css`border: 1px solid ${colors.foreground};`,
   },
 }
 
@@ -38,16 +38,17 @@ export const ff = {
 
 /** color */
 export const co = {
-  accent: css`color: ${colors.accent};`,
-  fg: css`color: ${colors.fg};`,
-  fg_2: css`color: ${colors.fg_2};`,
-  bg: css`color: ${colors.bg};`,
+  acc: css`color: ${colors.accent};`,
+  fg: css`color: ${colors.foreground};`,
+  fg_2: css`color: ${colors.foreground_lighter};`,
+  bg: css`color: ${colors.background};`,
+  hl: css`color: ${colors.highlight};`,
 }
 
 /** background-color */
 export const bgco = {
-  bg: css`background-color: ${colors.bg};`,
-  bg_2: css`background-color: ${colors.bg_2};`,
+  bg: css`background-color: ${colors.background};`,
+  bg_2: css`background-color: ${colors.background_lighter};`,
 }
 
 /** macro: sunken element */

@@ -29,8 +29,18 @@ const App = () => (
   <Router>
     <Container>
       <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/workouts'>Workouts</Link></li>
+        <li><Link
+          className={co.acc}
+          to='/'
+        >
+          Home
+        </Link></li>
+        <li><Link
+          className={co.hl}
+          to='/workouts'
+        >
+          Workouts
+        </Link></li>
       </ul>
 
       <Route exact={true} path='/' component={Main} />

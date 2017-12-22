@@ -19,10 +19,10 @@ enum namedColors {
 }
 
 export enum colors {
-  bg = namedColors.raisin_black,
-  bg_2 = namedColors.eerie_black,
-  fg = namedColors.white,
-  fg_2 = namedColors.linen,
+  background = namedColors.raisin_black,
+  background_lighter = namedColors.eerie_black,
+  foreground = namedColors.white,
+  foreground_lighter = namedColors.linen,
   accent = namedColors.tiffany_blue,
   highlight = namedColors.mulberry,
 }
