@@ -65,8 +65,7 @@ class Editable extends React.Component<Props, State> {
     }
   }
 
-  // TODO: Type the event. See SyntheticKeyboardEvent constructor.
-  public onKeyDown = (event: any) => {
+  public onKeyDown = (event: Partial<KeyboardEvent>) => {
     // escape
     if (event.keyCode === 27) {this.cancel()}
     // enter
@@ -84,11 +83,7 @@ class Editable extends React.Component<Props, State> {
 
   private done = (event: any) => {
     this.props.onDone(event.target.value)
-    this.setState({
-      isEditing: false,
-      // not sure if we need to set it again
-      // transientValue: event.target.value,
-    })
+    this.setState({isEditing: false})
   }
 }
 
