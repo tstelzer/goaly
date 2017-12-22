@@ -12,11 +12,9 @@ export type SetID = string
  */
 export interface Set {
   readonly id: SetID
-  readonly name?: string
-  readonly description?: string
-  readonly repetitions?: {
-    readonly [slot: number]: repetition.RepetitionID,
-  }
+  readonly name: string
+  readonly description: string
+  readonly repetitions: repetition.RepetitionID[]
 }
 
 export type AddSet = FSA<constants.ADD, {readonly set: Set}>

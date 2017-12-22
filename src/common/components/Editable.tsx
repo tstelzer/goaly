@@ -13,14 +13,17 @@ interface State {
 interface Props {
   readonly onDone: (value: string) => any,
   readonly children: string,
+
+  /** String to display when children are undefined. */
+  readonly placeholder?: string,
   readonly render?: (isEditing: boolean) => JSX.Element,
   readonly className?: string,
 }
 
 class Editable extends React.Component<Props, State> {
   public static defaultProps = {
-    children: '',
     onDone: (value: string) => undefined,
+    placeholder: 'No value.',
   }
   public static displayName = 'Editable'
 
@@ -40,7 +43,7 @@ class Editable extends React.Component<Props, State> {
       ? (
         <Textarea
           className={cx(this.props.className)}
-          defaultValue={this.props.children}
+          defaultValue={this.props.children || ''}
           onKeyDown={this.onKeyDown}
           onBlur={this.cancel}
         />
@@ -51,7 +54,7 @@ class Editable extends React.Component<Props, State> {
           onClick={this.edit}
           onFocus={this.edit}
         >
-          {this.props.children}
+          {this.props.children || this.props.placeholder}
         </div>
       )
   }

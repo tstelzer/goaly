@@ -1,5 +1,7 @@
 import * as React from 'react'
 import {connect} from 'react-redux'
+import Select from 'react-select'
+import {css} from 'emotion'
 
 import {set} from 'modules/model'
 import {Editable} from 'common'
@@ -19,10 +21,20 @@ const mapState = (state: Store, ownProps: CProps) => ({
 export class SetItem extends React.Component<SProps & CProps & typeof actions> {
   public render(): JSX.Element {
     const {id, update, set} = this.props
-    const updateName = (name: string) => update({...set, name})
+
+    const updateName = (name: typeof set.name) =>
+      update({...set, name})
+    const updateDescription = (description: typeof set.description) =>
+      update({...set, description})
+
     return (
       <article>
-        <Editable onDone={updateName}>{set.name || ''}</Editable>
+        <Editable onDone={updateName}>
+          {set.name}
+        </Editable>
+        <Editable onDone={updateDescription}>
+          {set.description}
+        </Editable>
       </article>
     )
   }
