@@ -4,13 +4,14 @@ import * as ReactDOM from 'react-dom'
 import {AppContainer} from 'react-hot-loader'
 
 import App from 'app/components/App'
-import {configureStore} from 'app/store/configure-store'
+import {configureStore} from 'app/store'
+import {fakeData} from 'assets'
 
 const root = document.getElementById('js-root')
 
 ReactDOM.render(
   <AppContainer>
-    <Provider store={configureStore}>
+    <Provider store={configureStore(fakeData)}>
       <App />
     </Provider>
   </AppContainer>,
@@ -22,7 +23,7 @@ if (module.hot) {
     const NextApp = require<{readonly default: typeof App}>('app/components/App').default;
     ReactDOM.render(
       <AppContainer>
-        <Provider store={configureStore}>
+        <Provider store={configureStore()}>
           <NextApp />
         </Provider>
       </AppContainer>,

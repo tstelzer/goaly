@@ -1,4 +1,4 @@
-import {Store} from './store-types'
+import {Store} from 'app/store'
 
 export const fakeData: Store = {
   model: {

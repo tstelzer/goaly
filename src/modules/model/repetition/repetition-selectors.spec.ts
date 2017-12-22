@@ -1,5 +1,5 @@
 /* tslint:disable max-line-length */
-import {fakeData} from 'app/store/fake-data'
+import {fakeData} from 'assets'
 import * as selectors from './repetition-selectors'
 
 describe('model.repetition', () => {
