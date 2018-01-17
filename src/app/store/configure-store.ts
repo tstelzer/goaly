@@ -23,3 +23,4 @@ export const configureStore = (preloadedState?: types.Store) => {
 
   return store
 }
+
