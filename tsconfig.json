@@ -1,13 +1,10 @@
 {
-    "awesomeTypescriptLoaderOptions": {
-        "reportFiles": ["src/**/*.{ts,tsx}"]
-    },
     "compilerOptions": {
         "jsx": "react",
         "module": "commonjs",
         "target": "es5",
         "moduleResolution": "node",
-        "lib": ["es6", "dom", "es2017"],
+        "lib": ["esnext", "dom", "es2018"],
 
         "noImplicitAny": true,
         "noImplicitThis": true,
@@ -19,19 +16,14 @@
         "removeComments": true,
         "preserveConstEnums": true,
 
-        "sourceMap": false,
-        "inlineSourceMap": true,
+        "sourceMap": true,
+        "inlineSourceMap": false,
 
         "allowSyntheticDefaultImports": false,
 
-        "rootDir": "src",
-        "outDir": "dist",
-        "baseUrl": "src",
-        "paths": {
-            "*": [
-                "*"
-            ]
-        },
+        "rootDir": "source/client",
+        "outDir": "distribution",
+        "baseUrl": "source/client",
 
         "types": [
             "jest",
@@ -39,11 +31,9 @@
             "webpack",
             "node"
         ],
-        "typeRoots": ["types"]
     },
     "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx"
+        "source/client/**/*"
     ],
     "exclude": [
         "node_modules"

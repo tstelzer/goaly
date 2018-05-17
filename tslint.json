@@ -1,7 +1,8 @@
 {
   "extends": [
     "tslint:latest",
-    "tslint-react"
+    "tslint-react",
+    "tslint-config-prettier"
   ],
   "exclude": [
     "node_modules"
@@ -12,8 +13,7 @@
     "typedef": [true, "call-signature"],
 
     "readonly-keyword": true,
-    // enable, once https://github.com/Microsoft/TypeScript/issues/15972 resolves
-    "readonly-array": false,
+    "readonly-array": true,
     "no-let": true,
     "no-object-mutation": true,
 

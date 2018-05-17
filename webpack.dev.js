@@ -1,30 +1,34 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-// var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const ROOT = path.resolve(__dirname, 'source', 'client')
+const NODE_MODULES = path.resolve(__dirname, 'node_modules')
 
 module.exports = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/index.tsx',
-  ],
+  entry: path.resolve(ROOT, 'index.tsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'distribution'),
     filename: '[name].app.js',
     publicPath: '/',
   },
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.tsx?$/,
+        include: ROOT,
         use: [
-          { loader: 'react-hot-loader/webpack' },
-          { loader: 'source-map-loader' },
-          { loader: 'awesome-typescript-loader' },
-        ]
+          'source-map-loader',
+          'ts-loader',
+        ],
       },
       {
         test: /\.css$/,
+        include: [
+          ROOT,
+          NODE_MODULES,
+        ],
         use: [
           { loader: 'style-loader', options: { sourceMap: true } },
           { loader: 'css-loader', options: { sourceMap: true } },
@@ -35,31 +39,19 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".css"],
     modules: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'node_modules'),
+      ROOT,
+      NODE_MODULES,
     ],
     symlinks: false,
     cacheWithContext: false,
   },
-  devServer: {
-    open: false,
-    overlay: true,
-    historyApiFallback: true,
-    compress: true,
-    hot: true,
-    stats: 'errors-only',
-  },
-  devtool: 'cheap-eval-source-map',
+  serve: {},
+  devtool: 'cheap-module-eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'react-hot-ts',
-      chunksSortMode: 'dependency',
-      template: 'src/index.html',
+      template: path.resolve(ROOT, 'index.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    // new HardSourceWebpackPlugin({
-    //   cacheDirectory: './.cache/hard-source/[confighash]'
-    // }),
   ],
-};
+}
