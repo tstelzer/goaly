@@ -1,16 +1,8 @@
 import * as React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-} from 'react-router-dom'
-import {injectGlobal} from 'emotion'
-
-import 'normalize.css'
-import './reset.css'
+import {hot} from 'react-hot-loader'
 
 const App = () => (
-  <h1>NOOB</h1>
+  <h1>Hello, World!</h1>
 )
 
-export default App
+export default hot(module)(App)

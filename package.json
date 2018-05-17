@@ -6,7 +6,7 @@
   "author": "Timm Stelzer",
   "license": "MIT",
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-serve -c ./webpack.dev.js --env=dev",
+    "serve": "./node_modules/.bin/webpack-serve -c ./webpack.dev.js --hot --env=dev",
     "test": "./node_modules/.bin/jest",
     "test:coverage": "./node_modules/.bin/jest --coverage"
   },
@@ -54,6 +54,8 @@
     "@types/uuid": "3.4.3",
     "@types/webpack": "4.4.0",
     "@types/webpack-env": "1.13.6",
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
     "caniuse-lite": "1.0.30000842",
     "css-loader": "0.28.11",
     "cssnano": "3.10.0",
@@ -72,10 +74,11 @@
     "ts-jest": "22.4.6",
     "ts-loader": "4.3.0",
     "tslint": "5.10.0",
-    "tslint-config-prettier": "^1.12.0",
+    "tslint-config-prettier": "1.12.0",
     "tslint-react": "3.6.0",
     "typescript": "2.8.3",
     "webpack": "4.8.3",
+    "webpack-hot-client": "3.0.0",
     "webpack-serve": "1.0.2"
   }
 }

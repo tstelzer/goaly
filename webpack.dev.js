@@ -6,7 +6,9 @@ const ROOT = path.resolve(__dirname, 'source', 'client')
 const NODE_MODULES = path.resolve(__dirname, 'node_modules')
 
 module.exports = {
-  entry: path.resolve(ROOT, 'index.tsx'),
+  entry: [
+    path.resolve(ROOT, 'index.tsx'),
+  ],
   output: {
     path: path.resolve(__dirname, 'distribution'),
     filename: '[name].app.js',
@@ -19,8 +21,20 @@ module.exports = {
         test: /\.tsx?$/,
         include: ROOT,
         use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              plugins: ['react-hot-loader/babel'],
+            },
+          },
           'source-map-loader',
-          'ts-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: "tsconfig.dev.json",
+            }
+          },
         ],
       },
       {
@@ -45,13 +59,11 @@ module.exports = {
     symlinks: false,
     cacheWithContext: false,
   },
-  serve: {},
   devtool: 'cheap-module-eval-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(ROOT, 'index.html'),
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   ],
 }
