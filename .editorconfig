@@ -1,5 +1,5 @@
 root = true
-[{src,test}/**.{ts,tsx,js,jsx}]
+[{src,test}/**.{js,jsx}]
 charset = utf-8
 indent_style = space
 indent_size = 2
